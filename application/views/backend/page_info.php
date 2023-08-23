@@ -8,7 +8,9 @@
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="<?php echo base_url();?>website/index/"  class="btn btn-info btn-sm pull-right m-l-20 btn-rounded hidden-xs hidden-sm waves-effect waves-light">School website</a>
                         <ol class="breadcrumb">
                             <li><a href=""><?php echo $system_name;?></a></li>
-                            <li class="active"><?php echo date('d M,Y');?></li>
+                            <?php date_default_timezone_set('America/Bogota');
+                                echo '<li class="active">' . date('d M, Y') . '</li>';
+                            ?>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->

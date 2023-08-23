@@ -243,28 +243,26 @@ class Admin extends CI_Controller {
             redirect(base_url(). 'admin/periodtime', 'refresh');
         }
 
-
-        if($param1 == 'update'){
-
-            $this->crud_model->update_periodtime($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data successfully updated'));
-            redirect(base_url(). 'admin/periodtime', 'refresh');
-
-        }
-
-        if($param1 == 'delete'){
-            $this->crud_model->delete_periodtime($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data successfully deleted'));
-            redirect(base_url(). 'admin/periodtime', 'refresh');
-
-        }
-
         $page_data['page_name']         = 'periodtime';
         $page_data['page_title']        = get_phrase('Manage Periodtime');
         $page_data['select_periodtime']   = $this->db->get('periodtime')->result_array();
         $this->load->view('backend/index', $page_data);
     }
 
+    public function update_deadline_date() {
+        $id = $this->input->post('pk');
+        $new_date = $this->input->post('value');
+        
+        // Actualiza el campo en la base de datos
+        $data = array('deadline_date' => $new_date);
+        $this->db->where('id', $id);
+        $this->db->update('periodtime', $data);
+        
+        echo json_encode(array('status' => 'success', 'message' => 'Fecha actualizada exitosamente'));
+    }
+    
+    
+        
 
 
     function librarian($param1 = null, $param2 = null, $param3 = null){
