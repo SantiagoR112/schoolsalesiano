@@ -1,15 +1,14 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-info">
-            <div class="panel-heading"><i class="fa fa-list"></i>&nbsp; <?php echo get_phrase('list_enquiry');?></div>
+            <div class="panel-heading"><i class="fa fa-list"></i>&nbsp; <?php echo get_phrase('Fechas_limites');?></div>
             <div class="panel-wrapper collapse in" aria-expanded="true">
                 <div class="panel-body table-responsive">
                     <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Periodo</th>
-                                <th><div><?php echo get_phrase('Plazo maximo');?></div></th>
-                                <th>Acciones</th>
+                                <th><div><?php echo get_phrase('Fecha limite');?></div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -18,9 +17,6 @@
                                     <td><?php echo $periodtime['id'];?></td>
                                     <td>
                                         <input type="date" class="editable" value="<?php echo $periodtime['deadline_date'];?>" name="deadline_date" data-id="<?php echo $periodtime['id'];?>" onchange="updateDeadlineDate(this)">
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-info btn-circle btn-xs update-deadline" data-id="<?php echo $periodtime['id'];?>"><i class="fa fa-edit"></i></button>
                                     </td>
                                 </tr>
                             <?php endforeach;?>

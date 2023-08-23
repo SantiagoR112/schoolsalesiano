@@ -244,7 +244,7 @@ class Admin extends CI_Controller {
         }
 
         $page_data['page_name']         = 'periodtime';
-        $page_data['page_title']        = get_phrase('Manage Periodtime');
+        $page_data['page_title']        = get_phrase('Plazo para modificar notas');
         $page_data['select_periodtime']   = $this->db->get('periodtime')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -258,7 +258,7 @@ class Admin extends CI_Controller {
         $this->db->where('id', $id);
         $this->db->update('periodtime', $data);
         
-        echo json_encode(array('status' => 'success', 'message' => 'Fecha actualizada exitosamente'));
+        echo json_encode(array('status' => 'success', 'message' => 'Fecha limite actualizada exitosamente'));
     }
     
     
