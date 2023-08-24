@@ -348,7 +348,19 @@ class Student extends CI_Controller {
 		$this->load->view('backend/index', $page_data);
 		}
 		/********************* Print and view tabulation sheet ends here **********************/
-
+        function printClassScore($student_id, $exam_id) {
+            if ($this->session->userdata('student_login') != 1)
+                redirect(base_url(), 'refresh');
+    
+            $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+            $page_data['class_id']   = $class_id;
+            $page_data['student_id'] = $student_id;
+            $page_data['exam_id']    = $exam_id;
+            $page_data['page_name']  = 'printClassScore'; // Use a different page name if needed
+            $page_data['page_title'] = get_phrase('print_class_score');
+            $this->load->view('backend/student/print_class_score', $page_data); // Load a different view if needed
+        }
 
 
 }

@@ -26,14 +26,14 @@
                    <table class="table table-bordered">
                        <thead>
                         <tr>
-                            <td style="text-align: center;">SUBJECT</td>
-                            <td style="text-align: center;">1ST SCORE</td>
-                            <td style="text-align: center;">2ND SCORE</td>
-							<td style="text-align: center;">3RD SCORE</td>
-                            <td style="text-align: center;">EXAM SCORE</td>
+                            <td style="text-align: center;">ASIGNATURA</td>
+                            <td style="text-align: center;">PRIMER PERIODO</td>
+                            <td style="text-align: center;">SEGUNDO PERIODO</td>
+							<td style="text-align: center;">TERCER PERIODO</td>
+                            <td style="text-align: center;">CUARTO PERIODO</td>
                             <td style="text-align: center;">TOTAL SCORE</td>
-                            <td style="text-align: center;">AVERAGE</td>
-                            <td style="text-align: center;">COMMENT</td>
+                            <td style="text-align: center;">PROMEDIO</td>
+                            <td style="text-align: center;">OBSERVACIONES</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -153,7 +153,12 @@
                   
                     <a href="<?php echo base_url();?>student/printResultSheet/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
                         class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
-                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('print_report_card');?>
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte todos los periodos');?>
+                    </a>
+
+                    <a href="<?php echo base_url();?>student/printClassScore/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte primer periodo');?>
                     </a>
 
                    <div id="chartdiv<?php echo $row2['exam_id'];?>" class="exam_chart"></div>
