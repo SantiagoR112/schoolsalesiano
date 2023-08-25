@@ -224,17 +224,71 @@
 												<?php echo $class_subject_exam_student['name'];?>
 											</td>
 											<td>
-												<input type="number" class="class_score form-control" value="<?php echo $general_select['class_score1'];?>" name="class_score1_<?php echo $class_subject_exam_student['subject_id'];?>" <?php if ($disableFields1) echo 'disabled'; ?> onchange="class_score_change()">
-											</td>
-											  <td>
-												<input type="number" class="class_score form-control" value="<?php echo $general_select['class_score2'];?>" name="class_score2_<?php echo $class_subject_exam_student['subject_id'];?>" <?php if ($disableFields2) echo 'disabled'; ?> onchange="class_score_change()">
-											</td>
-											  <td>
-												<input type="number" class="class_score form-control" value="<?php echo $general_select['class_score3'];?>" name="class_score3_<?php echo $class_subject_exam_student['subject_id'];?>" <?php if ($disableFields3) echo 'disabled'; ?> onchange="class_score_change()">
-											</td>
-											  <td>
-												<input type="number" class="exam_score form-control" value="<?php echo $general_select['exam_score'];?>" name="exam_score_<?php echo $class_subject_exam_student['subject_id'];?>" <?php if ($disableFields4) echo 'disabled'; ?> onchange="exam_score_change()">
-											</td>
+                                                <?php if ($disableFields1): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['class_score1']; ?>"
+                                                        name="class_score1_<?php echo $class_subject_exam_student['subject_id']; ?>">
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score1']; ?>"
+                                                        name="class_score1_disabled_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score1']; ?>"
+                                                        name="class_score1_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        onchange="class_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($disableFields2): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['class_score2']; ?>"
+                                                        name="class_score2_<?php echo $class_subject_exam_student['subject_id']; ?>">
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score2']; ?>"
+                                                        name="class_score2_disabled_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score2']; ?>"
+                                                        name="class_score2_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        onchange="class_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($disableFields3): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['class_score3']; ?>"
+                                                        name="class_score3_<?php echo $class_subject_exam_student['subject_id']; ?>">
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score3']; ?>"
+                                                        name="class_score3_disabled_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score3']; ?>"
+                                                        name="class_score3_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        onchange="class_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($disableFields4): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['exam_score']; ?>"
+                                                        name="exam_score_<?php echo $class_subject_exam_student['subject_id']; ?>">
+                                                    <input type="number" class="exam_score form-control" 
+                                                        value="<?php echo $general_select['exam_score']; ?>"
+                                                        name="exam_score_disabled_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="exam_score form-control" 
+                                                        value="<?php echo $general_select['exam_score']; ?>"
+                                                        name="exam_score_<?php echo $class_subject_exam_student['subject_id']; ?>" 
+                                                        onchange="exam_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+
+
 			
 											<td>
 												<textarea name="comment_<?php echo $class_subject_exam_student['subject_id'];?>" class="form-control"><?php echo $general_select['comment'];?></textarea>
