@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 22-08-2023 a las 17:43:13
+-- Tiempo de generación: 25-08-2023 a las 18:40:54
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 INSERT INTO `admin` (`admin_id`, `name`, `email`, `phone`, `password`, `school_id`, `session`, `level`, `login_status`) VALUES
 (1, 'Administrador', 'admin@admin.com', '07133445656', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 1, '', '1', '0'),
-(9, 'Udemy Instructor', 'udemy@udemy.com', '+1564783934', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0, '', '2', '0');
+(9, 'Coordinador', 'coordination@cordination.com', '+1564783934', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0, '', '2', '0');
 
 -- --------------------------------------------------------
 
@@ -586,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `class` (
 --
 
 INSERT INTO `class` (`class_id`, `name`, `name_numeric`, `teacher_id`, `school_id`, `session`) VALUES
-(2, 'Nursery One', 'Nursery 1', 1, 0, '');
+(2, '11-01', 'Nursery 1', 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1242,10 +1242,10 @@ CREATE TABLE IF NOT EXISTS `mark` (
 --
 
 INSERT INTO `mark` (`mark_id`, `student_id`, `subject_id`, `exam_id`, `class_id`, `class_score1`, `class_score2`, `class_score3`, `exam_score`, `comment`, `school_id`, `session`) VALUES
-(1, 45, 5, 1, 2, 10, 0, 0, 0, 'Good performance.', 0, ''),
-(2, 45, 4, 1, 2, 10, 0, 0, 0, 'Excellent performance.', 0, ''),
-(3, 46, 5, 1, 2, 10, 10, 4, 60, 'good', 0, ''),
-(4, 46, 4, 1, 2, 0, 0, 0, 0, '', 0, ''),
+(1, 45, 5, 1, 2, 5, 4, 4, 3, 'Good performance.', 0, ''),
+(2, 45, 4, 1, 2, 4, 5, 5, 2, 'Excellent performance.', 0, ''),
+(3, 46, 5, 1, 2, 4, 3, 3, 5, 'good', 0, ''),
+(4, 46, 4, 1, 2, 1, 4, 2, 5, '', 0, ''),
 (5, 0, 5, 1, 2, 0, 0, 0, 0, '', 0, ''),
 (6, 0, 4, 1, 2, 0, 0, 0, 0, '', 0, ''),
 (7, 45, 5, 3, 2, 9, 9, 9, 70, 'xd', 0, ''),
@@ -1501,8 +1501,8 @@ CREATE TABLE IF NOT EXISTS `periodtime` (
 --
 
 INSERT INTO `periodtime` (`id`, `deadline_date`, `school_id`) VALUES
-(1, '2023-08-18', 0),
-(2, '2023-08-18', 0),
+(1, '2023-08-31', 0),
+(2, '2023-08-31', 0),
 (3, '2023-08-31', 0),
 (4, '2023-08-31', 0);
 
@@ -1745,7 +1745,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`student_id`, `name`, `birthday`, `age`, `place_birth`, `sex`, `m_tongue`, `religion`, `blood_group`, `address`, `city`, `state`, `nationality`, `phone`, `email`, `ps_attended`, `ps_address`, `ps_purpose`, `class_study`, `date_of_leaving`, `am_date`, `tran_cert`, `dob_cert`, `mark_join`, `physical_h`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `house_id`, `student_category_id`, `club_id`, `session`, `card_number`, `issue_date`, `expire_date`, `dormitory_room_number`, `more_entries`, `login_status`, `school_id`) VALUES
-(45, 'Udemy Student II', '09/30/2003', '16', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Address', 'City', 'Lagos', 'Canadian', '+912345667', 'student@student.com', 'Previous school attended', 'Previous school address', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-10', '2011-08-19', 'Yes', 'Yes', 'Yes', 'No', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', '', '2', 3, 4, '5bf8161', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '0', 1),
+(45, 'Ana Florez', '09/30/2003', '16', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Address', 'City', 'Lagos', 'Canadian', '+912345667', 'student@student.com', 'Previous school attended', 'Previous school address', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-10', '2011-08-19', 'Yes', 'Yes', 'Yes', 'No', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', '', '2', 3, 4, '5bf8161', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '0', 1),
 (46, 'Sheg Udemy', '01/07/2003', '17', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Sheg Address', 'City', 'State', 'Nigerian', '+2348161662924', 'sheg@sheg.com', 'Previous school attended', 'The address of previous school', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-24', '2011-08-26', 'Yes', 'Yes', 'Yes', 'No', '687f13b741f2b1049b8e47522b31b23e07484542', '', '', '2', 4, 4, '7bdc9ce', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
