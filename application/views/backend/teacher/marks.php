@@ -257,7 +257,7 @@
                          	
                     </tbody>
                </table>
-              <h5 id="error_message" class="alert alert-warning" style="display:none">Class score must not be greater 10 and exam score must not be greater than 70</h5>
+              <h5 id="error_message" class="alert alert-warning" style="display:none">La nota no debe ser menor a 1 ni mayor a 5</h5>
                       <button type="submit" class="btn btn-sm btn-rounded btn-block  btn-info"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('update_marks');?></button>
                  
                   <?php echo form_close();?>
@@ -295,7 +295,7 @@ function class_score_change() {
   var class_scores = document.getElementsByClassName('class_score');
     for (var i = class_scores.length - 1; i >= 0; i--) {
       var value = class_scores[i].value;
-        if (value > 10) {
+        if (value < 1 || value > 5) {
             class_scores[i].value = 0;
                 $('#error_message').show();
         }
@@ -307,7 +307,7 @@ function exam_score_change() {
   var exam_scores = document.getElementsByClassName('exam_score');
     for (var i = exam_scores.length - 1; i >= 0; i--) {
       var value = exam_scores[i].value;
-        if (value > 70) {
+        if (value < 1 || value > 5) {
             exam_scores[i].value = 0;
                 $('#error_message').show();
         }
