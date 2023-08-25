@@ -362,5 +362,47 @@ class Student extends CI_Controller {
             $this->load->view('backend/student/print_class_score', $page_data); // Load a different view if needed
         }
 
+        function printClassScore2($student_id, $exam_id) {
+            if ($this->session->userdata('student_login') != 1)
+                redirect(base_url(), 'refresh');
+    
+            $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+            $page_data['class_id']   = $class_id;
+            $page_data['student_id'] = $student_id;
+            $page_data['exam_id']    = $exam_id;
+            $page_data['page_name']  = 'printClassScore2'; // Use a different page name if needed
+            $page_data['page_title'] = get_phrase('print_class_score2');
+            $this->load->view('backend/student/print_class_score2', $page_data); // Load a different view if needed
+        }
+
+        function printClassScore3($student_id, $exam_id) {
+            if ($this->session->userdata('student_login') != 1)
+                redirect(base_url(), 'refresh');
+    
+            $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+            $page_data['class_id']   = $class_id;
+            $page_data['student_id'] = $student_id;
+            $page_data['exam_id']    = $exam_id;
+            $page_data['page_name']  = 'printClassScore3'; // Use a different page name if needed
+            $page_data['page_title'] = get_phrase('print_class_score3');
+            $this->load->view('backend/student/print_class_score3', $page_data); // Load a different view if needed
+        }
+
+        function printClassScore4($student_id, $exam_id) {
+            if ($this->session->userdata('student_login') != 1)
+                redirect(base_url(), 'refresh');
+    
+            $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+            $page_data['class_id']   = $class_id;
+            $page_data['student_id'] = $student_id;
+            $page_data['exam_id']    = $exam_id;
+            $page_data['page_name']  = 'printClassScore4'; // Use a different page name if needed
+            $page_data['page_title'] = get_phrase('print_class_score4');
+            $this->load->view('backend/student/print_class_score4', $page_data); // Load a different view if needed
+        }
+
 
 }

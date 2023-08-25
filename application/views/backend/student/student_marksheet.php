@@ -156,10 +156,27 @@
                         <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte todos los periodos');?>
                     </a>
 
+                    <a href="<?php echo base_url();?>student/printClassScore4/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Cuarto periodo');?>
+                    </a>
+
+                    <a href="<?php echo base_url();?>student/printClassScore2/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Tercer periodo');?>
+                    </a>
+
+                    <a href="<?php echo base_url();?>student/printClassScore2/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Segundo periodo');?>
+                    </a>
+
                     <a href="<?php echo base_url();?>student/printClassScore/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
                         class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
-                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte primer periodo');?>
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Primer periodo');?>
                     </a>
+
+                    
 
                    <div id="chartdiv<?php echo $row2['exam_id'];?>" class="exam_chart"></div>
                        <script type="text/javascript">
