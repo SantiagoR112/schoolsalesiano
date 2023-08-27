@@ -226,7 +226,7 @@
 											<td>
                                                 <?php if ($disableFields1): ?>
                                                     <input type="hidden" 
-                                                        value="<?php echo $general_select['class_score1']; ?>"
+                                                        value="<?php echo $general_select['class_score1']; ?>" 
                                                         name="class_score1_<?php echo $class_subject_exam_student['subject_id']; ?>">
                                                     <input type="number" class="class_score form-control" 
                                                         value="<?php echo $general_select['class_score1']; ?>"
@@ -234,7 +234,7 @@
                                                         disabled>
                                                 <?php else: ?>
                                                     <input type="number" class="class_score form-control" 
-                                                        value="<?php echo $general_select['class_score1']; ?>"
+                                                        value="<?php echo $general_select['class_score1']; ?>" step="0.1" lang="en"
                                                         name="class_score1_<?php echo $class_subject_exam_student['subject_id']; ?>" 
                                                         onchange="class_score_change()">
                                                 <?php endif; ?>
@@ -245,12 +245,12 @@
                                                         value="<?php echo $general_select['class_score2']; ?>"
                                                         name="class_score2_<?php echo $class_subject_exam_student['subject_id']; ?>">
                                                     <input type="number" class="class_score form-control" 
-                                                        value="<?php echo $general_select['class_score2']; ?>"
+                                                        value="<?php echo $general_select['class_score2']; ?>" 
                                                         name="class_score2_disabled_<?php echo $class_subject_exam_student['subject_id']; ?>" 
                                                         disabled>
                                                 <?php else: ?>
                                                     <input type="number" class="class_score form-control" 
-                                                        value="<?php echo $general_select['class_score2']; ?>"
+                                                        value="<?php echo $general_select['class_score2']; ?>" step="0.1" lang="en"
                                                         name="class_score2_<?php echo $class_subject_exam_student['subject_id']; ?>" 
                                                         onchange="class_score_change()">
                                                 <?php endif; ?>
@@ -266,7 +266,7 @@
                                                         disabled>
                                                 <?php else: ?>
                                                     <input type="number" class="class_score form-control" 
-                                                        value="<?php echo $general_select['class_score3']; ?>"
+                                                        value="<?php echo $general_select['class_score3']; ?>" step="0.1" lang="en"
                                                         name="class_score3_<?php echo $class_subject_exam_student['subject_id']; ?>" 
                                                         onchange="class_score_change()">
                                                 <?php endif; ?>
@@ -282,7 +282,7 @@
                                                         disabled>
                                                 <?php else: ?>
                                                     <input type="number" class="exam_score form-control" 
-                                                        value="<?php echo $general_select['exam_score']; ?>"
+                                                        value="<?php echo $general_select['exam_score']; ?>" step="0.1" lang="en"
                                                         name="exam_score_<?php echo $class_subject_exam_student['subject_id']; ?>" 
                                                         onchange="exam_score_change()">
                                                 <?php endif; ?>
