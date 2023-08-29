@@ -161,7 +161,7 @@
                         <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Cuarto periodo');?>
                     </a>
 
-                    <a href="<?php echo base_url();?>student/printClassScore2/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
+                    <a href="<?php echo base_url();?>student/printClassScore3/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
                         class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
                         <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Tercer periodo');?>
                     </a>

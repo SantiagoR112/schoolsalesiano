@@ -38,7 +38,7 @@
                     <br/>
                     <span style="text-align: center;font-size: 18px;"><?php echo $this->db->get_where('settings' , array('type' =>'address'))->row()->description;?></span>
                     <br/>
-                    <span style="text-align: center;font-size: 22px;">REPORT SHEET (CONVENTIONAL)</span>                </div>
+                    <span style="text-align: center;font-size: 22px;">REPORTE FINAL</span>                </div>
             </div>
 			<div class="col-md-2 logo" >
                 <img src="<?php echo $this->crud_model->get_image_url('student',$row['student_id']);?>" class="thumbnail pull-right" height="120">				</div>
@@ -57,22 +57,22 @@
   <tr>
     <td>TERM FOR:</td>
     <td><?php $section_name = $this->db->get_where('section' , array('class_id' => $class_id))->row()->name; echo $section_name;?></td>
-    <td>ACADEMIC YEAR:</td>
+    <td>AÑO ACADEMICO:</td>
     <td><?php echo $this->db->get_where('settings' , array('type' =>'session'))->row()->description;?></td>
-    <td>SEX:</td>
+    <td>SEXO:</td>
     <td><?php echo $sex;?></td>
-    <td>ATTENDANCE:</td>
+    <td>ASISTENCIA:</td>
     <td><?php echo $this->db->get_where('attendance', array('session' => $running_year, 'student_id' => $student_id))->num_rows(); ?></td>
   </tr>
   
    <tr>
-    <td>NAME OF PUPIL:</td>
+    <td>NOMBRE ESTUDIANTE:</td>
     <td><?php echo $row['name'];?></td>
-    <td>ADMISSION NO:</td>
+    <td>NUMERO DE ADMISION:</td>
     <td><?php echo $roll;?></td>
-    <td>CLASS:</td>
+    <td>CLASE:</td>
     <td><?php $class_name = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;echo $class_name;?></td>
-    <td>DAYS OUT OF:</td>
+    <td>INASISTENCIAS:</td>
    <td><?php echo $this->db->get_where('attendance', array('session' => $running_year))->num_rows(); ?></td>
   </tr>
 </table>
@@ -81,14 +81,14 @@
  <table width="1000" style="border:1px solid #CCCCCC">
   <tr style="background:#CCCCCC">
    <td ><strong>STUDENT SUBJECTS:</strong></td>
-    <td ><strong>1ST SCORE</strong></td>
-    <td ><strong>2ND SCORE</strong></td>
-    <td ><strong>3RD SCORE</strong></td>
-    <td ><strong>EXAM SCORE</strong></td>
+    <td ><strong>PRIMER PERIODO</strong></td>
+    <td ><strong>SEGUNDO PERIODO</strong></td>
+    <td ><strong>TERCER PERIODO</strong></td>
+    <td ><strong>CUARTO PERIODO</strong></td>
     <td ><strong>TOTAL SCORE</strong></td>
-    <td ><strong>AVERAGE SCORE</strong></td>
-    <td ><strong>GRADE SCORE</strong></td>
-    <td ><strong>SUBJECT REMARKS</strong></td>
+    <td ><strong>NOTA FINAL</strong></td>
+    <td ><strong>RESULTADO</strong></td>
+    <td ><strong>OBSERVACIONES</strong></td>
   </tr>
   
    						<?php
@@ -135,35 +135,20 @@
 							
 							echo $average; 
 							?></td>
-    <td ><?php if ($sum >= "70"):?>
-								<p style="color:green"><?php echo 'A';?></p>
+                            <td ><?php if ($average < "3"):?>
+								<p style="color:red"><?php echo 'Reprobado';?></p>
 								<?php endif;?>
 								
-								<?php if ($sum < "70" && $sum == '60'):?>
-								<p style="color:green"><?php echo 'B';?></p>
+								<?php if ($average >= "3"):?>
+								<p style="color:green"><?php echo 'Aprobado';?></p>
 								<?php endif;?>
-								
-								<?php if ($sum < "60" && $sum == '50'):?>
-								<p style="color:green"><?php echo 'C';?></p>
-								<?php endif;?>
-								
-								<?php if ($sum < "50" && $sum == '45'):?>
-								<p style="color:green"><?php echo 'D';?></p>
-								<?php endif;?>
-								
-								<?php if ($sum < "45" && $sum == '40'):?>
-								<p style="color:green"><?php echo 'E';?></p>
-								<?php endif;?>
-								
-								<?php if ($sum < "40"):?>
-								<p style="color:red"><?php echo 'F';?></p>
-								<?php endif;?></td>
 	
 
     <td ><?php echo $comment; ?></td>
   </tr>
    <?php endforeach;?>
 </table>
+
 
 <table width="1000" style="border:1px solid #CCCCCC">
                                     <tr>
@@ -175,7 +160,7 @@
 						
                                 <table width="1000" style="border:1px solid #CCCCCC">
                                     <tr>
-                                        <td width="150">NUMBER IN CLASS:</td>
+                                        <td width="150">NUMERO EN LISTA:</td>
                                         <?php $number_in_class =  $this->db->get_where('student', array('class_id' =>$class_id))->num_rows();?>
                                         <td align="center"><div  style="border-bottom: 1px dotted #D2CBCB"><?php echo $number_in_class;?></div></td>
                                         <td>CLASS POSITION:</td>
@@ -215,11 +200,12 @@
 									<td><div  style="border-bottom: 1px dotted #D2CBCB"><strong style="color:red"><?php echo $system_currency .' '. $display_student_due;?></strong></div></td>
 								</tr>
 								<tr>
-									<td>SIGNATURE:</td>
+									<td>FIRMA:</td>
 									<td><div> ________________________ </div></td>
-									<td>DATE:</td>
-									<td><div> ________________________ </div></td>
-					   
+									<td>FECHA:</td>
+                                    <td><div><?php echo date('d/m/Y'); ?></div></td>
+
+  
 								</tr>
 							</table>
 </div>

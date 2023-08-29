@@ -3,17 +3,31 @@
 <head>
     <title>Reporte segundo periodo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        // Función para ajustar el zoom de la página al 90%
+        function setZoom() {
+            document.body.style.zoom = "90%";
+        }
+    </script>
     <style>
         .thumbnail {
             display: block;
             max-width: 100%;
             height: auto;
         }
+
+        .pdf-button {
+            width: auto; /* Ajustar el ancho del botón según el contenido */
+            max-width: 100%; /* Establecer el ancho máximo para evitar que se expanda demasiado */
+            margin: 0 auto; /* Centrar el botón horizontalmente */
+            display: block; /* Convertir el botón en un bloque para que ocupe solo el ancho necesario */
+        }
     </style>
 </head>
-<body>
+<body onload="setZoom()">
     <div class="printableArea">
-        <?php 
+        <?php
+            $failed_subjects = 0; 
             $students   =   $this->db->get_where('student', array('student_id'   => $this->session->userdata('student_id')))->result_array();
             foreach($students as $row): 
             $student_id = $row['student_id'];
@@ -28,7 +42,7 @@
                         <div class="card-body">
                             <?php
                             $student_info = $this->db->get_where('student', array('student_id' => $student_id))->row();
-                            $total_class_score = 0;
+                            $total_class_score2 = 0;
                             $total_subjects = 0;
                             ?>
 
@@ -44,6 +58,9 @@
                                             <span style="font-size: 18px;"><?php echo $this->db->get_where('settings', array('type' =>'address'))->row()->description; ?></span>
                                             <br/>
                                             <span style="font-size: 22px;">REPORTE SEGUNDO PERIODO</span>
+                                        </div>
+                                        <div class="year">
+                                            <span id="currentYear"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-2 text-center">
@@ -76,6 +93,7 @@
                                     <tbody>
                                         <?php
                                         $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+                                        $passed_subjects = 0; // Contador de asignaturas aprobadas
                                         foreach ($subjects as $row):
                                             $total_subjects++;
                                         ?>
@@ -91,9 +109,17 @@
                                                 if ($obtained_mark_query->num_rows() > 0) {
                                                     $obtained_class_score2 = $obtained_mark_query->row()->class_score2;
                                                     $total_class_score2 += $obtained_class_score2;
+
+                                                    if ($obtained_class_score2 >= 3) {
+                                                        $passed_subjects++; // Incrementar el contador de asignaturas aprobadas
+                                                    }
+                                                    
+                                                    if ($obtained_class_score2 < 3) {
+                                                        $failed_subjects++; // Incrementar el contador de asignaturas reprobadas
+                                                    }
                                                 }
                                                 ?>
-                                                <td><?php echo $obtained_class_score2; ?></td>
+                                                <td class="<?php echo ($obtained_class_score2 >= 3) ? 'text-success' : 'text-danger'; ?>"><?php echo $obtained_class_score2; ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -104,12 +130,16 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <td style="background-color: #17ABCC; color: white;">Puntaje total:</td>
-                                            <td><?php echo $total_class_score2; ?></td>
-                                        </tr>
-                                        <tr>
                                             <td style="background-color: #17ABCC; color: white;">Numero de Asignaturas:</td>
                                             <td><?php echo $total_subjects; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #17ABCC; color: white;">Asignaturas aprobadas:</td>
+                                            <td><?php echo $passed_subjects; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #17ABCC; color: white;">Asignaturas reprobadas:</td>
+                                            <td><?php echo $failed_subjects; ?></td>
                                         </tr>
                                         <tr>
                                             <td style="background-color: #17ABCC; color: white;">Promedio del periodo:</td>
@@ -117,10 +147,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
-                                <button id="printButton" class="btn btn-info btn-rounded btn-block btn-sm pull-right" type="button">
-                                    <span><i class="fa fa-print"></i>&nbsp;Generar PDF</span>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -131,9 +157,14 @@
     </div>
     </div>
     <?php endforeach;?>
+    <button id="printButton" class="btn btn-info btn-rounded btn-block btn-sm pdf-button" type="button">
+        <span><i class="fa fa-print"></i>&nbsp;Generar PDF</span>
+    </button>
     <script type="text/javascript" src="<?php echo base_url();?>js/html2canvas.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>js/jspdf.min.js"></script>
     <script>
+        var currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
         var printButton = document.getElementById('printButton');
         var doc = new jsPDF();
         
@@ -145,7 +176,7 @@
                 var height = canvas.height / 440 * 80;
                 doc.addImage(img, 'JPEG', 10, 0, 190, height);
                 
-                doc.save('Report1.pdf');
+                doc.save('Reporte2periodo.pdf');
             });
         });
     </script>
