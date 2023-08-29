@@ -147,6 +147,13 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div>
+                                    <?php
+                                        date_default_timezone_set('America/Bogota'); // Configura la zona horaria a Bogotá
+
+                                        echo "Fecha de reporte: " . date('d/m/Y'); // Muestra la fecha en formato día/mes/año
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
