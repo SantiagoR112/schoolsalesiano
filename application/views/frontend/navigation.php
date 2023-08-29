@@ -18,38 +18,7 @@
                         <?php endif;?>
                         <?php if ($this->session->userdata('admin_id') == null):?>
                         <li><a href="<?php echo base_url();?>login"><?php echo get_phrase('Login');?><span><?php echo get_phrase('All Users Login');?></span></a></li>
-                        <?php endif;?>
-						
-                        <li class="dropdown"> 
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                    
-                    <?php 
-                    
-                    if($set_language = $this->session->userdata('language')){
-                    } else{
-                        $set_language = $this->db->get_where('settings', array('type' => 'language'))->row()->description;
-                    }
-                    $list_image = $this->db->get_where('language_list', array('db_field' => $set_language))->row()->db_field;
-                    $list_name =  $this->db->get_where('language_list', array('db_field' => $set_language))->row()->name;
-                    ?>
-                    <img src="<?php echo base_url();?>optimum/flag/<?php echo $list_image;?>.png" width="16px" height="16px"> <?php echo $list_name;?> <i class="fa fa-caret-down"></i>
-                </a>
-                    <ul class="dropdown-menu">
-                        
-                    <?php $select_all_languages_from_laguage_table = $this->db->get_where('language_list', array('status' => 'ok'))->result_array();
-                            foreach ($select_all_languages_from_laguage_table as $key => $selected_languages):?>
-                        
-                            <li <?php if($set_language == $selected_languages['db_field']) { ?> class="active" <?php }?>>
-                            <a class="set_langs" data-href="<?php echo base_url();?>website/set_language/<?php echo $selected_languages['db_field'];?>">
-                              <img src="<?php echo base_url();?>optimum/flag/<?php echo $selected_languages['db_field'];?>.png" width="16px" height="16px">  <?php echo $selected_languages['name'];?>
-                            </a>
-                        </li>
-                            <?php endforeach;?>
-                        </ul>
-                        <?php echo get_phrase('Change Language');?>
-                        
-                    </li>
-                                
+                        <?php endif;?>						                                                      
                     </ul>
                 </nav>
                 <!--DL Menu Start-->
