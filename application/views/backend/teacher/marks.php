@@ -25,19 +25,22 @@
 
 
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
                                 <div class="col-sm-12">
-                                    <select name="class_id"  class="form-control select2" onchange="show_students(this.value)">
+                                    <select name="class_id" class="form-control select2" onchange="show_students(this.value)">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
 
-                                        <?php $classes =  $this->db->get('class')->result_array();
-                                        foreach($classes as $key => $class):?>
-                                        <option value="<?php echo $class['class_id'];?>"<?php if($class_id == $class['class_id']) echo 'selected="selected"' ;?>>Class: <?php echo $class['name'];?></option>
-                                        <?php endforeach;?>
-                                </select>
+                                        <?php
+                                        $current_teacher_id = $this->session->userdata('teacher_id');
 
+                                        $classes = $this->db->get_where('class', array('teacher_id' => $current_teacher_id))->result_array();
+                                        foreach ($classes as $key => $class):?>
+                                            <option value="<?php echo $class['class_id'];?>"<?php if($class_id == $class['class_id']) echo 'selected="selected"' ;?>>Class: <?php echo $class['name'];?></option>
+                                        <?php endforeach;?>
+                                    </select>
                                 </div>
                             </div>
+
 
 								
                             <div class="form-group">

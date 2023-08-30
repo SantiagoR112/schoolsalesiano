@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 27-08-2023 a las 19:07:52
+-- Tiempo de generación: 30-08-2023 a las 21:09:02
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   `session` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `school_id` int NOT NULL,
   PRIMARY KEY (`attendance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `attendance`
@@ -280,7 +280,9 @@ INSERT INTO `attendance` (`attendance_id`, `status`, `student_id`, `date`, `sess
 (46, 1, 45, '2020-03-08', '2019-2020', 0),
 (47, 2, 46, '2020-03-08', '2019-2020', 0),
 (48, 0, 45, '2020-08-20', '', 0),
-(49, 0, 46, '2020-08-20', '', 0);
+(49, 0, 46, '2020-08-20', '', 0),
+(50, 0, 45, '2023-05-20', '', 0),
+(51, 0, 46, '2023-05-20', '', 0);
 
 -- --------------------------------------------------------
 
@@ -348,7 +350,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `school_id` int NOT NULL,
   `session` longtext NOT NULL,
   PRIMARY KEY (`bank_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `bank`
@@ -358,7 +360,8 @@ INSERT INTO `bank` (`bank_id`, `account_holder_name`, `account_number`, `bank_na
 (2, 'Udemy Instructor', '1234567', 'Payoneer or paypal', 'USA', 0, ''),
 (3, 'Udemy Instructor', '1234567', 'Payoneer or paypal', 'USA', 0, ''),
 (4, 'Udemy Instructor', '1234567', 'Payoneer or paypal', 'USA', 0, ''),
-(5, 'Udemy Instructor', '1234567', 'Payoneer or paypal', 'USA', 0, '');
+(5, 'Udemy Instructor', '1234567', 'Payoneer or paypal', 'USA', 0, ''),
+(6, 'PedroParamo123', '34324124124', 'Davivienda', 'Davivienda', 0, '');
 
 -- --------------------------------------------------------
 
@@ -1243,9 +1246,9 @@ CREATE TABLE IF NOT EXISTS `mark` (
 
 INSERT INTO `mark` (`mark_id`, `student_id`, `subject_id`, `exam_id`, `class_id`, `class_score1`, `class_score2`, `class_score3`, `exam_score`, `comment`, `school_id`, `session`) VALUES
 (1, 45, 5, 1, 2, '5.0', '2.5', '3.0', '5.0', 'Good performance.', 0, ''),
-(2, 45, 4, 1, 2, '4.0', '4.1', '1.5', '2.8', 'Excellent performance.', 0, ''),
+(2, 45, 4, 1, 2, '4.0', '4.1', '1.5', '2.5', 'Excellent performance.', 0, ''),
 (3, 46, 5, 1, 2, '4.0', '3.0', '3.0', '5.0', 'good', 0, ''),
-(4, 46, 4, 1, 2, '1.0', '4.0', '2.0', '5.0', '', 0, ''),
+(4, 46, 4, 1, 2, '1.0', '4.5', '2.0', '5.0', '', 0, ''),
 (5, 0, 5, 1, 2, '0.0', '0.0', '0.0', '0.0', '', 0, ''),
 (6, 0, 4, 1, 2, '0.0', '0.0', '0.0', '0.0', '', 0, ''),
 (7, 45, 5, 3, 2, '9.0', '9.0', '9.0', '70.0', 'xd', 0, ''),
@@ -1745,7 +1748,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`student_id`, `name`, `birthday`, `age`, `place_birth`, `sex`, `m_tongue`, `religion`, `blood_group`, `address`, `city`, `state`, `nationality`, `phone`, `email`, `ps_attended`, `ps_address`, `ps_purpose`, `class_study`, `date_of_leaving`, `am_date`, `tran_cert`, `dob_cert`, `mark_join`, `physical_h`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `house_id`, `student_category_id`, `club_id`, `session`, `card_number`, `issue_date`, `expire_date`, `dormitory_room_number`, `more_entries`, `login_status`, `school_id`) VALUES
-(45, 'Ana Florez', '09/30/2003', '16', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Address', 'City', 'Lagos', 'Canadian', '+912345667', 'student@student.com', 'Previous school attended', 'Previous school address', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-10', '2011-08-19', 'Yes', 'Yes', 'Yes', 'No', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', '', '2', 3, 4, '5bf8161', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '1', 1),
+(45, 'Ana Florez', '09/30/2003', '16', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Address', 'City', 'Lagos', 'Canadian', '+912345667', 'student@student.com', 'Previous school attended', 'Previous school address', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-10', '2011-08-19', 'Yes', 'Yes', 'Yes', 'No', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', '', '2', 3, 4, '5bf8161', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '0', 1),
 (46, 'Sheg Udemy', '01/07/2003', '17', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Sheg Address', 'City', 'State', 'Nigerian', '+2348161662924', 'sheg@sheg.com', 'Previous school attended', 'The address of previous school', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-24', '2011-08-26', 'Yes', 'Yes', 'Yes', 'No', '687f13b741f2b1049b8e47522b31b23e07484542', '', '', '2', 4, 4, '7bdc9ce', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
@@ -1794,7 +1797,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
 
 INSERT INTO `subject` (`subject_id`, `name`, `class_id`, `teacher_id`, `school_id`, `session`) VALUES
 (5, 'Economics', 2, 1, 0, ''),
-(4, 'Mathematics', 2, 1, 0, '');
+(4, 'Mathematics', 2, 3, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1858,7 +1861,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `school_id` int NOT NULL,
   `session` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`teacher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `teacher`
@@ -1866,7 +1869,8 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 
 INSERT INTO `teacher` (`teacher_id`, `name`, `role`, `teacher_number`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `facebook`, `twitter`, `googleplus`, `linkedin`, `qualification`, `marital_status`, `file_name`, `password`, `department_id`, `designation_id`, `date_of_joining`, `joining_salary`, `status`, `date_of_leaving`, `bank_id`, `login_status`, `school_id`, `session`) VALUES
 (1, 'Oliver', '1', 'f82e5cc', '2018-08-19', 'male', 'Christianity', 'B+', '546787, Kertz shopping complext, Silicon Valley, United State of America, New York city.', '+912345667', 'teacher@teacher.com', 'facebook', 'twitter', 'googleplus', 'linkedin', 'Magister', 'Married', 'profile.png', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 4, '2019-09-15', '5000', 1, '2019-09-18', 3, '0', 1, ''),
-(2, 'New Teacher', '1', 'dbc680f', '2018-08-19', 'male', 'Muslim', 'B+', '546787, Kertz shopping complext, Silicon Valley, United State of America, New York city.', '+2348161662924', 'tech@tech.com', 'facebook', 'twitter', 'googleplu', 'linkedin', 'PhD', 'Single', 'Customizations_version1.pdf', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 4, '2020-08-01', '6000', 1, '2020-01-08', 5, '', 0, '');
+(2, 'New Teacher', '1', 'dbc680f', '2018-08-19', 'male', 'Muslim', 'B+', '546787, Kertz shopping complext, Silicon Valley, United State of America, New York city.', '+2348161662924', 'tech@tech.com', 'facebook', 'twitter', 'googleplu', 'linkedin', 'PhD', 'Single', 'Customizations_version1.pdf', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 4, '2020-08-01', '6000', 1, '2020-01-08', 5, '0', 0, ''),
+(3, 'Pedro Paramo', '2', 'fc79828', '1989-06-13', 'male', 'Cristian', 'O+', 'Carrera 19 # 30 - 20, Neiva', '325141565', 'pedro12@hotmail.com', 'pedro21', 'pedro21', 'pedro21', 'pedro21', 'Magister', 'Single', 'invoice.docx', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 6, '2023-05-20', '5000000', 1, '2023-05-20', 6, '0', 0, '');
 
 -- --------------------------------------------------------
 

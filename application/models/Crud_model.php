@@ -87,10 +87,13 @@ class Crud_model extends CI_Model {
         return $query->result_array();
     }
 
-    function get_subjects_by_class($class_id) {
-        $query = $this->db->get_where('subject', array('class_id' => $class_id));
+    function get_subjects_by_class_and_teacher($class_id, $teacher_id) {
+        $this->db->where('class_id', $class_id);
+        $this->db->where('teacher_id', $teacher_id);
+        $query = $this->db->get('subject');
         return $query->result_array();
     }
+    
 
 
     function get_class_name_numeric($class_id) {

@@ -26,7 +26,7 @@
 
 
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Clase');?></label>
                                 <div class="col-sm-12">
                                     <select name="class_id"  class="form-control select2" onchange="show_subjects(this.value)">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
@@ -42,28 +42,35 @@
 
 								
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Subject');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Asignatura');?></label>
                                 <div class="col-sm-12">
+                                    <?php
+                                    $current_teacher_id = $this->session->userdata('teacher_id');
 
-                                <?php $classes = $this->crud_model->get_classes();
-                                        foreach ($classes as $key => $row): ?>
+                                    $classes = $this->crud_model->get_classes();
+                                    foreach ($classes as $key => $row): ?>
 
-                                    <select name="<?php if($class_id == $row['class_id']) echo 'subject_id'; else echo 'temp';?>" id="subject_id_<?php echo $row['class_id'];?>" style="display:<?php if($class_id == $row['class_id']) echo 'block'; else echo 'none';?>"  class="form-control">
-                                        <option value="">Subject of: <?php echo $row['name'] ;?></option>
+                                        <select name="<?php if($class_id == $row['class_id']) echo 'subject_id'; else echo 'temp';?>" id="subject_id_<?php echo $row['class_id'];?>" style="display:<?php if($class_id == $row['class_id']) echo 'block'; else echo 'none';?>" class="form-control">
+                                            <option value="">Subject of: <?php echo $row['name'] ;?></option>
 
-                                        <?php $select_subject_from_model = $this->crud_model->get_subjects_by_class($row['class_id']);
-                                        foreach ($select_subject_from_model as $key => $subject_selected_from_model): ?>
-                                        <option value="<?php echo $subject_selected_from_model['subject_id'];?>"<?php if(isset($subject_id) && $subject_id == $subject_selected_from_model['subject_id']) echo 'selected="selected"';?>><?php echo $subject_selected_from_model['name'];?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                <?php endforeach;?>
+                                            <?php
+                                            $select_subject_from_model = $this->crud_model->get_subjects_by_class_and_teacher($row['class_id'], $current_teacher_id);
+                                            foreach ($select_subject_from_model as $key => $subject_selected_from_model):
+                                                // Solo muestra las asignaturas que tengan el mismo teacher_id que el docente actual
+                                                if ($subject_selected_from_model['teacher_id'] == $current_teacher_id): ?>
+                                                    <option value="<?php echo $subject_selected_from_model['subject_id'];?>"<?php if(isset($subject_id) && $subject_id == $subject_selected_from_model['subject_id']) echo 'selected="selected"';?>><?php echo $subject_selected_from_model['name'];?></option>
+                                                <?php endif;
+                                            endforeach;?>
+                                        </select>
+                                    <?php endforeach;?>
                                 </div>
                             </div>
+
 
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <select name="" id="subject_id_0" style="display:<?php if(isset($subject_id) && $subject_id > 0) echo 'none'; else echo 'block';?>"  class="form-control">
-                                        <option value=""><?php echo get_phrase('Select Class First');?></option>
+                                        <option value=""><?php echo get_phrase('Selecciona la clase primero');?></option>
                                     </select>
                                 </div>
                             </div>
@@ -103,12 +110,12 @@
     					<table cellpadding="0" cellspacing="0" border="0" class="table">
 								<thead>
 									<tr>
-										<td><?php echo get_phrase('student');?></td>
-										<td><?php echo get_phrase('1st score');?></td>
-										<td><?php echo get_phrase('2nd score');?></td>
-										<td><?php echo get_phrase('3rd score');?></td>
-										<td><?php echo get_phrase('exam score');?></td>
-										<td><?php echo get_phrase('comment');?></td>
+										<td><?php echo get_phrase('Estudiante');?></td>
+										<td><?php echo get_phrase('Primer periodo');?></td>
+										<td><?php echo get_phrase('Segundo periodo');?></td>
+										<td><?php echo get_phrase('Tercer periodo');?></td>
+										<td><?php echo get_phrase('Cuarto periodo');?></td>
+										<td><?php echo get_phrase('Observaciones');?></td>
 									</tr>
 								</thead>
                     				<tbody>
@@ -124,6 +131,99 @@
 
                
            ?>
+
+
+<?php
+               $this->load->database();
+
+               $query = $this->db->where('id', 1)
+                                 ->get('periodtime');
+               
+               if ($query->num_rows() > 0) {
+                   $row = $query->row();
+                   $deadline_date_str1 = $row->deadline_date; // Obtener la fecha en formato de cadena
+                   $deadline_date_unix1 = strtotime($deadline_date_str1); // Convertir a tiempo Unix
+               
+                   // Aquí puedes usar la variable $deadline_date_unix como necesites
+                   // Por ejemplo, comparar con la fecha actual
+               } else {
+                   // No se encontraron filas
+               }
+               
+               $currentDate = time();
+               
+               $disableFields1 = ($currentDate > $deadline_date_unix1);
+               
+            ?>
+            
+            <?php
+               $this->load->database();
+
+               $query = $this->db->where('id', 2)
+                                 ->get('periodtime');
+               
+               if ($query->num_rows() > 0) {
+                   $row = $query->row();
+                   $deadline_date_str2 = $row->deadline_date; // Obtener la fecha en formato de cadena
+                   $deadline_date_unix2 = strtotime($deadline_date_str2); // Convertir a tiempo Unix
+               
+                   // Aquí puedes usar la variable $deadline_date_unix como necesites
+                   // Por ejemplo, comparar con la fecha actual
+               } else {
+                   // No se encontraron filas
+               }
+               
+               $currentDate = time();
+               
+               $disableFields2 = ($currentDate > $deadline_date_unix2);
+               
+            ?>
+
+            <?php
+               $this->load->database();
+
+               $query = $this->db->where('id', 3)
+                                 ->get('periodtime');
+               
+               if ($query->num_rows() > 0) {
+                   $row = $query->row();
+                   $deadline_date_str3 = $row->deadline_date; // Obtener la fecha en formato de cadena
+                   $deadline_date_unix3 = strtotime($deadline_date_str3); // Convertir a tiempo Unix
+               
+                   // Aquí puedes usar la variable $deadline_date_unix como necesites
+                   // Por ejemplo, comparar con la fecha actual
+               } else {
+                   // No se encontraron filas
+               }
+               
+               $currentDate = time();
+               
+               $disableFields3 = ($currentDate > $deadline_date_unix3);
+               
+            ?>
+
+            <?php
+               $this->load->database();
+
+               $query = $this->db->where('id', 4)
+                                 ->get('periodtime');
+               
+               if ($query->num_rows() > 0) {
+                   $row = $query->row();
+                   $deadline_date_str4 = $row->deadline_date; // Obtener la fecha en formato de cadena
+                   $deadline_date_unix4 = strtotime($deadline_date_str4); // Convertir a tiempo Unix
+               
+                   // Aquí puedes usar la variable $deadline_date_unix como necesites
+                   // Por ejemplo, comparar con la fecha actual
+               } else {
+                   // No se encontraron filas
+               }
+               
+               $currentDate = time();
+               
+               $disableFields4 = ($currentDate > $deadline_date_unix4);
+               
+            ?>
                     	
 										
 			<?php echo form_open(base_url() . 'teacher/student_marksheet_subject/'. $exam_id . '/' . $class_id);?>
@@ -132,17 +232,71 @@
 												<?php echo $student_selected_with_class['name'];?>
 											</td>
 											<td>
-												<input type="number" class="class_score form-control" value="<?php echo $general_select['class_score1'];?>" name="class_score1_<?php echo $student_selected_with_class['student_id'];?>" onchange="class_score_change()">
-											</td>
-											  <td>
-												<input type="number" class="class_score form-control" value="<?php echo $general_select['class_score2'];?>" name="class_score2_<?php echo $student_selected_with_class['student_id'];?>" onchange="class_score_change()">
-											</td>
-											  <td>
-												<input type="number" class="class_score form-control" value="<?php echo $general_select['class_score3'];?>" name="class_score3_<?php echo $student_selected_with_class['student_id'];?>" onchange="class_score_change()">
-											</td>
-											  <td>
-												<input type="number" class="exam_score form-control" value="<?php echo $general_select['exam_score'];?>" name="exam_score_<?php echo $student_selected_with_class['student_id'];?>" onchange="exam_score_change()">
-											</td>
+                                                <?php if ($disableFields1): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['class_score1']; ?>" 
+                                                        name="class_score1_<?php echo $student_selected_with_class['student_id']; ?>">
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score1']; ?>"
+                                                        name="class_score1_disabled_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score1']; ?>" step="0.1" lang="en"
+                                                        name="class_score1_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        onchange="class_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <td>
+                                                <?php if ($disableFields2): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['class_score2']; ?>" 
+                                                        name="class_score2_<?php echo $student_selected_with_class['student_id']; ?>">
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score2']; ?>"
+                                                        name="class_score2_disabled_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score2']; ?>" step="0.1" lang="en"
+                                                        name="class_score2_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        onchange="class_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <td>
+                                                <?php if ($disableFields3): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['class_score3']; ?>" 
+                                                        name="class_score3_<?php echo $student_selected_with_class['student_id']; ?>">
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score3']; ?>"
+                                                        name="class_score3_disabled_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="class_score form-control" 
+                                                        value="<?php echo $general_select['class_score3']; ?>" step="0.1" lang="en"
+                                                        name="class_score3_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        onchange="class_score_change()">
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($disableFields4): ?>
+                                                    <input type="hidden" 
+                                                        value="<?php echo $general_select['exam_score']; ?>" 
+                                                        name="exam_score_<?php echo $student_selected_with_class['student_id']; ?>">
+                                                    <input type="number" class="exam_score form-control" 
+                                                        value="<?php echo $general_select['exam_score']; ?>"
+                                                        name="exam_score_disabled_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        disabled>
+                                                <?php else: ?>
+                                                    <input type="number" class="exam_score form-control" 
+                                                        value="<?php echo $general_select['exam_score']; ?>" step="0.1" lang="en"
+                                                        name="exam_score_<?php echo $student_selected_with_class['student_id']; ?>" 
+                                                        onchange="exam_score_change()">
+                                                <?php endif; ?>
+                                            </td>
 			
 											<td>
 												<textarea name="comment_<?php echo $student_selected_with_class['student_id'];?>" class="form-control"><?php echo $general_select['comment'];?></textarea>
@@ -165,7 +319,7 @@
                          	
                     </tbody>
                </table>
-              <h5 id="error_message" class="alert alert-warning" style="display:none">Class score must not be greater 10 and exam score must not be greater than 70</h5>
+              <h5 id="error_message" class="alert alert-warning" style="display:none">La nota no debe ser menor a 1 ni mayor a 5</h5>
                       <button type="submit" class="btn btn-sm btn-rounded btn-block  btn-info"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('update_marks');?></button>
                  
                   <?php echo form_close();?>
@@ -203,7 +357,7 @@ function class_score_change() {
   var class_scores = document.getElementsByClassName('class_score');
     for (var i = class_scores.length - 1; i >= 0; i--) {
       var value = class_scores[i].value;
-        if (value > 10) {
+        if (value < 1 || value > 5) {
             class_scores[i].value = 0;
                 $('#error_message').show();
         }
@@ -215,7 +369,7 @@ function exam_score_change() {
   var exam_scores = document.getElementsByClassName('exam_score');
     for (var i = exam_scores.length - 1; i >= 0; i--) {
       var value = exam_scores[i].value;
-        if (value > 70) {
+        if (value < 1 || value > 5) {
             exam_scores[i].value = 0;
                 $('#error_message').show();
         }
