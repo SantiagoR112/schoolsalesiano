@@ -82,17 +82,31 @@
 </div>
 
 
-<?php if($class_id > 0 && $student_id > 0 && $exam_id > 0):?>	
+        <?php if ($class_id > 0 && $student_id > 0 && $exam_id > 0): ?>
 
-    <?php $select_sunject_with_class_id  =   $this->crud_model->get_subjects_by_class($class_id);
-            foreach ($select_sunject_with_class_id as $key => $class_subject_exam_student): 
+        <?php
+        $current_teacher_id = $this->session->userdata('teacher_id');
 
-                $verify_data = array('exam_id' => $exam_id, 'class_id' => $class_id, 'student_id' => $student_id, 'subject_id' => $class_subject_exam_student['subject_id']);
-                $query = $this->db->get_where('mark', $verify_data);
+        $select_subject_with_class_id = $this->crud_model->get_subjects_by_class_and_teacher($class_id, $current_teacher_id);
+        foreach ($select_subject_with_class_id as $key => $class_subject_exam_student): 
 
-                if($query->num_rows() < 1)
-                    $this->db->insert('mark', $verify_data);
-            endforeach;?>
+            $verify_data = array(
+                'exam_id' => $exam_id,
+                'class_id' => $class_id,
+                'student_id' => $student_id,
+                'subject_id' => $class_subject_exam_student['subject_id']
+            );
+
+            $query = $this->db->get_where('mark', $verify_data);
+
+            if ($query->num_rows() < 1) {
+                $this->db->insert('mark', $verify_data);
+            }
+
+        endforeach;?>
+
+
+
 
 
 					
@@ -105,7 +119,7 @@
     					<table cellpadding="0" cellspacing="0" border="0" class="table">
 								<thead>
 									<tr>
-										<td><?php echo get_phrase('subject');?></td>
+										<td><?php echo get_phrase('Asignatura');?></td>
 										<td><?php echo get_phrase('Primer periodo');?></td>
 										<td><?php echo get_phrase('Segundo periodo');?></td>
 										<td><?php echo get_phrase('Tercer periodo');?></td>
@@ -115,17 +129,26 @@
 								</thead>
                     				<tbody>
 
-        <?php $select_subject_with_class_id  =   $this->crud_model->get_subjects_by_class($class_id);
-            foreach ($select_subject_with_class_id as $key => $class_subject_exam_student): 
+                                    <?php
+                                        $current_teacher_id = $this->session->userdata('teacher_id');
 
-                $verify_data = array('exam_id' => $exam_id, 'class_id' => $class_id, 'student_id' => $student_id, 'subject_id' => $class_subject_exam_student['subject_id']);
-                $query = $this->db->get_where('mark', $verify_data);
-                $update_subject_marks = $query->result_array();
+                                        $select_subject_with_class_id = $this->crud_model->get_subjects_by_class_and_teacher($class_id, $current_teacher_id);
+                                        foreach ($select_subject_with_class_id as $key => $class_subject_exam_student):
 
-                foreach ($update_subject_marks as $key => $general_select):
+                                            $verify_data = array(
+                                                'exam_id' => $exam_id,
+                                                'class_id' => $class_id,
+                                                'student_id' => $student_id,
+                                                'subject_id' => $class_subject_exam_student['subject_id']
+                                            );
 
-               
-           ?>
+                                            $query = $this->db->get_where('mark', $verify_data);
+                                            $update_subject_marks = $query->result_array();
+
+                                            foreach ($update_subject_marks as $key => $general_select):
+                                                
+                                    ?>
+
 
             <?php
                $this->load->database();
