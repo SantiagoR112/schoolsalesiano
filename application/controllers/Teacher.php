@@ -542,7 +542,20 @@ class Teacher extends CI_Controller {
     }
     /***********  The function that manages school marks ends here ***********************/    
 
-    
+    function periodtime($param1 = null, $param2 = null, $param3 = null){
+
+        if ($param1 == 'insert'){
+
+            $this->crud_model->insert_periodtime();
+            $this->session->set_flashdata('flash_message', get_phrase('Data successfully saved'));
+            redirect(base_url(). 'teacher/periodtime', 'refresh');
+        }
+
+        $page_data['page_name']         = 'periodtime';
+        $page_data['page_title']        = get_phrase('Plazo para modificar notas');
+        $page_data['select_periodtime']   = $this->db->get('periodtime')->result_array();
+        $this->load->view('backend/index', $page_data);
+    }
     
 
 }

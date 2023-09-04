@@ -133,7 +133,13 @@
         </ul>
     </li>
                         
-                                
+        <li class=" <?php if($page_name == 'periodtime')echo 'active';?>">
+                    <a href="<?php echo base_url();?>teacher/periodtime" >
+                    <i class="fa fa-clock-o p-r-10"></i>
+                    <span class="hide-menu"><?php echo get_phrase('Plazos_periodos');?></span>
+                    </a>    
+        </li> 
+
             <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>teacher/manage_profile">
                     <i class="fa fa-gears p-r-10"></i>
