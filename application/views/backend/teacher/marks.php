@@ -106,10 +106,7 @@
         endforeach;?>
 
 
-
-
-
-					
+       					
     <div class="row">
 	<div class="col-sm-12">
 		<div class="panel panel-info">
@@ -345,7 +342,38 @@
 			</div>
         </div>
 	</div>
- </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Reportes');?></div>
+                        <div class="panel-body table-responsive">
+                            <div class="form-group">
+                                <a href="<?php echo base_url();?>teacher/generateStudentReport/<?php echo $student_id;?>/<?php echo $exam_id;?>" 
+                                    class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                                    <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Primer periodo');?>
+                                </a>
+                                <a href="<?php echo base_url();?>teacher/generateStudentReport2/<?php echo $student_id;?>/<?php echo $exam_id;?>" 
+                                    class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                                    <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Segundo periodo');?>
+                                </a>
+                                <a href="<?php echo base_url();?>teacher/generateStudentReport3/<?php echo $student_id;?>/<?php echo $exam_id;?>" 
+                                    class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                                    <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Tercer periodo');?>
+                                </a>
+                                <a href="<?php echo base_url();?>teacher/generateStudentReport4/<?php echo $student_id;?>/<?php echo $exam_id;?>" 
+                                    class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                                    <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Cuarto periodo');?>
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+ 
+
+
+       
 
 <?php endif;?>
 
