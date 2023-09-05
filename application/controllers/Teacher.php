@@ -490,9 +490,27 @@ class Teacher extends CI_Controller {
         // Carga la vista para generar el informe
         $this->load->view('backend/teacher/generate_student_report4', $page_data); // Ajusta la vista según tus necesidades
     }
+
+    public function printResultSheet($student_id, $exam_id)
+    {
+        // Asegúrate de que el maestro esté autenticado y tenga permisos
+        if ($this->session->userdata('teacher_login') != 1) {
+            redirect(base_url(), 'refresh');
+        }
+
+        $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+        $class_name = $this->db->get_where('class', array('class_id' => $class_id))->row()->name;
+
+        $page_data['student_id'] = $student_id;
+        $page_data['class_id'] = $class_id;
+        $page_data['exam_id'] = $exam_id;
+        $page_data['page_name'] = 'printResultSheet'; // Cambia el nombre de la vista según tus necesidades
+        $page_data['page_title'] = get_phrase('print_result_sheet');
+
+        $this->load->view('backend/index', $page_data);
+    }
+
     
-
-
 
     /***********  The function below manages school marks ***********************/
     function student_marksheet_subject ($exam_id = null, $class_id = null, $subject_id = null){

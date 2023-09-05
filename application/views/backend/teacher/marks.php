@@ -365,6 +365,10 @@
                                     class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
                                     <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Cuarto periodo');?>
                                 </a>
+                                <a href="<?php echo base_url();?>teacher/printResultSheet/<?php echo $student_id;?>/<?php echo $exam_id;?>" 
+                                    class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                                    <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte todos los periodos');?>
+                                </a>
                         </div>
                     </div>
                 </div>
