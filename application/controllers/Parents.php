@@ -240,6 +240,270 @@ class Parents extends CI_Controller {
 	}
 	/********** this function load student *******************/
 	
+    public function generateStudentReport($student_id, $exam_id) {
+        // Asegúrate de que el maestro esté autenticado y tenga permisos
+        if ($this->session->userdata('parent_login') != 1) {
+            redirect(base_url(), 'refresh');
+        }
+    
+        // Obtén la información necesaria para el informe
+        $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+        // Consulta para obtener la información del estudiante
+        $student_info = $this->db->get_where('student', array('student_id' => $student_id))->row();
+    
+        // Consulta para obtener la información de las asignaturas del estudiante
+        $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+    
+        // Inicializa variables para calcular el promedio y asignaturas aprobadas/reprobadas
+        $total_class_score = 0;
+        $total_subjects = count($subjects);
+        $passed_subjects = 0;
+        $failed_subjects = 0;
+
+        $student_info->image_url = $this->crud_model->get_image_url('student', $student_id);
+    
+        // Calcular la calificación de cada asignatura
+        foreach ($subjects as &$subject) {
+            $obtained_mark_query = $this->db->get_where('mark', array(
+                'class_id' => $class_id,
+                'exam_id' => $exam_id,
+                'subject_id' => $subject['subject_id'],
+                'student_id' => $student_id
+            ));
+    
+            if ($obtained_mark_query->num_rows() > 0) {
+                $obtained_class_score = $obtained_mark_query->row()->class_score1;
+                $subject['obtained_class_score'] = $obtained_class_score;
+                $total_class_score += $obtained_class_score;
+    
+                if ($obtained_class_score >= 3) {
+                    $passed_subjects++; // Incrementar el contador de asignaturas aprobadas
+                }
+    
+                if ($obtained_class_score < 3) {
+                    $failed_subjects++; // Incrementar el contador de asignaturas reprobadas
+                }
+            }
+        }
+    
+        // Cargar datos relevantes para el informe
+        $page_data['class_id'] = $class_id;
+        $page_data['student_id'] = $student_id;
+        $page_data['exam_id'] = $exam_id;
+        $page_data['student_info'] = $student_info;
+        $page_data['subjects'] = $subjects;
+        $page_data['total_class_score'] = $total_class_score;
+        $page_data['total_subjects'] = $total_subjects;
+        $page_data['passed_subjects'] = $passed_subjects;
+        $page_data['failed_subjects'] = $failed_subjects;
+    
+        // Especifica el nombre de la vista que mostrará el informe
+        $page_data['page_name'] = 'generate_student_report'; // Utiliza un nombre de página diferente si es necesario
+        $page_data['page_title'] = get_phrase('generate_student_report');
+    
+        // Carga la vista para generar el informe
+        $this->load->view('backend/parent/generate_student_report', $page_data); // Ajusta la vista según tus necesidades
+    }
+
+    public function generateStudentReport2($student_id, $exam_id) {
+        // Asegúrate de que el maestro esté autenticado y tenga permisos
+        if ($this->session->userdata('parent_login') != 1) {
+            redirect(base_url(), 'refresh');
+        }
+    
+        // Obtén la información necesaria para el informe
+        $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+        // Consulta para obtener la información del estudiante
+        $student_info = $this->db->get_where('student', array('student_id' => $student_id))->row();
+    
+        // Consulta para obtener la información de las asignaturas del estudiante
+        $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+    
+        // Inicializa variables para calcular el promedio y asignaturas aprobadas/reprobadas
+        $total_class_score = 0;
+        $total_subjects = count($subjects);
+        $passed_subjects = 0;
+        $failed_subjects = 0;
+
+        $student_info->image_url = $this->crud_model->get_image_url('student', $student_id);
+    
+        // Calcular la calificación de cada asignatura
+        foreach ($subjects as &$subject) {
+            $obtained_mark_query = $this->db->get_where('mark', array(
+                'class_id' => $class_id,
+                'exam_id' => $exam_id,
+                'subject_id' => $subject['subject_id'],
+                'student_id' => $student_id
+            ));
+    
+            if ($obtained_mark_query->num_rows() > 0) {
+                $obtained_class_score = $obtained_mark_query->row()->class_score2;
+                $subject['obtained_class_score'] = $obtained_class_score;
+                $total_class_score += $obtained_class_score;
+    
+                if ($obtained_class_score >= 3) {
+                    $passed_subjects++; // Incrementar el contador de asignaturas aprobadas
+                }
+    
+                if ($obtained_class_score < 3) {
+                    $failed_subjects++; // Incrementar el contador de asignaturas reprobadas
+                }
+            }
+        }
+    
+        // Cargar datos relevantes para el informe
+        $page_data['class_id'] = $class_id;
+        $page_data['student_id'] = $student_id;
+        $page_data['exam_id'] = $exam_id;
+        $page_data['student_info'] = $student_info;
+        $page_data['subjects'] = $subjects;
+        $page_data['total_class_score'] = $total_class_score;
+        $page_data['total_subjects'] = $total_subjects;
+        $page_data['passed_subjects'] = $passed_subjects;
+        $page_data['failed_subjects'] = $failed_subjects;
+    
+        // Especifica el nombre de la vista que mostrará el informe
+        $page_data['page_name'] = 'generate_student_report2'; // Utiliza un nombre de página diferente si es necesario
+        $page_data['page_title'] = get_phrase('generate_student_report2');
+    
+        // Carga la vista para generar el informe
+        $this->load->view('backend/parent/generate_student_report2', $page_data); // Ajusta la vista según tus necesidades
+    }
+
+    public function generateStudentReport3($student_id, $exam_id) {
+        // Asegúrate de que el maestro esté autenticado y tenga permisos
+        if ($this->session->userdata('parent_login') != 1) {
+            redirect(base_url(), 'refresh');
+        }
+    
+        // Obtén la información necesaria para el informe
+        $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+        // Consulta para obtener la información del estudiante
+        $student_info = $this->db->get_where('student', array('student_id' => $student_id))->row();
+    
+        // Consulta para obtener la información de las asignaturas del estudiante
+        $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+    
+        // Inicializa variables para calcular el promedio y asignaturas aprobadas/reprobadas
+        $total_class_score = 0;
+        $total_subjects = count($subjects);
+        $passed_subjects = 0;
+        $failed_subjects = 0;
+
+        $student_info->image_url = $this->crud_model->get_image_url('student', $student_id);
+    
+        // Calcular la calificación de cada asignatura
+        foreach ($subjects as &$subject) {
+            $obtained_mark_query = $this->db->get_where('mark', array(
+                'class_id' => $class_id,
+                'exam_id' => $exam_id,
+                'subject_id' => $subject['subject_id'],
+                'student_id' => $student_id
+            ));
+    
+            if ($obtained_mark_query->num_rows() > 0) {
+                $obtained_class_score = $obtained_mark_query->row()->class_score3;
+                $subject['obtained_class_score'] = $obtained_class_score;
+                $total_class_score += $obtained_class_score;
+    
+                if ($obtained_class_score >= 3) {
+                    $passed_subjects++; // Incrementar el contador de asignaturas aprobadas
+                }
+    
+                if ($obtained_class_score < 3) {
+                    $failed_subjects++; // Incrementar el contador de asignaturas reprobadas
+                }
+            }
+        }
+    
+        // Cargar datos relevantes para el informe
+        $page_data['class_id'] = $class_id;
+        $page_data['student_id'] = $student_id;
+        $page_data['exam_id'] = $exam_id;
+        $page_data['student_info'] = $student_info;
+        $page_data['subjects'] = $subjects;
+        $page_data['total_class_score'] = $total_class_score;
+        $page_data['total_subjects'] = $total_subjects;
+        $page_data['passed_subjects'] = $passed_subjects;
+        $page_data['failed_subjects'] = $failed_subjects;
+    
+        // Especifica el nombre de la vista que mostrará el informe
+        $page_data['page_name'] = 'generate_student_report3'; // Utiliza un nombre de página diferente si es necesario
+        $page_data['page_title'] = get_phrase('generate_student_report3');
+    
+        // Carga la vista para generar el informe
+        $this->load->view('backend/parent/generate_student_report3', $page_data); // Ajusta la vista según tus necesidades
+    }
+
+    public function generateStudentReport4($student_id, $exam_id) {
+        // Asegúrate de que el maestro esté autenticado y tenga permisos
+        if ($this->session->userdata('parent_login') != 1) {
+            redirect(base_url(), 'refresh');
+        }
+    
+        // Obtén la información necesaria para el informe
+        $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row()->class_id;
+    
+        // Consulta para obtener la información del estudiante
+        $student_info = $this->db->get_where('student', array('student_id' => $student_id))->row();
+    
+        // Consulta para obtener la información de las asignaturas del estudiante
+        $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+    
+        // Inicializa variables para calcular el promedio y asignaturas aprobadas/reprobadas
+        $total_class_score = 0;
+        $total_subjects = count($subjects);
+        $passed_subjects = 0;
+        $failed_subjects = 0;
+
+        $student_info->image_url = $this->crud_model->get_image_url('student', $student_id);
+    
+        // Calcular la calificación de cada asignatura
+        foreach ($subjects as &$subject) {
+            $obtained_mark_query = $this->db->get_where('mark', array(
+                'class_id' => $class_id,
+                'exam_id' => $exam_id,
+                'subject_id' => $subject['subject_id'],
+                'student_id' => $student_id
+            ));
+    
+            if ($obtained_mark_query->num_rows() > 0) {
+                $obtained_class_score = $obtained_mark_query->row()->exam_score;
+                $subject['obtained_class_score'] = $obtained_class_score;
+                $total_class_score += $obtained_class_score;
+    
+                if ($obtained_class_score >= 3) {
+                    $passed_subjects++; // Incrementar el contador de asignaturas aprobadas
+                }
+    
+                if ($obtained_class_score < 3) {
+                    $failed_subjects++; // Incrementar el contador de asignaturas reprobadas
+                }
+            }
+        }
+    
+        // Cargar datos relevantes para el informe
+        $page_data['class_id'] = $class_id;
+        $page_data['student_id'] = $student_id;
+        $page_data['exam_id'] = $exam_id;
+        $page_data['student_info'] = $student_info;
+        $page_data['subjects'] = $subjects;
+        $page_data['total_class_score'] = $total_class_score;
+        $page_data['total_subjects'] = $total_subjects;
+        $page_data['passed_subjects'] = $passed_subjects;
+        $page_data['failed_subjects'] = $failed_subjects;
+    
+        // Especifica el nombre de la vista que mostrará el informe
+        $page_data['page_name'] = 'generate_student_report4'; // Utiliza un nombre de página diferente si es necesario
+        $page_data['page_title'] = get_phrase('generate_student_report4');
+    
+        // Carga la vista para generar el informe
+        $this->load->view('backend/parent/generate_student_report4', $page_data); // Ajusta la vista según tus necesidades
+    }
+
 	/********************* Print and view tabulation sheet **********************/
 		function printResultSheet($student_id , $exam_id)
 		{
@@ -256,6 +520,9 @@ class Parents extends CI_Controller {
 		$page_data['page_name']  = 'printResultSheet';
 		$page_data['page_title'] = get_phrase('print_result_sheet');
 		$this->load->view('backend/index', $page_data);
+        $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+        $total_subjects = count($subjects);
+
 		}
 		/********************* Print and view tabulation sheet ends here **********************/
 

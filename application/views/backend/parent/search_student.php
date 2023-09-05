@@ -38,7 +38,7 @@
 
 				<input type="hidden" name="operation" value="selection">
 
-<button type="submit" class="btn btn-info btn-sm btn-rounded btn-block"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('get_results');?></button>
+<button type="submit" class="btn btn-info btn-sm btn-rounded btn-block"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('obtener_resultados');?></button>
 <hr>
 <?php echo form_close();?>
 
@@ -203,9 +203,30 @@ foreach ($student_name as $row):
                         <?php endforeach;?>
                     </tbody>
                    </table>
-                  
+                    
+                   <a href="<?php echo base_url();?>parents/generateStudentReport/<?php echo $student_id;?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Primer periodo');?>
+                    </a>
+
+                    <a href="<?php echo base_url();?>parents/generateStudentReport2/<?php echo $student_id;?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Segundo periodo');?>
+                    </a>
+
+                    <a href="<?php echo base_url();?>parents/generateStudentReport3/<?php echo $student_id;?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Tercer periodo');?>
+                    </a>
+
+                    <a href="<?php echo base_url();?>parents/generateStudentReport4/<?php echo $student_id;?>/<?php echo $row2['exam_id'];?>" 
+                        class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Cuarto periodo');?>
+                    </a>
+
+
                     <a href="<?php echo base_url();?>parents/printResultSheet/<?php echo $student_id;?>/<?php echo $row2['exam_id'];?>" 
-                        class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
+                        class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
                         <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('print_report_card');?>
                     </a>
 
@@ -288,7 +309,7 @@ foreach ($student_name as $row):
 
 
 <?php if ($student_id == ''):?>
-				<div class="alert alert-danger" align="center">Select classn and click on browse button to get student result(s)!</div>
+				<div class="alert alert-danger" align="center">Selecciona a tu hijo y luego da clic al boton de obtener resultados</div>
 <?php endif;?>
 </div>
 </div>
