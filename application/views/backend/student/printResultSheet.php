@@ -1,4 +1,3 @@
-
   <div class="row">
   <div class="col-sm-12">
   <div class="panel panel-info"> 
@@ -85,7 +84,6 @@
     <td ><strong>SEGUNDO PERIODO</strong></td>
     <td ><strong>TERCER PERIODO</strong></td>
     <td ><strong>CUARTO PERIODO</strong></td>
-    <td ><strong>TOTAL SCORE</strong></td>
     <td ><strong>NOTA FINAL</strong></td>
     <td ><strong>RESULTADO</strong></td>
     <td ><strong>OBSERVACIONES</strong></td>
@@ -123,7 +121,6 @@
     <td ><?php echo $obtained_class_score2;?></td>
     <td ><?php echo $obtained_class_score3;?></td>
     <td ><?php echo $obtained_marks;?></td>
-    <td ><?php echo ($obtained_marks + $obtained_class_score + $obtained_class_score2 + $obtained_class_score3 + $obtained_class_score4);?></td>
     <td ><?php 
 							$a = $obtained_marks;
 							$b = $obtained_class_score;
@@ -191,13 +188,6 @@
 								<tr>
 									<td>RESUMPTION DATE:</td>
 									<td><div> ________________________ </div></td>
-									<td>OUTSTANDING FEE:</td>
-                                    <?php $select_student_due_payment = $this->db->select_sum('due');
-                                                                        $this->db->from('invoice');
-                                                                        $this->db->where(array('student_id' => $student_id));
-                                                                        $query = $this->db->get();
-                                                                        $display_student_due = $query->row()->due;?>
-									<td><div  style="border-bottom: 1px dotted #D2CBCB"><strong style="color:red"><?php echo $system_currency .' '. $display_student_due;?></strong></div></td>
 								</tr>
 								<tr>
 									<td>FIRMA:</td>
@@ -228,7 +218,7 @@
         var height =  canvas.height / 440 * 80;
         doc.addImage(img,'JPEG',10,0,190,height);
         if (j < (pages.length - 1) ) doc.addPage();
-        if (j == (pages.length - 1) ) {doc.save('Report.pdf');}
+        if (j == (pages.length - 1) ) {doc.save('Reporte_final_<?php echo $student_id ?>.pdf');}
         j++;
         });
     }

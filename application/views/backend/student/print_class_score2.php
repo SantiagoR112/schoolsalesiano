@@ -183,7 +183,7 @@
                 var height = canvas.height / 440 * 80;
                 doc.addImage(img, 'JPEG', 10, 0, 190, height);
                 
-                doc.save('Reporte2periodo.pdf');
+                doc.save('Reporte2periodo_<?php echo $student_id ?>.pdf');
             });
         });
     </script>
