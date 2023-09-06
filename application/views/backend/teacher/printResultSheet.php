@@ -94,6 +94,8 @@
 
                                 <?php
                                 $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
+                                $total_subjects = count($subjects);
+                                $total_final_score = 0; // Inicializa la suma de las notas finales
                                 foreach ($subjects as $row) :
                                 ?>
                                     <tr>
@@ -115,6 +117,8 @@
                                             $total_class_score += $obtained_class_score;
                                             $total_class_score2 += $obtained_class_score2;
                                             $total_class_score3 += $obtained_class_score3;
+                                            $final_score = ($obtained_marks + $obtained_class_score + $obtained_class_score2 + $obtained_class_score3) / 4;
+                                            $total_final_score += $final_score; // Sumar al total de notas finales
                                         }
                                         ?>
                                         <td><?php echo $obtained_class_score; ?></td>
@@ -155,9 +159,16 @@
 							<table width="1000" style="border:1px solid #CCCCCC">
 								<tr>
 									<td>FIRMA:</td>
-									<td><div> ________________________ </div></td>
+									<td><div> _______________ </div></td>
 									<td>FECHA:</td>
                                     <td><div><?php echo date('d/m/Y'); ?></div></td>
+                                    <td>PROMEDIO FINAL:</td>
+                                    <td style="text-align: left;">
+                                        <?php
+                                            $average_final_score = $total_final_score / $total_subjects; // Calcular el promedio de notas finales
+                                            echo number_format($average_final_score, 2); // Mostrar el promedio con dos decimales
+                                        ?>
+                                    </td>
 
   
 								</tr>
