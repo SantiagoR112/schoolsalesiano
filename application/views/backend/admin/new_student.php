@@ -13,6 +13,14 @@
 
 				
                 <?php echo form_open(base_url() . 'admin/new_student/create/' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
+				<div class="form-group">
+                 	<label class="col-md-12" for="example-text">Numero de documento</label>
+                    <div class="col-sm-12">
+							<input type="text" class="form-control" name="student_id" required>
+						</div>
+					</div>
+				
+				
 				<div class="form-group"> 
 					 <div class="col-sm-12">
   		  			  <input type='file' name="userfile" onChange="readURL(this);" style="color:red">
@@ -31,7 +39,7 @@
 						<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('full_name');?></label>
                     <div class="col-sm-12">
-							<input type="text" class="form-control" name="name" required autofocus>
+							<input type="text" class="form-control" name="name" required>
 						</div>
 					</div>
 

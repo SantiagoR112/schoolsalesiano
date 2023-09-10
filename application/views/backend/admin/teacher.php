@@ -12,7 +12,14 @@
 								 <?php echo form_open(base_url() . 'admin/teacher/insert/' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 					<div class="row">
                     <div class="col-sm-6">
-	
+
+                    <div class="form-group">
+                 	<label class="col-md-12" for="example-text">Numero de documento</label>
+                    <div class="col-sm-12">
+							<input type="text" class="form-control" name="teacher_id" value="" required autofocus>
+						</div> 
+					</div>
+
 					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
                     <div class="col-sm-12">
@@ -295,6 +302,7 @@
                                 <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th><div><?php echo get_phrase('N. de identificacion');?></div></th>
                             <th width="80"><div><?php echo get_phrase('photo');?></div></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
                             <th><div><?php echo get_phrase('role');?></div></th>
@@ -307,6 +315,7 @@
                     <tbody>
         <?php foreach($select_teacher as $key => $teacher){ ?>
                         <tr>
+                            <td><?php echo $teacher['teacher_id'];?></td>
                             <td><img src="<?php echo $this->crud_model->get_image_url('teacher', $teacher['teacher_id']);?>" class="img-circle" width="30px"></td>
                             <td><?php echo $teacher['name'];?></td>
                             <td>

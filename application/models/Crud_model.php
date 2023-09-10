@@ -304,6 +304,8 @@ class Crud_model extends CI_Model {
     function insert_parent(){
 
         $page_data = array(
+
+            'parent_id' => $this->input->post('parent_id'),
             'name' => $this->input->post('name'),
             'email' => $this->input->post('email'),
 			'password' => sha1($this->input->post('password')),

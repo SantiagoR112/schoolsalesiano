@@ -9,11 +9,18 @@
 
 <?php echo form_open(base_url().'admin/parent/insert', array('class' => 'form-horizontal form-groups-bordered validate', 'enctype'=>'multipart/form-data'));?>
 
+                    <div class="form-group">
+                 	    <label class="col-md-12" for="example-text">Numero de documento</label>
+                        <div class="col-sm-12">
+                            <input type="text" name="parent_id" class="form-control" required autofocus>
+                        </div>
+                    </div>
+
 
  					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Name');?></label>
                     <div class="col-sm-12">
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" required>
                         </div>
                     </div>
 					
@@ -21,7 +28,7 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Email');?></label>
                     <div class="col-sm-12">
 
-                            <input type="email" name="email" class="form-control" >
+                            <input type="email" name="email" class="form-control" required>
                         </div>
                     </div>
 
@@ -29,7 +36,7 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Phone');?></label>
                     <div class="col-sm-12">
 
-                            <input type="text" name="phone" class="form-control" >
+                            <input type="text" name="phone" class="form-control" required>
                         </div>
                     </div>
 
@@ -47,16 +54,16 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Address');?></label>
                     <div class="col-sm-12">
 
-                            <textarea class="form-control" name="address"></textarea>
+                            <textarea class="form-control" name="address" required></textarea>
                            
                         </div>
                     </div>
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Password');?></label>
-                    <div class="col-sm-12">
-
-                            <input type="password" name="password" class="form-control" >
+                        <label class="col-md-12" for="example-text"><?php echo get_phrase ('Password');?></label>
+                        <div class="col-sm-12">
+                                <input type="password" name="password" class="form-control" onkeyup="CheckPasswordStrength(this.value)" required>
+                                <strong id="password_strength"></strong>
                         </div>
                     </div>
 		
@@ -83,7 +90,7 @@
 
                                  <thead>
                         <tr>
-                            <th>#</th>
+                            <th><?php echo get_phrase('Numero de documento');?></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
                             <th><div><?php echo get_phrase('phone');?></div></th>
@@ -99,7 +106,7 @@
 
         			
             <tr>
-            <td><?php echo $count++;?></td>
+            <td><?php echo $parent ['parent_id'];?></td>
             <td><?php echo $parent ['name'];?></td>
             <td><?php echo $parent ['email'];?></td>
             <td><?php echo $parent ['phone'];?></td>
@@ -119,3 +126,61 @@
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+    function CheckPasswordStrength(password) {
+        var password_strength = document.getElementById("password_strength");
+
+            //TextBox left blank.
+            if (password.length == 0) {
+                password_strength.innerHTML = "";
+                return;
+            }
+
+            //Regular Expressions.
+            var regex = new Array();
+            regex.push("[A-Z]"); //Uppercase Alphabet.
+            regex.push("[a-z]"); //Lowercase Alphabet.
+            regex.push("[0-9]"); //Digit.
+            regex.push("[$@$!%*#?&]"); //Special Character.
+
+            var passed = 0;
+
+            //Validate for each Regular Expression.
+            for (var i = 0; i < regex.length; i++) {
+                if (new RegExp(regex[i]).test(password)) {
+                    passed++;
+                }
+            }
+
+            //Display status.
+            var color = "";
+            var strength = "";
+            switch (passed) {
+                case 0:
+                case 1:
+                case 2:
+                    strength = "Weak";
+                    color = "red";
+                    break;
+                case 3:
+                    strength = "Medium";
+                    color = "orange";
+                    break;
+                case 4:
+                    strength = "Strong";
+                    color = "green";
+                    break;
+                
+            }
+            password_strength.innerHTML = strength;
+            password_strength.style.color = color;
+
+    if(passed <= 2){
+            document.getElementById('show').disabled = true;
+            }else{
+                document.getElementById('show').disabled = false;
+            }
+
+        }
+</script>

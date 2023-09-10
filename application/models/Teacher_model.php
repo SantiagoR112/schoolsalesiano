@@ -22,6 +22,7 @@ class Teacher_model extends CI_Model {
 
 
         $teacher_array = array(
+            'teacher_id'            => $this->input->post('teacher_id'),
             'name'                  => $this->input->post('name'),
             'role'                  => $this->input->post('role'),
 			'teacher_number'        => $this->input->post('teacher_number'),
