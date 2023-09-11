@@ -73,8 +73,7 @@ class Student_model extends CI_Model {
     //  the function below insert into student table
     function createNewStudent(){
 
-        $page_data = array(
-            'student_id'    => html_escape($this->input->post('student_id')),
+        $student_array = array(
             'name'          => html_escape($this->input->post('name')),
             'birthday'      => html_escape($this->input->post('birthday')),
             'age'           => html_escape($this->input->post('age')),
@@ -88,7 +87,6 @@ class Student_model extends CI_Model {
             'state'         => html_escape($this->input->post('state')),
             'nationality'   => html_escape($this->input->post('nationality')),
             'phone'         => html_escape($this->input->post('phone')),
-            'email'         => html_escape($this->input->post('email')),
             'ps_attended'   => html_escape($this->input->post('ps_attended')),
             'ps_address'    => html_escape($this->input->post('ps_address')),
             'ps_purpose'    => html_escape($this->input->post('ps_purpose')),
@@ -111,11 +109,29 @@ class Student_model extends CI_Model {
             'club_id'             => html_escape($this->input->post('club_id')),
             'session'             => html_escape($this->input->post('session'))
         );
+
+        $student_array['email'] = $this->input->post('email');
+        $student_array['student_id'] = $this->input->post('student_id');
+        $existing_student = $this->db->get_where('student', array('student_id' => $student_array['student_id']))->row()->student_id;
+        $check_email = $this->db->get_where('student', array('email' => $student_array['email']))->row()->email;	// checking if email exists in database
+        if($check_email != null) 
+        {
+            $this->session->set_flashdata('error_message', get_phrase('el email ya esta registrado'));
+            redirect(base_url(). 'admin/student_information', 'refresh');
+        }
+        elseif ($existing_student) {
+            $this->session->set_flashdata('error_message', 'El numero de documento ya esta registrado');
+            redirect(base_url(). 'admin/student_information', 'refresh');
+        }
+        else
+        {
+            $this->db->insert('student', $student_array);
+            $student_id = $this->db->insert_id();
+            move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');			// image with user ID
+        }
         
   
-    $this->db->insert('student', $page_data);
-    $student_id = $this->db->insert_id();
-    move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');			// image with user ID
+    
 
     }
 

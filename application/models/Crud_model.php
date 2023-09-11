@@ -303,18 +303,31 @@ class Crud_model extends CI_Model {
 
     function insert_parent(){
 
-        $page_data = array(
+        $parent_array = array(
 
-            'parent_id' => $this->input->post('parent_id'),
             'name' => $this->input->post('name'),
-            'email' => $this->input->post('email'),
 			'password' => sha1($this->input->post('password')),
 			'phone' => $this->input->post('phone'),
         	'address' => $this->input->post('address'),
         	'profession' => $this->input->post('profession')
 			);
 
-        $this->db->insert('parent', $page_data);
+        $parent_array['email'] = $this->input->post('email');
+        $parent_array['parent_id'] = $this->input->post('parent_id');
+        $existing_parent = $this->db->get_where('parent', array('parent_id' => $parent_array['parent_id']))->row()->parent_id;
+        $check_email = $this->db->get_where('parent', array('email' => $parent_array['email']))->row()->email;	// checking if email exists in database
+        if($check_email != null) 
+        {
+            $this->session->set_flashdata('error_message', get_phrase('el email ya esta registrado'));
+            redirect(base_url(). 'admin/parent', 'refresh');
+        }
+        elseif ($existing_parent) {
+            $this->session->set_flashdata('error_message', 'El numero de documento ya esta registrado');
+            redirect(base_url(). 'admin/parent', 'refresh');
+        }
+        else {
+            $this->db->insert('parent', $parent_array);
+        }    
     }
 
 

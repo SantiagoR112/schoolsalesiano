@@ -22,7 +22,6 @@ class Teacher_model extends CI_Model {
 
 
         $teacher_array = array(
-            'teacher_id'            => $this->input->post('teacher_id'),
             'name'                  => $this->input->post('name'),
             'role'                  => $this->input->post('role'),
 			'teacher_number'        => $this->input->post('teacher_number'),
@@ -49,12 +48,18 @@ class Teacher_model extends CI_Model {
         
             $teacher_array['file_name'] = $_FILES["file_name"]["name"];
             $teacher_array['email'] = $this->input->post('email');
+            $teacher_array['teacher_id'] = $this->input->post('teacher_id');
             $teacher_array['bank_id'] = $bank_id;
+            $existing_teacher = $this->db->get_where('teacher', array('teacher_id' => $teacher_array['teacher_id']))->row()->teacher_id;
             $check_email = $this->db->get_where('teacher', array('email' => $teacher_array['email']))->row()->email;	// checking if email exists in database
             if($check_email != null) 
             {
             $this->session->set_flashdata('error_message', get_phrase('email_already_exist'));
             redirect(base_url() . 'admin/teacher/', 'refresh');
+            }
+            elseif ($existing_teacher) {
+                $this->session->set_flashdata('error_message', 'El numero de documento ya existe');
+                redirect(base_url() . 'admin/teacher/', 'refresh');
             }
             else
             {
@@ -64,6 +69,9 @@ class Teacher_model extends CI_Model {
                 move_uploaded_file($_FILES["file_name"]["tmp_name"], "uploads/teacher_image/" . $_FILES["file_name"]["name"]);	// upload files
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $teacher_id . '.jpg');			// image with user ID
             }
+
+            // Después de realizar la inserción con éxito, elimina el flashdata de error
+            $this->session->unset_userdata('error_message');
 
     }
 
