@@ -54,11 +54,11 @@ class Teacher_model extends CI_Model {
             $check_email = $this->db->get_where('teacher', array('email' => $teacher_array['email']))->row()->email;	// checking if email exists in database
             if($check_email != null) 
             {
-            $this->session->set_flashdata('error_message', get_phrase('email_already_exist'));
+            $this->session->set_flashdata('error_message', get_phrase('el email ya esta registrado'));
             redirect(base_url() . 'admin/teacher/', 'refresh');
             }
             elseif ($existing_teacher) {
-                $this->session->set_flashdata('error_message', 'El numero de documento ya existe');
+                $this->session->set_flashdata('error_message', 'El numero de documento ya esta registrado');
                 redirect(base_url() . 'admin/teacher/', 'refresh');
             }
             else
@@ -70,36 +70,51 @@ class Teacher_model extends CI_Model {
                 move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $teacher_id . '.jpg');			// image with user ID
             }
 
-            // Después de realizar la inserción con éxito, elimina el flashdata de error
-            $this->session->unset_userdata('error_message');
-
     }
 
 
-    function updateTeacherFunction($param2){
-
+    function updateTeacherFunction($param2) {
+        $new_email = $this->input->post('email');
+        
+        // Obtener el correo electrónico actual del maestro
+        $current_email = $this->db->get_where('teacher', array('teacher_id' => $param2))->row()->email;
+    
+        // Verificar si el nuevo correo electrónico es diferente al actual
+        if ($new_email !== $current_email) {
+            // Verificar si el nuevo correo electrónico ya existe en la tabla
+            $existing_teacher = $this->db->get_where('teacher', array('email' => $new_email))->row();
+    
+            if ($existing_teacher) {
+                // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
+                $this->session->set_flashdata('error_message', 'El correo electrónico ya esta registrado');
+                redirect(base_url() . 'admin/teacher/', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
+            }
+        }
+    
+        // Los datos de maestro se actualizarán solo si no hay problemas de correo electrónico duplicado
         $teacher_data = array(
-            'name'                  => $this->input->post('name'),
-            'role'                  => $this->input->post('role'),
-			'birthday'              => $this->input->post('birthday'),
-        	'sex'                   => $this->input->post('sex'),
-            'religion'              => $this->input->post('religion'),
-            'blood_group'           => $this->input->post('blood_group'),
-            'address'               => $this->input->post('address'),
-            'phone'                 => $this->input->post('phone'),
-            'email'                 => $this->input->post('email'),
-			'facebook'              => $this->input->post('facebook'),
-        	'twitter'               => $this->input->post('twitter'),
-            'googleplus'            => $this->input->post('googleplus'),
-            'linkedin'              => $this->input->post('linkedin'),
-            'qualification'         => $this->input->post('qualification'),
-			'marital_status'        => $this->input->post('marital_status')
-            );
-
-            $this->db->where('teacher_id', $param2);
-            $this->db->update('teacher', $teacher_data);
-            move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $param2 . '.jpg'); 			// image with user ID
+            'name' => $this->input->post('name'),
+            'role' => $this->input->post('role'),
+            'birthday' => $this->input->post('birthday'),
+            'sex' => $this->input->post('sex'),
+            'religion' => $this->input->post('religion'),
+            'blood_group' => $this->input->post('blood_group'),
+            'address' => $this->input->post('address'),
+            'phone' => $this->input->post('phone'),
+            'email' => $new_email, // Usar el nuevo correo electrónico aquí
+            'facebook' => $this->input->post('facebook'),
+            'twitter' => $this->input->post('twitter'),
+            'googleplus' => $this->input->post('googleplus'),
+            'linkedin' => $this->input->post('linkedin'),
+            'qualification' => $this->input->post('qualification'),
+            'marital_status' => $this->input->post('marital_status')
+        );
+    
+        $this->db->where('teacher_id', $param2);
+        $this->db->update('teacher', $teacher_data);
+        move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/teacher_image/' . $param2 . '.jpg'); // imagen con ID de usuario
     }
+    
 
 
     function deleteTeacherFunction($param2){

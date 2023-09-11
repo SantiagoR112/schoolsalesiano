@@ -138,7 +138,27 @@ class Student_model extends CI_Model {
 
     //the function below update student
     function updateNewStudent($param2){
-        $page_data = array(
+
+        $new_email = $this->input->post('email');
+        
+        // Obtener el correo electrónico actual del maestro
+        $current_email = $this->db->get_where('student', array('student_id' => $param2))->row()->email;
+    
+        // Verificar si el nuevo correo electrónico es diferente al actual
+        if ($new_email !== $current_email) {
+            // Verificar si el nuevo correo electrónico ya existe en la tabla
+            $existing_student = $this->db->get_where('student', array('email' => $new_email))->row();
+    
+            if ($existing_student) {
+                // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
+                $this->session->set_flashdata('error_message', 'El correo electrónico ya esta registrado');
+                redirect(base_url() . 'admin/student_information', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
+            }
+        }
+
+
+        // Los datos de estudiante se actualizarán solo si no hay problemas de correo electrónico duplicado
+        $student_data = array(
             'name'          => html_escape($this->input->post('name')),
             'birthday'      => html_escape($this->input->post('birthday')),
             'age'           => html_escape($this->input->post('age')),
@@ -152,7 +172,7 @@ class Student_model extends CI_Model {
             'state'         => html_escape($this->input->post('state')),
             'nationality'   => html_escape($this->input->post('nationality')),
             'phone'         => html_escape($this->input->post('phone')),
-            'email'         => html_escape($this->input->post('email')),
+            'email' => $new_email, // Usar el nuevo correo electrónico aquí
             'ps_attended'   => html_escape($this->input->post('ps_attended')),
             'ps_address'    => html_escape($this->input->post('ps_address')),
             'ps_purpose'    => html_escape($this->input->post('ps_purpose')),
@@ -173,7 +193,7 @@ class Student_model extends CI_Model {
             'club_id'             => html_escape($this->input->post('club_id'))
 	    );
         $this->db->where('student_id', $param2);
-        $this->db->update('student', $page_data);
+        $this->db->update('student', $student_data);
         move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $param2 . '.jpg');
 
     }

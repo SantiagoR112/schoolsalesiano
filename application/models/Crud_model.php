@@ -332,16 +332,36 @@ class Crud_model extends CI_Model {
 
 
     function update_parent($param2){
-        $page_data = array(
+
+        $new_email = $this->input->post('email');
+        
+        // Obtener el correo electrónico actual del maestro
+        $current_email = $this->db->get_where('parent', array('parent_id' => $param2))->row()->email;
+    
+        // Verificar si el nuevo correo electrónico es diferente al actual
+        if ($new_email !== $current_email) {
+            // Verificar si el nuevo correo electrónico ya existe en la tabla
+            $existing_parent = $this->db->get_where('parent', array('email' => $new_email))->row();
+    
+            if ($existing_parent) {
+                // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
+                $this->session->set_flashdata('error_message', 'El correo electrónico ya esta registrado');
+                redirect(base_url() . 'admin/parent', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
+            }
+        }
+
+
+        // Los datos del acudiente se actualizarán solo si no hay problemas de correo electrónico duplicado
+        $parent_data = array(
             'name' => $this->input->post('name'),
-            'email' => $this->input->post('email'),
+            'email' => $new_email, // Usar el nuevo correo electrónico aquí
 			'phone' => $this->input->post('phone'),
         	'address' => $this->input->post('address'),
         	'profession' => $this->input->post('profession')
 			);
 
         $this->db->where('parent_id', $param2);
-        $this->db->update('parent', $page_data);
+        $this->db->update('parent', $parent_data);
     }
 
     function delete_parent($param2){
