@@ -42,10 +42,10 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('birthday');?></label>
-                    <div class="col-sm-12">
-		<input class="form-control m-r-10" name="birthday" type="date" value="2018-08-19" id="example-date-input" required>
-						</div> 
+                        <label class="col-md-12" for="example-text"><?php echo get_phrase('birthday');?></label>
+                        <div class="col-sm-12">
+                            <input class="form-control m-r-10" name="birthday" type="date" value="2000-08-19" id="example-date-input" max="<?php echo date('Y-m-d', strtotime('-18 years'));?>" required>
+                        </div> 
 					</div>
 					
 						<div class="form-group">

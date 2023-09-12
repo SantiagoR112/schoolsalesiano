@@ -489,15 +489,20 @@ if(passed <= 2){
 </script>
 
 <script type="text/javascript">
-        $(function() {
-            $('input[name="birthday"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true
-            }, 
-            function(start, end, label) {
-                var years = moment().diff(start, 'years');
-               // alert("You are " + years + " years old.");
+    $(function() {
+        $('input[name="birthday"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            maxDate: moment().subtract(5, 'years') // Restricción de fecha máxima a 5 años antes de la fecha actual
+        }, 
+        function(start, end, label) {
+            var years = moment().diff(start, 'years');
+            if (years < 5) {
+                alert("Debe tener al menos 5 años de edad.");
+                // Puedes agregar más lógica aquí para manejar la restricción
+            } else {
                 $("#age").val(years);
-            });
+            }
         });
+    });
 </script>

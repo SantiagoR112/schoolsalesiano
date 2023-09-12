@@ -32,12 +32,12 @@ foreach ( $edit_teacher as $key => $row):
 						</div> 
 					</div>
 					
-					  <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('birthday');?></label>
-                    <div class="col-sm-12">
-                                    <input type="text" class="datepicker form-control" name="birthday" value="<?php echo $row['birthday'];?>"/>
-                                </div>
+					    <div class="form-group">
+                            <label class="col-md-12" for="example-text"><?php echo get_phrase('birthday');?></label>
+                            <div class="col-sm-12">
+                                <input type="date" class="datepicker form-control" name="birthday" value="<?php echo $row['birthday'];?>" max="<?php echo date('Y-m-d', strtotime('-18 years'));?>" />
                             </div>
+                        </div>
 							
 							
                            <div class="form-group">
