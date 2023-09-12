@@ -95,8 +95,20 @@
                 $verify_data = array('exam_id' => $exam_id, 'class_id' => $class_id, 'subject_id' => $subject_id, 'student_id' => $student_selected_with_class['student_id']);
                 $query = $this->db->get_where('mark', $verify_data);
 
-                if($query->num_rows() < 1)
+                if($query->num_rows() < 1) {
                     $this->db->insert('mark', $verify_data);
+                }
+                else {
+                    // Calcular el promedio de las 4 notas
+                    $marks = $query->result_array();
+                    $total_marks = 0;
+            
+                    foreach ($marks as $mark) {
+                        $total_marks += $mark['mark_obtained'];
+                    }
+            
+                    $average_mark = $total_marks / count($marks);
+                }
             endforeach;?>
 
 
@@ -116,6 +128,7 @@
 										<td><?php echo get_phrase('Tercer periodo');?></td>
 										<td><?php echo get_phrase('Cuarto periodo');?></td>
 										<td><?php echo get_phrase('Observaciones');?></td>
+                                        <td><?php echo get_phrase('Definitiva');?></td>
 									</tr>
 								</thead>
                     				<tbody>
@@ -301,6 +314,19 @@
 											<td>
 												<textarea name="comment_<?php echo $student_selected_with_class['student_id'];?>" class="form-control"><?php echo $general_select['comment'];?></textarea>
 											</td>
+                                            <td>
+                                                <?php
+                                                    // Calcular el promedio de las 4 notas
+                                                    $total_marks = (
+                                                        $general_select['class_score1'] + 
+                                                        $general_select['class_score2'] + 
+                                                        $general_select['class_score3'] + 
+                                                        $general_select['exam_score']
+                                                    );
+                                                    $average_mark = $total_marks / 4;
+                                                    echo number_format($average_mark, 1); // Mostrar el promedio con dos decimales
+                                                ?>
+                                            </td>
 												<input type="hidden" name="mark_id_<?php echo $student_selected_with_class['student_id'] ;?>" value="<?php echo $general_select['mark_id'];?>" />
 												
 												<input type="hidden" name="exam_id" value="<?php echo $exam_id;?>" />

@@ -115,20 +115,18 @@
                     <li class="<?php if ($page_name == 'marks') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>teacher/marks">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                           <span class="hide-menu"><?php echo get_phrase('class_teacher'); ?></span>
+                           <span class="hide-menu"><?php echo get_phrase('Generar_Reportes'); ?></span>
                         </a>
                     </li>
         <?php endif;?>
         
-        <?php $select_role = $this->db->get_where('teacher', array('teacher_id' => $this->session->userdata('teacher_id')))->row()->role;?>
-        <?php if($select_role == '2'):?>
+        
                     <li class="<?php if ($page_name == 'student_marksheet_subject') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>teacher/student_marksheet_subject">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                           <span class="hide-menu"><?php echo get_phrase('subject_teacher'); ?></span>
+                           <span class="hide-menu"><?php echo get_phrase('Registro_notas'); ?></span>
                         </a>
                     </li>
-        <?php endif;?>
      
         </ul>
     </li>
