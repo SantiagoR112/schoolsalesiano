@@ -323,7 +323,7 @@ class Student extends CI_Controller {
 			$student_name = $this->db->get_where('student' , array('student_id' => $student_id))->row()->name;
 			$class_name   = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;
 			$page_data['page_name']  =   'student_marksheet';
-			$page_data['page_title'] =   get_phrase('marksheet_for') . ' ' . $student_name . ' (' . get_phrase('class') . ' ' . $class_name . ')';
+			$page_data['page_title'] =   get_phrase('Calificaciones_de') . ' ' . $student_name . ' (' . get_phrase('clase') . ' ' . $class_name . ')';
 			$page_data['student_id'] =   $student_id;
 			$page_data['class_id']   =   $class_id;
 			$this->load->view('backend/index', $page_data);

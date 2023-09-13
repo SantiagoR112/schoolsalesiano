@@ -54,7 +54,7 @@
  <table width="1000" border="1">
 
   <tr>
-    <td>TERM FOR:</td>
+    <td>CALENDARIO:</td>
     <td><?php $section_name = $this->db->get_where('section' , array('class_id' => $class_id))->row()->name; echo $section_name;?></td>
     <td>AÑO ACADEMICO:</td>
     <td><?php echo $this->db->get_where('settings' , array('type' =>'session'))->row()->description;?></td>
@@ -79,18 +79,20 @@
 <br />
  <table width="1000" style="border:1px solid #CCCCCC">
   <tr style="background:#CCCCCC">
-   <td ><strong>STUDENT SUBJECTS:</strong></td>
+   <td ><strong>ASIGNATURA:</strong></td>
     <td ><strong>PRIMER PERIODO</strong></td>
     <td ><strong>SEGUNDO PERIODO</strong></td>
     <td ><strong>TERCER PERIODO</strong></td>
     <td ><strong>CUARTO PERIODO</strong></td>
     <td ><strong>NOTA FINAL</strong></td>
-    <td ><strong>RESULTADO</strong></td>
+    <td ><strong>ESCALA</strong></td>
     <td ><strong>OBSERVACIONES</strong></td>
   </tr>
   
    						<?php
                         $subjects = $this->db->get_where('subject' , array('class_id' => $class_id))->result_array();
+                        $total_subjects = count($subjects);
+                        $total_final_score = 0; // Inicializa la suma de las notas finales
                         foreach($subjects as $row):
                     	?>
   <tr>
@@ -113,6 +115,8 @@
                                 $total_class_score += $obtained_class_score;
                                 $total_class_score2 += $obtained_class_score2;
                                 $total_class_score3 += $obtained_class_score3;
+                                $final_score = ($obtained_marks + $obtained_class_score + $obtained_class_score2 + $obtained_class_score3) / 4;
+                                $total_final_score += $final_score; // Sumar al total de notas finales
                                
                                
                             }
@@ -130,15 +134,22 @@
 							$sum = $a + $b + $c + $d;
 							$average = $sum/4;
 							
-							echo $average; 
+							echo number_format($average,1); 
 							?></td>
-                            <td ><?php if ($average < "3"):?>
-								<p style="color:red"><?php echo 'Reprobado';?></p>
-								<?php endif;?>
-								
-								<?php if ($average >= "3"):?>
-								<p style="color:green"><?php echo 'Aprobado';?></p>
-								<?php endif;?>
+                            <td>
+                                <?php if ($average >= 1 && $average <= 2.9) : ?>
+                                    <p style="color:red"><?php echo 'Bajo'; ?></p>
+                                <?php endif; ?>
+                                <?php if ($average >= 3 && $average <= 3.9) : ?>
+                                    <p style="color:green"><?php echo 'Basico'; ?></p>
+                                <?php endif; ?>
+                                <?php if ($average >= 4 && $average <= 4.4) : ?>
+                                    <p style="color:green"><?php echo 'Alto'; ?></p>
+                                <?php endif; ?>
+                                <?php if ($average >= 4.5 && $average <= 5) : ?>
+                                    <p style="color:green"><?php echo 'Superior'; ?></p>
+                                <?php endif; ?>                                           
+                            </td>
 	
 
     <td ><?php echo $comment; ?></td>
@@ -154,46 +165,20 @@
                                 </table>
 						    <br>
 						
-						
-                                <table width="1000" style="border:1px solid #CCCCCC">
-                                    <tr>
-                                        <td width="150">NUMERO EN LISTA:</td>
-                                        <?php $number_in_class =  $this->db->get_where('student', array('class_id' =>$class_id))->num_rows();?>
-                                        <td align="center"><div  style="border-bottom: 1px dotted #D2CBCB"><?php echo $number_in_class;?></div></td>
-                                        <td>CLASS POSITION:</td>
-                                        <td align="center"><div  style="border-bottom: 1px dotted #D2CBCB">&nbsp;</div></td>
-                                    </tr>
-                                </table>
-                    
-                                <table width="1000" style="border:1px solid #CCCCCC">
-                                    <tr>
-                                        <td>CLASS TEACHER'S COMMENT:</td>
-                                        <td><div  style="border-bottom: 1px dotted #D2CBCB">&nbsp;</div></td>
-                                    </tr>
-                                </table>
-                            
-                            
-                    
-                                <table width="1000" style="border:1px solid #CCCCCC">
-                                    <tr>
-                                        <td>HEAD TEACHER'S COMMENT:</td>
-                                        <td><div style="border:1 px solid">&nbsp;</div></td>
-                        
-                                    </tr>
-                                </table>
-						
-						
-						
+					
 							<table width="1000" style="border:1px solid #CCCCCC">
-								<tr>
-									<td>RESUMPTION DATE:</td>
-									<td><div> ________________________ </div></td>
-								</tr>
 								<tr>
 									<td>FIRMA:</td>
 									<td><div> ________________________ </div></td>
 									<td>FECHA:</td>
                                     <td><div><?php echo date('d/m/Y'); ?></div></td>
+                                    <td>PROMEDIO FINAL:</td>
+                                    <td style="text-align: left;">
+                                        <?php
+                                            $average_final_score = $total_final_score / $total_subjects; // Calcular el promedio de notas finales
+                                            echo number_format($average_final_score, 1); // Mostrar el promedio con dos decimales
+                                        ?>
+                                    </td>
 
   
 								</tr>

@@ -88,7 +88,7 @@
                                     <td><strong>TERCER PERIODO</strong></td>
                                     <td><strong>CUARTO PERIODO</strong></td>
                                     <td><strong>NOTA FINAL</strong></td>
-                                    <td><strong>RESULTADO</strong></td>
+                                    <td><strong>ESCALA</strong></td>
                                     <td><strong>OBSERVACIONES</strong></td>
                                 </tr>
 
@@ -134,15 +134,22 @@
                                             $sum = $a + $b + $c + $d;
                                             $average = $sum / 4;
 
-                                            echo $average;
+                                            echo number_format($average,1);
                                             ?></td>
-                                        <td><?php if ($average < "3") : ?>
-                                                <p style="color:red"><?php echo 'Reprobado'; ?></p>
+                                        <td>
+                                            <?php if ($average >= 1 && $average <= 2.9) : ?>
+                                                <p style="color:red"><?php echo 'Bajo'; ?></p>
                                             <?php endif; ?>
-
-                                            <?php if ($average >= "3") : ?>
-                                                <p style="color:green"><?php echo 'Aprobado'; ?></p>
-                                            <?php endif; ?></td>
+                                            <?php if ($average >= 3 && $average <= 3.9) : ?>
+                                                <p style="color:green"><?php echo 'Basico'; ?></p>
+                                            <?php endif; ?>
+                                            <?php if ($average >= 4 && $average <= 4.4) : ?>
+                                                <p style="color:green"><?php echo 'Alto'; ?></p>
+                                            <?php endif; ?>
+                                            <?php if ($average >= 4.5 && $average <= 5) : ?>
+                                                <p style="color:green"><?php echo 'Superior'; ?></p>
+                                            <?php endif; ?>                                           
+                                        </td>
 
                                         <td><?php echo $comment; ?></td>
                                     </tr>
@@ -166,7 +173,7 @@
                                     <td style="text-align: left;">
                                         <?php
                                             $average_final_score = $total_final_score / $total_subjects; // Calcular el promedio de notas finales
-                                            echo number_format($average_final_score, 2); // Mostrar el promedio con dos decimales
+                                            echo number_format($average_final_score, 1); // Mostrar el promedio con dos decimales
                                         ?>
                                     </td>
 

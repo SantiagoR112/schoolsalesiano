@@ -70,13 +70,31 @@
                                         <tr>
                                             <th style="background-color: #17ABCC; color: white;">Asignaturas</th>
                                             <th style="background-color: #17ABCC; color: white;">Calificacion</th>
+                                            <th style="background-color: #17ABCC; color: white;">Escala</th> <!-- Columna para la escala -->
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        // Función para obtener la escala según la calificación
+                                        function obtenerEscala($calificacion) {
+                                            if ($calificacion >= 1 && $calificacion <= 2.9) {
+                                                return "Bajo";
+                                            } else if ($calificacion >= 3 && $calificacion <= 3.9) {
+                                                return "Básico";
+                                            } else if ($calificacion >= 4 && $calificacion <= 4.4) {
+                                                return "Alto";
+                                            } else if ($calificacion >= 4.5 && $calificacion <= 5) {
+                                                return "Superior";
+                                            } else {
+                                                return ""; // Maneja otros casos si es necesario
+                                            }
+                                        }
+                                        ?>
                                         <?php foreach ($subjects as $row): ?>
                                             <tr>
                                                 <td><?php echo $row['name']; ?></td>
                                                 <td class="<?php echo ($row['obtained_class_score'] >= 3) ? 'text-success' : 'text-danger'; ?>"><?php echo $row['obtained_class_score']; ?></td>
+                                                <td><?php echo obtenerEscala($row['obtained_class_score']); ?></td> <!-- Llama a la función obtenerEscala() -->
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -100,7 +118,7 @@
                                         </tr>
                                         <tr>
                                             <td style="background-color: #17ABCC; color: white;">Promedio del periodo:</td>
-                                            <td><?php echo ($total_subjects > 0) ? round($total_class_score / $total_subjects, 2) : 0; ?></td>
+                                            <td><?php echo ($total_subjects > 0) ? round($total_class_score / $total_subjects, 1) : 0; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>

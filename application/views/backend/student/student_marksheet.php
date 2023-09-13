@@ -31,8 +31,7 @@
                             <td style="text-align: center;">SEGUNDO PERIODO</td>
 							<td style="text-align: center;">TERCER PERIODO</td>
                             <td style="text-align: center;">CUARTO PERIODO</td>
-                            <td style="text-align: center;">TOTAL SCORE</td>
-                            <td style="text-align: center;">PROMEDIO</td>
+                            <td style="text-align: center;">DEFINITIVA</td>
                             <td style="text-align: center;">OBSERVACIONES</td>
                         </tr>
                     </thead>
@@ -129,9 +128,6 @@
 								</td>
                                
                                 <td style="text-align: center;">
-                          <?php echo ($obtained_class_score + $obtained_class_score2 + $obtained_class_score3 + $obtained_exam_score);?>
-                                </td>
-                                <td style="text-align: center;">
                                     
 									<?php 
 							$a = $obtained_class_score;
@@ -142,7 +138,7 @@
 							$sum = $a + $b + $c + $d;
 							$average = $sum/4;
 							
-							echo $average; 
+							echo number_format($average,1); 
 							?>
                                 </td>
                                 <td style="text-align: center;"><?php echo $row4['comment'];?></td>
@@ -153,7 +149,7 @@
                   
                     <a href="<?php echo base_url();?>student/printResultSheet/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
                         class="btn btn-info btn-rounded btn-sm pull-right" style="color:white">
-                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte todos los periodos');?>
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte final');?>
                     </a>
 
                     <a href="<?php echo base_url();?>student/printClassScore4/<?php echo $this->session->userdata('login_user_id');?>/<?php echo $row2['exam_id'];?>" 
@@ -208,13 +204,13 @@
                                 ],
                                 "valueAxes": [{
                                     "stackType": "3d",
-                                    "unit": "%",
+                                    "unit": "",
                                     "position": "left",
-                                    "title": "Mark Score Vs Highest Mark"
+                                    "title": "Calificacion Vs Calificacion mas alta"
                                 }],
                                 "startDuration": 1,
                                 "graphs": [{
-                                    "balloonText": "Mark Score In [[category]]: <b>[[value]]</b>",
+                                    "balloonText": "Calificacion en [[category]]: <b>[[value]]</b>",
                                     "fillAlphas": 0.9,
                                     "lineAlpha": 0.2,
                                     "title": "2004",
@@ -222,7 +218,7 @@
                                     "fillColors":"#0e4d39",
                                     "valueField": "mark_obtained"
                                 }, {
-                                    "balloonText": "Highest Mark In [[category]]: <b>[[value]]</b>",
+                                    "balloonText": "Calificacion mas alta en [[category]]: <b>[[value]]</b>",
                                     "fillAlphas": 0.9,
                                     "lineAlpha": 0.2,
                                     "title": "2005",

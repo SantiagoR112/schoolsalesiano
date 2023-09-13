@@ -12,17 +12,17 @@
        <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('student_marks');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Calificaciones_estudiantes');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 		<?php echo form_open(base_url() . 'parents/search_student');?>
 
 					                       
                        <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_your_child');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Selecciona tu hijo');?></label>
                     <div class="col-sm-12">
                             <select name="student_id" class="form-control select2" required>
-                              <option value=""><?php echo get_phrase('select_your_child');?></option>
+                              <option value=""><?php echo get_phrase('Selecciona tu hijo');?></option>
                               		 <?php
                     						$children_of_parent = $this->db->get_where('student', 
 											array('parent_id' => $this->session->userdata('parent_id')))->result_array();
@@ -79,14 +79,13 @@ foreach ($student_name as $row):
                    <table class="table table-bordered">
                        <thead>
                         <tr>
-                            <td style="text-align: center;">SUBJECT</td>
-                            <td style="text-align: center;">1ST SCORE</td>
-                            <td style="text-align: center;">2ND SCORE</td>
-							<td style="text-align: center;">3RD SCORE</td>
-                            <td style="text-align: center;">EXAM SCORE</td>
-                            <td style="text-align: center;">TOTAL SCORE</td>
-                            <td style="text-align: center;">AVERAGE</td>
-                            <td style="text-align: center;">COMMENT</td>
+                            <td style="text-align: center;">ASIGNATURA</td>
+                            <td style="text-align: center;">PRIMER PERIODO</td>
+                            <td style="text-align: center;">SEGUNDO PERIODO</td>
+							<td style="text-align: center;">TERCER PERIODO</td>
+                            <td style="text-align: center;">CUARTO PERIODO</td>
+                            <td style="text-align: center;">DEFINITIVA</td>
+                            <td style="text-align: center;">OBSERVACIONES</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -182,9 +181,6 @@ foreach ($student_name as $row):
 								</td>
                                
                                 <td style="text-align: center;">
-                          <?php echo ($obtained_class_score + $obtained_class_score2 + $obtained_class_score3 + $obtained_exam_score);?>
-                                </td>
-                                <td style="text-align: center;">
                                     
 									<?php 
 							$a = $obtained_class_score;
@@ -195,7 +191,7 @@ foreach ($student_name as $row):
 							$sum = $a + $b + $c + $d;
 							$average = $sum/4;
 							
-							echo $average; 
+							echo number_format($average,1); 
 							?>
                                 </td>
                                 <td style="text-align: center;"><?php echo $row4['comment'];?></td>
@@ -227,7 +223,7 @@ foreach ($student_name as $row):
 
                     <a href="<?php echo base_url();?>parents/printResultSheet/<?php echo $student_id;?>/<?php echo $row2['exam_id'];?>" 
                         class="btn btn-info btn-rounded btn-sm pull-left" style="color:white">
-                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('print_report_card');?>
+                        <i class="entypo-print"></i>&nbsp;<?php echo get_phrase('Reporte final');?>
                     </a>
 
                    <div id="chartdiv<?php echo $row2['exam_id'];?>" class="exam_chart"></div>
@@ -260,13 +256,13 @@ foreach ($student_name as $row):
                                 ],
                                 "valueAxes": [{
                                     "stackType": "3d",
-                                    "unit": "%",
+                                    "unit": "",
                                     "position": "left",
-                                    "title": "Mark Score Vs Highest Mark"
+                                    "title": "Calificacion Vs Calificacion mas alta"
                                 }],
                                 "startDuration": 1,
                                 "graphs": [{
-                                    "balloonText": "Mark Score In [[category]]: <b>[[value]]</b>",
+                                    "balloonText": "Calificacion en [[category]]: <b>[[value]]</b>",
                                     "fillAlphas": 0.9,
                                     "lineAlpha": 0.2,
                                     "title": "2004",
@@ -274,7 +270,7 @@ foreach ($student_name as $row):
                                     "fillColors":"#0e4d39",
                                     "valueField": "mark_obtained"
                                 }, {
-                                    "balloonText": "Highest Mark In [[category]]: <b>[[value]]</b>",
+                                    "balloonText": "Calificacion mas alta en [[category]]: <b>[[value]]</b>",
                                     "fillAlphas": 0.9,
                                     "lineAlpha": 0.2,
                                     "title": "2005",
