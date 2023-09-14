@@ -135,7 +135,7 @@ s0.parentNode.insertBefore(s1,s0);
 
 <script src="<?php echo base_url(); ?>optimum/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 
-<?php if (($this->session->flashdata('error_message')) !=''):?>
+<?php if (!empty($this->session->flashdata('error_message'))): ?>
 <script type="text/javascript">
 $(document).ready(function(){
   $.toast({
@@ -144,12 +144,17 @@ $(document).ready(function(){
     position: 'top-right',
     loaderBg: '#ff6849',
     icon:'warning',
-    hideAfter: '3500',
-    stack: 6
-
+    hideAfter: 3500,
+    stack: 6,
+    afterHidden: function () {
+      // Eliminar el mensaje flash después de que se oculte
+      <?php $this->session->unset_userdata('error_message'); ?>
+    }
   });
-
 });
+</script>
+
+
 
 
 </script>

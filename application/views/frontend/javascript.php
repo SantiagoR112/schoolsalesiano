@@ -19,38 +19,46 @@
 	<script src="<?php echo base_url();?>frontend/js/custom.js"></script>
 
   <script src="<?php echo base_url();?>frontend/toast-master/js/jquery.toast.js"></script>
-  <?php if (($this->session->flashdata('flash_message')) != ""): ?>
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $.toast({
-        heading: 'Congratulations!!!',
-              text: '<?php echo $this->session->flashdata('flash_message'); ?>',
-              position: 'top-right',
-              loaderBg: '#ff6849',
-              icon: 'success',
-              hideAfter: 3500,
-              stack: 6
-          })
-      });
-      </script>
+    <?php if (($this->session->flashdata('flash_message')) != ""): ?>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.toast({
+                    heading: 'Congratulations!!!',
+                    text: '<?php echo $this->session->flashdata('flash_message'); ?>',
+                    position: 'top-right',
+                    loaderBg: '#ff6849',
+                    icon: 'success',
+                    hideAfter: 3500,
+                    stack: 6,
+                    afterHidden: function () {
+                        // Eliminar el mensaje flash después de que se oculte
+                        <?php $this->session->unset_userdata('flash_message'); ?>
+                    }
+                })
+            });
+        </script>
     <?php endif; ?> 
-
 
     <?php if (($this->session->flashdata('error_message')) != ""): ?>
-    <script type="text/javascript">
-      $(document).ready(function() {
-          $.toast({
-        heading: 'Error!!!',
-              text: '<?php echo $this->session->flashdata('error_message'); ?>',
-              position: 'top-right',
-              loaderBg: '#f56954',
-              icon: 'warning',
-              hideAfter: 3500,
-              stack: 6
-          })
-      });
-      </script>
-    <?php endif; ?> 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.toast({
+                    heading: 'Error!!!',
+                    text: '<?php echo $this->session->flashdata('error_message'); ?>',
+                    position: 'top-right',
+                    loaderBg: '#f56954',
+                    icon: 'warning',
+                    hideAfter: 3500,
+                    stack: 6,
+                    afterHidden: function () {
+                        // Eliminar el mensaje flash después de que se oculte
+                        <?php $this->session->unset_userdata('error_message'); ?>
+                    }
+                })
+            });
+        </script>
+    <?php endif; ?>
+
 
     <script type="text/javascript">
             $(document).ready(function () {
