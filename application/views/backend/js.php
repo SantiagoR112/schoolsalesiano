@@ -287,8 +287,19 @@
     $('#example23').DataTable({
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+            {
+                extend: 'copy',
+                text: 'Copiar', // traducción personalizada
+            },
+            'csv', 'excel', 'pdf', 
+            {
+                extend: 'print',
+                text: 'Imprimir'
+            }
+        ],
+        language: {
+            search: 'Buscar', // Traducción personalizada para el texto de búsqueda
+        }
     });
     </script>
 	
@@ -306,7 +317,7 @@
     <script>
         function checkDelete()
         {
-            var chk = confirm("Are You Sure To Delete This !");
+            var chk = confirm("¿Estas seguro que deseas eliminar esto?");
             if (chk)
             {
                 return true;
@@ -446,7 +457,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $.toast({
-            heading: 'Congratulations!!!',
+            heading: 'Enhorabuena',
             text: '<?php echo $this->session->flashdata('flash_message'); ?>',
             position: 'top-right',
             loaderBg: '#ff6849',
