@@ -1,13 +1,13 @@
 <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list_students');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('lista estudiantes');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
                     
                                 <div class="form-group">
                     <div class="col-sm-12">
                     <select id="class_id" class="form-control">
-                    <option value=""><?php echo get_phrase('select_class');?></option>
+                    <option value=""><?php echo get_phrase('seleccionar_clase');?></option>
 
                     <?php $class =  $this->db->get('class')->result_array();
                     foreach($class as $key => $class):?>
@@ -18,7 +18,7 @@
 
                   </div>
                  </div>
-                 <button type="button" id="find" class="btn btn-success btn-rounded btn-sm btn-block">Get Student</button>
+                 <button type="button" id="find" class="btn btn-success btn-rounded btn-sm btn-block">Obtener estudiantes</button>
                  <hr>
 				
  				<!-- PHP that includes table for subject starts here  ------>

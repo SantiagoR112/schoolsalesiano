@@ -1,17 +1,23 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
 
 <table id="example" class="table display">
+
                 	<thead>
                 		<tr>
                     		<th><div>Numero de documento</div></th>
-                            <th><div><?php echo get_phrase('Image');?></div></th>
-                            <th><div><?php echo get_phrase('roll_number');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                    		<th><div><?php echo get_phrase('class');?></div></th>
-                    		<th><div><?php echo get_phrase('sex');?></div></th>
+                            <th><div><?php echo get_phrase('Imagen');?></div></th>
+                            <th><div><?php echo get_phrase('Numero de admision');?></div></th>
+                            <th><div><?php echo get_phrase('Nombre');?></div></th>
+                    		<th><div><?php echo get_phrase('clase');?></div></th>
+                    		<th><div><?php echo get_phrase('sexo');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
-                            <th><div><?php echo get_phrase('phone');?></div></th>
-                            <th><div><?php echo get_phrase('parent');?></div></th>
-                    		<th><div><?php echo get_phrase('actions');?></div></th>
+                            <th><div><?php echo get_phrase('telefono');?></div></th>
+                            <th><div><?php echo get_phrase('acudiente');?></div></th>
+                    		<th><div><?php echo get_phrase('acciones');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
@@ -42,3 +48,37 @@
     <?php endforeach;?>
                     </tbody>
                 </table>
+
+
+
+<script>
+    var table = $('#example').DataTable();
+
+    // Verifica si DataTables ya se ha inicializado en la tabla
+    if ($.fn.dataTable.isDataTable('#example')) {
+        // Si ya se ha inicializado, destruye la instancia actual
+        table.destroy();
+    }
+
+    // Luego, inicializa DataTables nuevamente con las nuevas opciones
+    table = $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copy',
+                text: 'Copiar', // traducción personalizada
+            },
+            'csv', 'excel', 'pdf', 
+            {
+                extend: 'print',
+                text: 'Imprimir'
+            }
+        ],
+        language: {
+            search: 'Buscar', // Traducción personalizada para el texto de búsqueda
+        }
+    });
+
+</script>
+
+

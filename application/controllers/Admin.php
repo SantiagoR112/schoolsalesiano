@@ -1001,7 +1001,7 @@ class Admin extends CI_Controller {
     function student_information(){
 
         $page_data['page_name']     = 'student_information';
-        $page_data['page_title']    = get_phrase('List Student');
+        $page_data['page_title']    = get_phrase('Lista Estudiantes');
         $this->load->view('backend/index', $page_data);
     }
 
