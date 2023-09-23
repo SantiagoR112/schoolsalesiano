@@ -229,7 +229,7 @@ class Admin extends CI_Controller {
         }
 
         $page_data['page_name']         = 'parent';
-        $page_data['page_title']        = get_phrase('Manage Parent');
+        $page_data['page_title']        = get_phrase('Gestion acudientes');
         $page_data['select_parent']   = $this->db->get('parent')->result_array();
         $this->load->view('backend/index', $page_data);
     }
@@ -992,7 +992,7 @@ class Admin extends CI_Controller {
         }
 
         $page_data['page_name']     = 'new_student';
-        $page_data['page_title']    = get_phrase('Manage Student');
+        $page_data['page_title']    = get_phrase('Gestion estudiantes');
         $this->load->view('backend/index', $page_data);
 
     }

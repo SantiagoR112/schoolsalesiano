@@ -2,8 +2,8 @@
     <div class="col-sm-12">
         <div class="panel panel-info">
             <div class="panel-heading">
-				NEW PARENT
-	<div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="fa fa-plus"></i>&nbsp;&nbsp;ADD NEW PARENT HERE<i class="btn btn-primary btn-xs"></i></a> <a href="#" data-perform="panel-dismiss"></a> </div></div>
+				NUEVO ACUDIENTE
+	<div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="fa fa-plus"></i>&nbsp;&nbsp;AGREGAR NUEVO ACUDIENTE AQUI<i class="btn btn-primary btn-xs"></i></a> <a href="#" data-perform="panel-dismiss"></a> </div></div>
     <div class="panel-wrapper collapse out" aria-expanded="true">
                         <div class="panel-body">
 
@@ -18,7 +18,7 @@
 
 
  					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Name');?></label>
+                 	<label class="col-md-12" for="example-text">Nombre completo</label>
                     <div class="col-sm-12">
                             <input type="text" name="name" class="form-control" required>
                         </div>
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Phone');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('telefono');?></label>
                     <div class="col-sm-12">
 
                             <input type="text" name="phone" class="form-control" required>
@@ -42,16 +42,16 @@
 
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Profession');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('profesion');?></label>
                     <div class="col-sm-12">
 
-                            <input type="text" name="profession" class="form-control" >
+                            <input type="text" name="profession" class="form-control" required>
                         </div>
                     </div>
 
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Address');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('direccion');?></label>
                     <div class="col-sm-12">
 
                             <textarea class="form-control" name="address" required></textarea>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-12" for="example-text"><?php echo get_phrase ('Password');?></label>
+                        <label class="col-md-12" for="example-text"><?php echo get_phrase ('contraseña');?></label>
                         <div class="col-sm-12">
                                 <input type="password" name="password" class="form-control" onkeyup="CheckPasswordStrength(this.value)" required>
                                 <strong id="password_strength"></strong>
@@ -82,7 +82,7 @@
 <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"><i class="fa fa-list"></i>&nbsp; <?php echo get_phrase('list_enquiry');?></div>
+                            <div class="panel-heading"><i class="fa fa-list"></i>&nbsp; <?php echo get_phrase('listado_acudientes');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 			
@@ -91,11 +91,11 @@
                                  <thead>
                         <tr>
                             <th><?php echo get_phrase('Numero de documento');?></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
+                            <th><div><?php echo get_phrase('nombre completo');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
-                            <th><div><?php echo get_phrase('phone');?></div></th>
-                            <th><div><?php echo get_phrase('profession');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th><div><?php echo get_phrase('telefono');?></div></th>
+                            <th><div><?php echo get_phrase('profesion');?></div></th>
+                            <th><div><?php echo get_phrase('opcion');?></div></th>
                         </tr>
                     </thead>
 
@@ -160,15 +160,15 @@
                 case 0:
                 case 1:
                 case 2:
-                    strength = "Weak";
+                    strength = "Debil";
                     color = "red";
                     break;
                 case 3:
-                    strength = "Medium";
+                    strength = "Medio";
                     color = "orange";
                     break;
                 case 4:
-                    strength = "Strong";
+                    strength = "Fuerte";
                     color = "green";
                     break;
                 
