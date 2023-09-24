@@ -3,7 +3,7 @@
                         <div class="panel panel-info">
                             <div class="panel-heading">
 							
-						<i class="fa fa-plus"></i>&nbsp;&nbsp;ADD NEW TIMETABLE HERE
+						<i class="fa fa-plus"></i>&nbsp;&nbsp;AGREGAR NUEVO HORARIO DE CLASES AQUI
                                
                             </div>
                             <div class="panel-wrapper" aria-expanded="true">
@@ -11,7 +11,7 @@
 <?php echo form_open(base_url() . 'admin/class_routine/create' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('clase');?></label>
                     <div class="col-sm-12">
 
 				 <select name="class_id" id = "class_id" class="form-control selectboxit"
@@ -30,28 +30,28 @@
 				 <div id="section_subject_selection_holder"></div>
 
                <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('day');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('dia');?></label>
                     <div class="col-sm-12">
                 <select name="day" class="form-control selectboxit" style="width:100%;">
-                        <option value="sunday">sunday</option>
-                        <option value="monday">monday</option>
-                        <option value="tuesday">tuesday</option>
-                        <option value="wednesday">wednesday</option>
-                        <option value="thursday">thursday</option>
-                        <option value="friday">friday</option>
-                        <option value="saturday">saturday</option>
+                        <option value="sunday">Domingo</option>
+                        <option value="monday">Lunes</option>
+                        <option value="tuesday">Martes</option>
+                        <option value="wednesday">Miercoles</option>
+                        <option value="thursday">Jueves</option>
+                        <option value="friday">Viernes</option>
+                        <option value="saturday">Sabado</option>
                     </select>
 
                     </div> 
                 </div>
 				
 				<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('starting_time');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Hora de inicio');?></label>
                     <div class="col-sm-12">
                        
 				 <div class="col-md-4">
                         <select name="time_start" id= "starting_hour" class="form-control selectboxit">
-                            <option value=""><?php echo get_phrase('hour');?></option>
+                            <option value=""><?php echo get_phrase('Hora');?></option>
                 <?php for($i = 0; $i <= 11; $i++):?>
                                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
                 <?php endfor;?>
@@ -62,7 +62,7 @@
 
                     <div class="col-md-4">
                         <select name="time_start_min" id= "starting_minute" class="form-control selectboxit">
-                            <option value=""><?php echo get_phrase('minutes');?></option>
+                            <option value=""><?php echo get_phrase('Minutos');?></option>
                 
                 <?php for($i = 0; $i <= 11; $i++):?>
                 <option value="<?php echo $i * 5;?>"><?php echo $i * 5;?></option>
@@ -81,11 +81,11 @@
                 </div>
 				
 				<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('ending_time');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Hora de salida');?></label>
                     <div class="col-sm-12">
                                <div class="col-md-4">
                         <select name="time_end" id= "ending_hour" class="form-control selectboxit">
-                            <option value=""><?php echo get_phrase('hour');?></option>
+                            <option value=""><?php echo get_phrase('Hora');?></option>
                            
                             <?php for($i = 0; $i <= 12; $i++):?>
                                 <option value="<?php echo $i;?>"><?php echo $i;?></option>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-md-4">
                         <select name="time_end_min" id= "ending_minute" class="form-control selectboxit">
-                            <option value=""><?php echo get_phrase('minutes');?></option>  
+                            <option value=""><?php echo get_phrase('Minutos');?></option>  
                             
                             <?php for($i = 0; $i <= 11; $i++):?>
                 <option value="<?php echo $i * 5;?>"><?php echo $i * 5;?></option>
@@ -116,7 +116,7 @@
 
                     
                     <div class="form-group">
-                  <button type="submit" id= "add_class_routine"  class="btn btn-success btn-block btn-sm btn-rounded"><?php echo get_phrase('add_class_routine');?></button>
+                  <button type="submit" id= "add_class_routine"  class="btn btn-success btn-block btn-sm btn-rounded"><?php echo get_phrase('agregar');?></button>
 					</div>
 					<br>
                 <?php echo form_close();?>	

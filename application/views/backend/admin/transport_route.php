@@ -1,7 +1,7 @@
 <div class="row">
                     <div class="col-sm-5">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('add');?></div>
+                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('agregar');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 			
@@ -9,21 +9,21 @@
 
                 	<?php echo form_open(base_url() . 'transportation/transport_route/insert' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                             <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?></label>
                     <div class="col-sm-12">
                                     <input type="text" class="form-control" name="name" / required>
                                 </div>
                             </div>
 
 								<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('description');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('descripcion');?></label>
                     <div class="col-sm-12">
                                     <textarea class="form-control" name="description"></textarea>
                                 </div>
                             </div>
 
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('add');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('agregar');?></button>
 					</div>
 							
                     </form>                
@@ -35,7 +35,7 @@
 
                     <div class="col-sm-7">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('lista');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 				
@@ -43,9 +43,9 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                    		<th><div><?php echo get_phrase('name');?></div></th>
-                    		<th><div><?php echo get_phrase('description');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                    		<th><div><?php echo get_phrase('nombre');?></div></th>
+                    		<th><div><?php echo get_phrase('descripcion');?></div></th>
+                    		<th><div><?php echo get_phrase('opciones');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
