@@ -53,7 +53,7 @@ class Systemsetting extends CI_Controller {
 
 
     $page_data['page_name'] = 'system_settings';
-    $page_data['page_title'] = get_phrase('system_settings');
+    $page_data['page_title'] = get_phrase('Configuracion_sistema');
     $page_data['settings'] = $this->db->get('settings')->result_array();
     $this->load->view('backend/index', $page_data);
     }
