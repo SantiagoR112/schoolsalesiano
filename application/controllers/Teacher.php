@@ -574,6 +574,42 @@ class Teacher extends CI_Controller {
         $page_data['select_periodtime']   = $this->db->get('periodtime')->result_array();
         $this->load->view('backend/index', $page_data);
     }
+
+    public function get_class_subject($class_id, $teacher_id) {
+        // Realiza la consulta en la base de datos para obtener las asignaturas relacionadas con el docente y la clase
+        $subjects = $this->db->where(array('class_id' => $class_id, 'teacher_id' => $teacher_id))->get('subject')->result_array();
+    
+        // Luego, genera las opciones del menú desplegable en función de las asignaturas obtenidas
+        $options = '<option value="">' . get_phrase('select_subject') . '</option>';
+        foreach ($subjects as $subject) {
+            $options .= '<option value="' . $subject['subject_id'] . '">' . $subject['name'] . '</option>';
+        }
+    
+        // Devuelve las opciones al cliente (JavaScript)
+        echo $options;
+    }
+
+    public function get_subject_name($subject_id) {
+        $this->load->database(); // Carga la base de datos si aún no lo has hecho
+
+        // Realiza una consulta a la base de datos para obtener el nombre de la asignatura
+        $this->db->select('name');
+        $this->db->from('subject');
+        $this->db->where('subject_id', $subject_id);
+        $query = $this->db->get();
+
+        // Comprueba si se encontró un registro
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            $subject_name = $row->name;
+            echo $subject_name; // Devuelve el nombre de la asignatura
+        } else {
+            echo 'Asignatura no encontrada'; // Maneja el caso en que no se encuentre la asignatura
+        }
+    }
+
+    
+    
     
 
 }
