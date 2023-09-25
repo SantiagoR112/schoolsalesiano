@@ -109,7 +109,7 @@
 
                     
                     <div class="form-group">
-							<button type="submit" class="btn btn-info btn-block btn-sm btn-rounded"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('add_material');?></button>
+							<button type="submit" class="btn btn-info btn-block btn-sm btn-rounded"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('agregar_material');?></button>
 					</div>
 					<br>
                 <?php echo form_close();?>	
