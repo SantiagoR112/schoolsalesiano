@@ -59,24 +59,33 @@ class Admin extends CI_Controller {
     }
 
     if ($param1 == 'change_password') {
-        $data['new_password']           =   sha1($this->input->post('new_password'));
-        $data['confirm_new_password']   =   sha1($this->input->post('confirm_new_password'));
-
-        if ($data['new_password'] == $data['confirm_new_password']) {
-           
-           $this->db->where('admin_id', $this->session->userdata('admin_id'));
-           $this->db->update('admin', array('password' => $data['new_password']));
-           $this->session->set_flashdata('flash_message', get_phrase('Password Changed'));
+        $current_password = sha1($this->input->post('current_password'));
+        $new_password = sha1($this->input->post('new_password'));
+        $confirm_new_password = sha1($this->input->post('confirm_new_password'));
+    
+        // Obtén la contraseña actual del usuario desde la base de datos
+        $admin_id = $this->session->userdata('admin_id');
+        $current_password_db = $this->db->get_where('admin', array('admin_id' => $admin_id))->row('password');
+    
+        if ($current_password == $current_password_db && $new_password == $confirm_new_password) {
+            // Las contraseñas coinciden, puedes cambiar la contraseña
+            $this->db->where('admin_id', $admin_id);
+            $this->db->update('admin', array('password' => $new_password));
+            $this->session->set_flashdata('flash_message', get_phrase('Contraseña cambiada correctamente'));
+        } elseif ($current_password != $current_password_db) {
+            // Contraseña actual incorrecta
+            $this->session->set_flashdata('error_message', get_phrase('contraseña actual incorrecta'));
+        } else {
+            // Las nuevas contraseñas no coinciden
+            $this->session->set_flashdata('error_message', get_phrase('nuevas contraseñas no coinciden'));
         }
-
-        else{
-            $this->session->set_flashdata('error_message', get_phrase('Type the same password'));
-        }
+        
         redirect(base_url() . 'admin/manage_profile', 'refresh');
     }
+    
 
         $page_data['page_name']     = 'manage_profile';
-        $page_data['page_title']    = get_phrase('Manage Profile');
+        $page_data['page_title']    = get_phrase('Editar perfil');
         $page_data['edit_profile']  = $this->db->get_where('admin', array('admin_id' => $this->session->userdata('admin_id')))->result_array();
         $this->load->view('backend/index', $page_data);
     }

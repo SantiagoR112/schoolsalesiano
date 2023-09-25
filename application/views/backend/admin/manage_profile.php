@@ -3,7 +3,7 @@
 	<div class="col-sm-7">
 		<div class="panel panel-info">
 
-			<div class="panel-heading"><i class="fa fa-gear"></i>  <?php echo get_phrase('Edit Details');?></div>
+			<div class="panel-heading"><i class="fa fa-gear"></i>  <?php echo get_phrase('Editar informacion');?></div>
 			<div class="panel-body table-responsive">
 
 				<?php 
@@ -16,7 +16,7 @@
 				<?php echo form_open(base_url(). 'admin/manage_profile/update', array('class' => 'form-horizontal form-groups-bordered', 'enctype'=> 'multipart/form-data'));?>
 
 				<div class="form-group">
-					<label class="col-md-12" for="example-text"><?php echo get_phrase('Name');?></label>
+					<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?></label>
 					<div class="col-sm-12">
 						<input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>">
 					</div>
@@ -32,7 +32,7 @@
 
 
 				<div class="form-group"> 
-					 <label class="col-sm-12"><?php echo get_phrase('Admin Image');?>*</label>        
+					 <label class="col-sm-12"><?php echo get_phrase('foto de perfil');?>*</label>        
 					 <div class="col-sm-12">
   		  			 <input type='file' class="form-control" name="userfile" onChange="readURL(this);">
 					 <img id="blah" src="<?php echo $this->crud_model->get_image_url('admin', $row['admin_id']); ?>" alt="" height="200" width="200"/>
@@ -42,7 +42,7 @@
 	
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-success btn-rounded btn-block btn-sm"><i class="fa fa-save"></i>  <?php echo get_phrase('save');?></button>
+					<button type="submit" class="btn btn-success btn-rounded btn-block btn-sm"><i class="fa fa-save"></i>  <?php echo get_phrase('guardar');?></button>
 				</div>
 
 
@@ -64,14 +64,22 @@
 
 <div class="col-sm-5">
 <div class="panel panel-info">
-<div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Change Password'); ?></div>
+<div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('cambiar contraseña'); ?></div>
 <div class="panel-wrapper collapse in" aria-expanded="true">
 <div class="panel-body table-responsive">
 
 <?php echo form_open(base_url() . 'admin/manage_profile/change_password', array('class' => 'form-horizontal form-groups-bordered validate', 'target' => '_top', 'enctype' => 'multipart/form-data'));
         ?>			
+
+				<div class="form-group">
+					<label class="col-md-12" for="example-text"><?php echo get_phrase('contraseña actual');?></label>
+					<div class="col-sm-12">
+						<input type="password" class="form-control" name="current_password" value="">
+					</div>
+				</div>
+
 					<div class="form-group">
-					<label class="col-md-12" for="example-text"><?php echo get_phrase('Password');?></label>
+					<label class="col-md-12" for="example-text"><?php echo get_phrase('nueva contraseña');?></label>
 					<div class="col-sm-12">
 						<input type="password" class="form-control" name="new_password" value="">
 					</div>
@@ -79,14 +87,14 @@
 
 
 				<div class="form-group">
-					<label class="col-md-12" for="example-text"><?php echo get_phrase('Confirm Password');?></label>
+					<label class="col-md-12" for="example-text"><?php echo get_phrase('confirmar nueva contraseña');?></label>
 					<div class="col-sm-12">
 						<input type="password" class="form-control" name="confirm_new_password" value="">
 					</div>
 				</div>
 					
 				<div class="form-group">
-                     <button class="btn btn-block btn-info btn-rounded btn-sm"><i class="fa fa-save"></i>&nbsp;<?php echo get_phrase('Change Password');?></button>
+                     <button class="btn btn-block btn-info btn-rounded btn-sm"><i class="fa fa-save"></i>&nbsp;<?php echo get_phrase('cambiar contraseña');?></button>
                 
                 </div>
 		
