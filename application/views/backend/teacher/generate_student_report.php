@@ -81,9 +81,9 @@
                                                 return "Bajo";
                                             } else if ($calificacion >= 3 && $calificacion <= 3.9) {
                                                 return "Básico";
-                                            } else if ($calificacion >= 4 && $calificacion <= 4.4) {
+                                            } else if ($calificacion >= 4 && $calificacion <= 4.5) {
                                                 return "Alto";
-                                            } else if ($calificacion >= 4.5 && $calificacion <= 5) {
+                                            } else if ($calificacion >= 4.6 && $calificacion <= 5) {
                                                 return "Superior";
                                             } else {
                                                 return ""; // Maneja otros casos si es necesario

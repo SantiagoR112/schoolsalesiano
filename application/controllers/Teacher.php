@@ -116,7 +116,7 @@ class Teacher extends CI_Controller {
             $page_data['class_id'] = $class_id;
             $page_data['section_id'] = $section_id;
             $page_data['page_name'] = 'manage_attendance';
-            $page_data['page_title'] = get_phrase('Manage Attendance');
+            $page_data['page_title'] = get_phrase('Gestionar asistencia');
             $this->load->view('backend/index', $page_data);
     
         }
@@ -155,7 +155,7 @@ class Teacher extends CI_Controller {
             $page_data['class_id'] = $class_id;
             $page_data['section_id'] = $section_id;
             $page_data['page_name'] = 'attendance_report';
-            $page_data['page_title'] = "Attendance Report:" . $class_name . " : Section " . $section_name;
+            $page_data['page_title'] = "Reporte de asistencia" . $class_name;
             $this->load->view('backend/index', $page_data);
         }
     

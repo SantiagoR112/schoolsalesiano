@@ -8,7 +8,7 @@
             <div class="panel-wrapper collapse in" aria-expanded="true">
                 <div class="panel-body">
 								
-            <h3 style="color: #696969;">Attendance Sheet</h3>
+            <h3 style="color: #696969;">Hoja de asistencia</h3>
             <?php 
                 $classes    =   $this->db->get('class')->result_array();
                 foreach ($classes as $key => $class) {
@@ -19,11 +19,31 @@
                     if(isset($section_id) && $section_id==$section['section_id']) $section_name = $section['name'];
                 }
             ?>
-            <?php
-                $full_date = "5"."-".$month."-".$year;
-                $full_date = date_create($full_date);
-                $full_date = date_format($full_date,"F, Y");?>
-            <h4 style="color: #696969;">Class <?php echo $class_name; ?> : Section <?php echo $section_name; ?><br><?php echo $full_date; ?></h4>
+           <?php
+            // Establece el idioma local a español
+            setlocale(LC_TIME, 'es_ES.UTF-8');
+
+            $full_date = "1" . "-" . $month . "-" . $year;
+            $full_date = date_create($full_date);
+
+            // Formatea la fecha en español con el nombre del mes y el año
+            $date_formatter = new IntlDateFormatter('es_ES', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+            $full_date_formatted = $date_formatter->format(date_timestamp_get($full_date));
+
+            // Convierte el nombre del mes a mayúscula inicial
+            $full_date_formatted = ucfirst($full_date_formatted);
+
+            // Dividir la fecha en un array
+            $date_parts = explode(' ', $full_date_formatted);
+
+            // Obtén solo el mes y el año
+            $month_year = $date_parts[2] . ' ' . $date_parts[4];
+
+            ?>
+
+            <h4 style="color: #696969;">Clase <?php echo $class_name; ?> <?php echo $section_name; ?><br><?php echo $month_year; ?></h4>
+
+
 
 	</div>
 	</div>
@@ -40,18 +60,18 @@
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                 <div align="center">
-        KEYS: 
-        Present&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #00a651;"></i>&nbsp;&nbsp;
-        Absent&nbsp;-&nbsp;<i class="fa fa-circle" style="color: #EE4749;"></i>&nbsp;&nbsp;
-        Half Day&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #0000FF;"></i>&nbsp;&nbsp;
-        Late&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #FF6600;"></i>&nbsp;&nbsp;
-        Undefine&nbsp;-&nbsp;<i class="fa fa-circle" style="color: black;"></i>
+        ETIQUETA: 
+        Presente&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #00a651;"></i>&nbsp;&nbsp;
+        Ausente&nbsp;-&nbsp;<i class="fa fa-circle" style="color: #EE4749;"></i>&nbsp;&nbsp;
+        Media jornada&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #0000FF;"></i>&nbsp;&nbsp;
+        Tarde&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #FF6600;"></i>&nbsp;&nbsp;
+        Indefinido&nbsp;-&nbsp;<i class="fa fa-circle" style="color: black;"></i>
         </div>
                                 
     <table cellpadding="0" cellspacing="0" border="0" class="table">
             <thead>
                 <tr>
-                    <td style="text-align: left;">Students<i class="fa fa-down-thin"></i>| Date:</td>
+                    <td style="text-align: left;">Dia<i class="fa fa-down-thin"></i>| Estudiantes</td>
                     <?php
                     $days = date("t",mktime(0,0,0,$month,1,$year)); 
                         for ($i=0; $i < $days; $i++) { 
@@ -109,7 +129,7 @@
             </tbody>
         </table>
 
-        <a href="<?php echo base_url();?>teacher/printAttendanceReport/<?php echo $class_id ;?>/<?php echo $section_id ;?>/<?php echo $month ;?>/<?php echo $year ;?>" class="btn btn-success btn-sm btn-rounded btn-block" style="color:white"> <i class="fa fa-print"></i> Print</a>
+        <a href="<?php echo base_url();?>teacher/printAttendanceReport/<?php echo $class_id ;?>/<?php echo $section_id ;?>/<?php echo $month ;?>/<?php echo $year ;?>" class="btn btn-success btn-sm btn-rounded btn-block" style="color:white"> <i class="fa fa-print"></i> Imprimir</a>
 		
 	</div>
 	</div>

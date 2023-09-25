@@ -15,7 +15,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="table">
             <thead>
                 <tr>
-                    <td style="text-align: left;">Students<i class="fa fa-down-thin"></i>| Date:</td>
+                    <td style="text-align: left;">Dia<i class="fa fa-down-thin"></i>| Estudiantes</td>
                     <?php
                     $days = date("t",mktime(0,0,0,$month,1,$year)); 
                         for ($i=0; $i < $days; $i++) { 
@@ -30,7 +30,33 @@
             <?php 
                 //STUDENTS ATTENDANCE
                 $students   =   $this->db->get_where('student' , array('class_id'=>$class_id))->result_array();
-                foreach($students as $key => $student)
+                $classes    =   $this->db->get('class')->result_array();
+                foreach ($classes as $key => $class) {
+                    if(isset($class_id) && $class_id==$class['class_id']) $class_name = $class['name'];
+                }
+                // Establece el idioma local a español
+                setlocale(LC_TIME, 'es_ES.UTF-8');
+
+                $full_date = "1" . "-" . $month . "-" . $year;
+                $full_date = date_create($full_date);
+
+                // Formatea la fecha en español con el nombre del mes y el año
+                $date_formatter = new IntlDateFormatter('es_ES', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                $full_date_formatted = $date_formatter->format(date_timestamp_get($full_date));
+
+                // Convierte el nombre del mes a mayúscula inicial
+                $full_date_formatted = ucfirst($full_date_formatted);
+
+                // Dividir la fecha en un array
+                $date_parts = explode(' ', $full_date_formatted);
+
+                // Obtén solo el mes y el año
+                $month_year = $date_parts[2] . ' ' . $date_parts[4];
+
+                ?>
+                <h4 style="color: #696969;">Clase <?php echo $class_name; ?><br><?php echo $month_year; ?></h4>
+                <?php
+                    foreach($students as $key => $student)
                 {
                     ?>
                 <tr class="gradeA">
@@ -44,7 +70,7 @@
                     ?>
                             <td style="text-align: center;">
                                 <?php if ($status == "0"):?>
-                               <h9 style="color:black">U</h9>
+                               <h9 style="color:black">I</h9>
                                 <?php endif;?>
                                 <?php if ($status == "1"):?>
                                 <h9 style="color:green">P</h9>
@@ -55,11 +81,11 @@
                                 <?php endif;?>
 								
 								<?php if ($status == "3"):?>
-                                <h9 style="color:grey">L</h9>
+                                <h9 style="color:grey">T</h9>
                                 <?php endif;?>
 								
 								<?php if ($status == "4"):?>
-                                <h9 style="color:yellow">H</h9>
+                                <h9 style="color:yellow">M</h9>
                                 <?php endif;?>
 								
                             </td>    
@@ -74,17 +100,17 @@
         </table>
         <hr>
         <div align="center">
-        <strong>KEYS: </strong>
-        Present&nbsp;-&nbsp; P &nbsp;&nbsp;
-        Absent&nbsp;-&nbsp;A&nbsp;&nbsp;
-        Half Day&nbsp;-&nbsp; H&nbsp;&nbsp;
-        Late&nbsp;-&nbsp; L&nbsp;&nbsp;
-        Undefine&nbsp;-&nbsp;U
+        <strong>ETIQUETAS: </strong>
+        Presente&nbsp;-&nbsp; P &nbsp;&nbsp;
+        Ausente&nbsp;-&nbsp;A&nbsp;&nbsp;
+        Media jornada&nbsp;-&nbsp; M&nbsp;&nbsp;
+        Tarde&nbsp;-&nbsp; T&nbsp;&nbsp;
+        Indefinido&nbsp;-&nbsp;I
         </div>
     </div>
 
     <br>
-    <button id ="print" class="btn btn-info btn-sm btn-rounded btn-block"><i class="fa fa-print"></i> Print</button>
+    <button id ="print" class="btn btn-info btn-sm btn-rounded btn-block"><i class="fa fa-print"></i> Imprimir</button>
 
 	</div>
 	</div>

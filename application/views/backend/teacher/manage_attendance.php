@@ -3,7 +3,7 @@
 <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Attendance');?></div>
+                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Asistencia');?></div>
                                 <div class="panel-body table-responsive">
 			
 <!----CREATION FORM STARTS---->
@@ -11,15 +11,17 @@
                 	<?php echo form_open(base_url() . 'teacher/attendance_selector' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
                     
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('clase');?></label>
                     <div class="col-sm-12">
                     <select name="class_id" id="class_id" class="form-control select2" onchange="return get_class_sections(this.value)">
-                    <option value=""><?php echo get_phrase('select_class');?></option>
+                        <option value=""><?php echo get_phrase('selecccionar_clase');?></option>
+                        <?php
+                            $current_teacher_id = $this->session->userdata('teacher_id');
 
-                    <?php $class =  $this->db->get('class')->result_array();
-                    foreach($class as $key => $class):?>
-                    <option value="<?php echo $class['class_id'];?>"<?php if(isset($class_id) && $class_id==$class['class_id']) echo 'selected="selected"';?>><?php echo $class['name'];?></option>
-                    <?php endforeach;?>
+                            $classes = $this->db->get_where('class', array('teacher_id' => $current_teacher_id))->result_array();
+                            foreach ($classes as $key => $class):?>
+                            <option value="<?php echo $class['class_id'];?>"<?php if($class_id == $class['class_id']) echo 'selected="selected"' ;?>>Clase: <?php echo $class['name'];?></option>
+                        <?php endforeach;?>
                    </select>
 
                   </div>
@@ -30,14 +32,14 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('section');?></label>
                     <div class="col-sm-12">
                     <select name="section_id" class="form-control select2" id="section_selector_holder">
-                    <option value=""><?php echo get_phrase('select_class_first');?></option>
+                    <option value=""><?php echo get_phrase('seleccionar_clase_primero');?></option>
                     </select>
                   </div>
                  </div>
 
 
                  <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('date');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('fecha');?></label>
                     <div class="col-sm-12">
                     <input type="date" class="form-control datepicker" id="example-date-input" name="timestamp" data-format="dd-mm-yyyy" value="<?php echo $date."-".$month."-".$year ;?>" required>
                   </div>
@@ -45,7 +47,7 @@
 
 
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('get_student');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('obtener_estudiante');?></button>
 					</div>
 							
                     </form>                
@@ -67,14 +69,13 @@
                         if(isset($class_id) && $class_id == $class['class_id'])
                             $class_name = $class['name'];
             }?>
-                    <h3 style="color:#696969;">Attendance For: <?php echo $class_name;?></h3>
+                    <h3 style="color:#696969;">Asistencia de: <?php echo $class_name;?></h3>
             
             <?php $secions = $this->db->get('section')->result_array();
                     foreach($secions as $key => $secion){ 
                         if(isset($section_id) && $section_id == $secion['section_id'])
                             $section_name = $secion['name'];
             }?>
-            <h3 style="color:#696969;">Section: <?php echo $section_name;?></h3>
             
             
             
@@ -101,12 +102,12 @@
             <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                 	<thead>
                 		<tr>
-                    		<th><div>#</div></th>
-                    		<th><div><?php echo get_phrase('Image');?></div></th>
-                    		<th><div><?php echo get_phrase('Name');?></div></th>
-                    		<th><div><?php echo get_phrase('Sex');?></div></th>
-                    		<th><div><?php echo get_phrase('Roll');?></div></th>
-                            <th><div><?php echo get_phrase('Status');?></div></th>
+                    		<th><div>Numero de documento</div></th>
+                    		<th><div><?php echo get_phrase('Imagen');?></div></th>
+                    		<th><div><?php echo get_phrase('nombre');?></div></th>
+                    		<th><div><?php echo get_phrase('Sexo');?></div></th>
+                    		<th><div><?php echo get_phrase('numero_admision');?></div></th>
+                            <th><div><?php echo get_phrase('asistencia');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
@@ -117,7 +118,7 @@
                           foreach($students as $key => $student){?>
          
                         <tr class="gradeA">
-                            <td><?php echo $i?></td>
+                            <td><?php echo $student['student_id']?></td>
 							<td><img src="<?php echo $this->crud_model->get_image_url('student', $student['student_id']);?>" class="img-circle" style="max-height:30px; margine-right:30px;"></td>
 							<td><?php echo $student['name'];?></td>
 							<td><?php echo $student['sex'];?></td>
@@ -138,11 +139,11 @@
 
 
                             <select name="status_<?php echo $student['student_id'];?>" class="status form-control">
-                            <option value="0"<?php if($status == 0) echo 'selected="selected"';?>>Undefined</option>
-                            <option value="1"<?php if($status == 1) echo 'selected="selected"';?>>Present</option>
-                            <option value="2"<?php if($status == 2) echo 'selected="selected"';?>>Absent</option>
-                            <option value="3"<?php if($status == 3) echo 'selected="selected"';?>>Late</option>
-                            <option value="4"<?php if($status == 4) echo 'selected="selected"';?>>Half Day</option>
+                            <option value="0"<?php if($status == 0) echo 'selected="selected"';?>>Indefinido</option>
+                            <option value="1"<?php if($status == 1) echo 'selected="selected"';?>>Presente</option>
+                            <option value="2"<?php if($status == 2) echo 'selected="selected"';?>>Ausente</option>
+                            <option value="3"<?php if($status == 3) echo 'selected="selected"';?>>Tarde</option>
+                            <option value="4"<?php if($status == 4) echo 'selected="selected"';?>>Media jornada</option>
 
                             </select>
                             
@@ -157,7 +158,7 @@
                 </table>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('save');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('guardar');?></button>
 					</div>
 
         </form>

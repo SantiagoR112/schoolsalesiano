@@ -80,20 +80,21 @@
                 $page_name == 'attendance_report')
             echo 'opened active';
             ?>">
-                    
-
+            
+            <?php $select_role = $this->db->get_where('teacher', array('teacher_id' => $this->session->userdata('teacher_id')))->row()->role;?>
+            <?php if($select_role == '1'):?>
                 <li class="<?php if ($page_name == 'manage_attendance') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>teacher/manage_attendance/<?php echo date("d/m/Y"); ?>">
                     <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('mark_attendance'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Registrar asistencia'); ?></span>
                     </a>
                 </li>
-
+            <?php endif;?>
 
                 <li class="<?php if ($page_name == 'attendance_report') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>teacher/attendance_report">
                     <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('view_attendance'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Ver asistencia'); ?></span>
                     </a>
                 </li>
 

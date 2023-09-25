@@ -4,25 +4,25 @@
  <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-					        <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('manage_attendance');?></div>
+					        <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('lista_asistencia');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                <div class="panel-body table-responsive">
         <div align="center">
-        KEYS: 
-        Present&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #00a651;"></i>&nbsp;&nbsp;
-        Absent&nbsp;-&nbsp;<i class="fa fa-circle" style="color: #EE4749;"></i>&nbsp;&nbsp;
-        Half Day&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #0000FF;"></i>&nbsp;&nbsp;
-        Late&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #FF6600;"></i>&nbsp;&nbsp;
-        Undefine&nbsp;-&nbsp;<i class="fa fa-circle" style="color:black;"></i>
+        ETIQUETA: 
+        Presente&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #00a651;"></i>&nbsp;&nbsp;
+        Ausente&nbsp;-&nbsp;<i class="fa fa-circle" style="color: #EE4749;"></i>&nbsp;&nbsp;
+        Media jornada&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #0000FF;"></i>&nbsp;&nbsp;
+        Tarde&nbsp;-&nbsp; <i class="fa fa-circle" style="color: #FF6600;"></i>&nbsp;&nbsp;
+        Indenifinido&nbsp;-&nbsp;<i class="fa fa-circle" style="color:black;"></i>
         </div>
                                
                   
 			   <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_class');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('seleccionar_clase');?></label>
                     <div class="col-sm-12">
 					
                       <select  class="form-control" id="class_id" onchange="return get_class_sections(this.value)" >
-                              <option value=""><?php echo get_phrase('select');?></option>
+                              <option value=""><?php echo get_phrase('seleccionar');?></option>
                               <?php 
                             $classes    =   $this->db->get('class')->result_array();
                             foreach($classes as $key => $class):?>
@@ -41,32 +41,32 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_section');?></label>
                     <div class="col-sm-12">
 					 <select  class="form-control" id="section_id" >
-		                    <option value=""><?php echo get_phrase('select_class_first');?></option>   
+		                    <option value=""><?php echo get_phrase('seleccionar_clase_primero');?></option>   
 			          </select>
                       
 						</div>
 						</div>
 						
 						 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('month');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('mes');?></label>
                     <div class="col-sm-12">
 
                         <select  class="form-control" id="month" >
                 <?php $month = date('m'); ?>
                 <?php
             	for ($i = 1; $i <= 12; $i++):
-                if ($i == 1) 	  $m = get_phrase('January');
-                else if ($i == 2) $m = get_phrase('February');
-                else if ($i == 3) $m = get_phrase('March');
-                else if ($i == 4) $m = get_phrase('April');
-                else if ($i == 5) $m = get_phrase('May');
-                else if ($i == 6) $m = get_phrase('June');
-                else if ($i == 7) $m = get_phrase('July');
-                else if ($i == 8) $m = get_phrase('August');
-                else if ($i == 9) $m = get_phrase('September');
-                else if ($i == 10)$m = get_phrase('October');
-                else if ($i == 11)$m = get_phrase('November');
-                else if ($i == 12)$m = get_phrase('December');
+                if ($i == 1) 	  $m = get_phrase('enero');
+                else if ($i == 2) $m = get_phrase('febrero');
+                else if ($i == 3) $m = get_phrase('Marzo');
+                else if ($i == 4) $m = get_phrase('Abril');
+                else if ($i == 5) $m = get_phrase('Mayo');
+                else if ($i == 6) $m = get_phrase('Junio');
+                else if ($i == 7) $m = get_phrase('Julio');
+                else if ($i == 8) $m = get_phrase('Agosto');
+                else if ($i == 9) $m = get_phrase('Septiembre');
+                else if ($i == 10)$m = get_phrase('Octubre');
+                else if ($i == 11)$m = get_phrase('Noviembre');
+                else if ($i == 12)$m = get_phrase('Dicimebre');
                 ?>
                 <option value="<?php echo $i; ?>"<?php if($month == $i) echo 'selected'; ?>  ><?php echo $m; ?></option>
                 <?php
@@ -77,10 +77,10 @@
 						</div>
 						
 			<div class="form-group">
-                <label class="col-md-12" for="example-text"><?php echo get_phrase('year');?></label>
+                <label class="col-md-12" for="example-text"><?php echo get_phrase('año');?></label>
                 <div class="col-sm-12">
                     <select id="year" class="form-control">
-                    <?php $list_year = array("2019", "2020", "2021","2022", "2023","2024", "2025", "2026");
+                    <?php $list_year = array("2023","2024", "2025", "2026");
                     foreach($list_year as $key => $row){
                     ?>
                     <option value="<?php echo $row;?>"<?php if($row == $year) echo 'selected';?>><?php echo $row;?></option>
@@ -90,7 +90,7 @@
 			</div>
 						
 			<div class="form-group">
-			<button type="button" class="btn btn-info btn-rounded btn-block btn-sm" id="find"><i class="fa fa-search"></i>&nbsp;get attendance</button>
+			<button type="button" class="btn btn-info btn-rounded btn-block btn-sm" id="find"><i class="fa fa-search"></i>&nbsp;Obtener asistencia</button>
 		 </div>
 
 
@@ -113,7 +113,7 @@
 			 if (class_id == "" || section_id == "" || month == "" || year == "") {
 		   //$.toast("<?php //echo get_phrase('select_class_for_promotion_to_and_from');?>")
            $.toast({
-            text: 'Please select class and section',
+            text: 'Por favor seleccionar clase y seccion',
             position: 'top-right',
             loaderBg: '#f56954',
             icon: 'warning',
