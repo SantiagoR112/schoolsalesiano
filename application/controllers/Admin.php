@@ -36,7 +36,7 @@ class Admin extends CI_Controller {
     function dashboard() {
         if ($this->session->userdata('admin_login') != 1) redirect(base_url(), 'refresh');
        	$page_data['page_name'] = 'dashboard';
-        $page_data['page_title'] = get_phrase('admin_dashboard');
+        $page_data['page_title'] = get_phrase('panel_administrador');
         $this->load->view('backend/index', $page_data);
     }
 	/******************* / Admin dashboard code to redirect to admin page if successfull login** */
@@ -1612,7 +1612,7 @@ class Admin extends CI_Controller {
         }
 
         $page_data['page_name']     = 'newAdministrator';
-        $page_data['page_title']    = get_phrase('New Administrator');
+        $page_data['page_title']    = get_phrase('Gestion Administradores');
         $this->load->view('backend/index', $page_data);
     }
     /***********  The function that manages administrator ends here ***********************/

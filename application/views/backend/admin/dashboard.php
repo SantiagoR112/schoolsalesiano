@@ -9,7 +9,7 @@
 									<strong style="color:white"><?php echo $this->db->count_all_results('student');?>
 									 </strong>
 									 </h4>
-                                    <span class="text-muted"><a href="#" style="color:white"><?php echo get_phrase('Students');?></a></span>
+                                    <span class="text-muted"><a href="#" style="color:white"><?php echo get_phrase('Estudiantes');?></a></span>
                                 </div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
 									<strong style="color:white"><?php echo $this->db->count_all_results('teacher');?>
 									 </strong>
 									 </h4>
-                                    <span class="text-muted"><a href="#" style="color:white"><?php echo get_phrase('Teachers');?></a></span>
+                                    <span class="text-muted"><a href="#" style="color:white"><?php echo get_phrase('Docentes');?></a></span>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
 								   <strong style="color:white"><?php echo $this->db->count_all_results('parent');?>
 								    </strong>
 									</h4>
-                                    <span class="text-muted"><a href="#" style="color:white"><?php echo get_phrase('parents');?></a></span>
+                                    <span class="text-muted"><a href="#" style="color:white"><?php echo get_phrase('Acudientes');?></a></span>
                                 </div>
                             </div>
                         </div>

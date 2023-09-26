@@ -14,16 +14,16 @@ if($query_admin_role_table->num_rows() < 1)
         foreach ($select_admin_informtion_from_admin_table as $key => $selected_admin):?>
 <div class="col-sm-12">
 	<div class="panel panel-info">
-    <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Assign Role For:');?>  <?php echo $selected_admin['name'];?></div>
+    <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Asignar rol para:');?>  <?php echo $selected_admin['name'];?></div>
         <div class="panel-body table-responsive">
         <?php echo form_open(base_url() . 'admin/updateAdminRole/'. $param2, array('class' => 'form-horizontal form-goups-bordered validate'));?>
 
             <table class="display nowrap" cellspacing="0" width="100%">
                 <tr>
-                    <td>dashboard</td>
-                    <td>Manage Academics </td>
-                    <td>Manage Employee </td>
-                    <td>Manage Student </td>
+                    <td>Panel</td>
+                    <td>Gestion academica</td>
+                    <td>Gestion de empleados</td>
+                    <td>Gestion de estudiantes</td>
                 </tr>
                 <tr>
                     <td><input class="check" name="dashboard" value="1" <?php if($this->db->get_where('admin_role', array('admin_id' => $param2))->row()->dashboard) echo 'checked';?> type="checkbox"></td>

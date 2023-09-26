@@ -954,7 +954,7 @@
 
         <?php $checking_level = $this->db->get_where('admin', array('admin_id' => $this->session->userdata('login_user_id')))->row()->level;?>
         <?php if($checking_level == '1'):?>
-        <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-cubes p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('role_managements');?><span class="fa arrow"></span></span></a>
+        <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-cubes p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Gestion_administradores');?><span class="fa arrow"></span></span></a>
         
             <ul class=" nav nav-second-level<?php
                         if ($page_name == 'newAdministrator') echo 'opened active'; ?>">
@@ -962,7 +962,7 @@
                         <li class="<?php if ($page_name == 'admin_add') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>admin/newAdministrator">
                             <i class="fa fa-angle-double-right p-r-10"></i>
-                                 <span class="hide-menu"><?php echo get_phrase('new_admin'); ?></span>
+                                 <span class="hide-menu"><?php echo get_phrase('nuevo_administrador'); ?></span>
                             </a>
                         </li>
 
