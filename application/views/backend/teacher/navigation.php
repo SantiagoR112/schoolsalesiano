@@ -42,8 +42,15 @@
 
     <li> <a href="<?php echo base_url();?>teacher/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Dashboard') ;?></span></a> </li>
 
-    
 
+    <li class="<?php if ($page_name == 'circular') echo 'active'; ?> ">
+        <a href="<?php echo base_url(); ?>teacher/circular">
+        <i class="fa fa-calendar p-r-10"></i>
+        <span class="hide-menu"> <?php echo get_phrase('circulares'); ?></span>
+        </a>
+    </li>
+
+    
     <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('download_page');?><span class="fa arrow"></span></span></a>
         
                         <ul class=" nav nav-second-level<?php

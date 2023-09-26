@@ -87,7 +87,7 @@
         <li class="<?php if ($page_name == 'circular') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>admin/circular">
                 <i class="fa fa-angle-double-right p-r-10"></i>
-                 <span class="hide-menu"> <?php echo get_phrase('manage_circular'); ?></span>
+                 <span class="hide-menu"> <?php echo get_phrase('gestion_circulares'); ?></span>
                 </a>
         </li>
 

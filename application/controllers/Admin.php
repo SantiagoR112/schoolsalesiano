@@ -205,7 +205,7 @@ class Admin extends CI_Controller {
         }
 
         $page_data['page_name']         = 'circular';
-        $page_data['page_title']        = get_phrase('Manage Circular');
+        $page_data['page_title']        = get_phrase('Gestion Circulares');
         $page_data['select_circular']   = $this->db->get('circular')->result_array();
         $this->load->view('backend/index', $page_data);
 

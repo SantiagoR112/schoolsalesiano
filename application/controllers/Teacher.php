@@ -616,6 +616,16 @@ class Teacher extends CI_Controller {
         }
     }
 
+    function circular($param1 = null, $param2 = null, $param3 = null){
+
+
+        $page_data['page_name']         = 'circular';
+        $page_data['page_title']        = get_phrase('Listado Circulares');
+        $page_data['select_circular']   = $this->db->get('circular')->result_array();
+        $this->load->view('backend/index', $page_data);
+
+    }
+
     
     
     
