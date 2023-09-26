@@ -229,7 +229,7 @@ class Teacher extends CI_Controller {
         $page_data['student_id']    =   $student_id;
         $page_data['subject_id']   =    $subject_id;
         $page_data['page_name']     =   'marks';
-        $page_data['page_title']    = get_phrase('Student Marks');
+        $page_data['page_title']    = get_phrase('Reporte notas');
         $this->load->view('backend/index', $page_data);
     }
     /***********  The function that manages school marks ends here ***********************/
@@ -513,7 +513,7 @@ class Teacher extends CI_Controller {
         $page_data['class_id'] = $class_id;
         $page_data['exam_id'] = $exam_id;
         $page_data['page_name'] = 'printResultSheet'; // Cambia el nombre de la vista según tus necesidades
-        $page_data['page_title'] = get_phrase('print_result_sheet');
+        $page_data['page_title'] = get_phrase('Reporte_final');
 
         $this->load->view('backend/index', $page_data);
     }

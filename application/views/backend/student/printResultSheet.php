@@ -60,7 +60,7 @@
     <td><?php echo $this->db->get_where('settings' , array('type' =>'session'))->row()->description;?></td>
     <td>SEXO:</td>
     <td><?php echo $sex;?></td>
-    <td>ASISTENCIA:</td>
+    <td>INASISTENCIAS:</td>
     <td><?php echo $this->db->get_where('attendance', array('session' => $running_year, 'student_id' => $student_id))->num_rows(); ?></td>
   </tr>
   
@@ -71,8 +71,15 @@
     <td><?php echo $roll;?></td>
     <td>CLASE:</td>
     <td><?php $class_name = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;echo $class_name;?></td>
-    <td>INASISTENCIAS:</td>
-   <td><?php echo $this->db->get_where('attendance', array('session' => $running_year))->num_rows(); ?></td>
+    <td>DIRECTOR DE GRUPO:</td>
+    <td>
+        <?php
+        $class_info = $this->db->get_where('class', array('class_id' => $class_id))->row();
+        $teacher_id = $class_info->teacher_id;
+        $director_info = $this->db->get_where('teacher', array('teacher_id' => $teacher_id))->row();
+        echo $director_info->name;
+        ?>
+    </td>
   </tr>
 </table>
 
@@ -143,10 +150,10 @@
                                 <?php if ($average >= 3 && $average <= 3.9) : ?>
                                     <p style="color:green"><?php echo 'Basico'; ?></p>
                                 <?php endif; ?>
-                                <?php if ($average >= 4 && $average <= 4.4) : ?>
+                                <?php if ($average >= 4 && $average <= 4.5) : ?>
                                     <p style="color:green"><?php echo 'Alto'; ?></p>
                                 <?php endif; ?>
-                                <?php if ($average >= 4.5 && $average <= 5) : ?>
+                                <?php if ($average >= 4.6 && $average <= 5) : ?>
                                     <p style="color:green"><?php echo 'Superior'; ?></p>
                                 <?php endif; ?>                                           
                             </td>
@@ -187,7 +194,7 @@
 </div>
  <hr>
  <?php endforeach;?>
-<button id="print" class="btn btn-info btn-rounded btn-block btn-sm pull-right" type="button"> <span><i class="fa fa-print"></i>&nbsp;Print</span> </button>
+<button id="print" class="btn btn-info btn-rounded btn-block btn-sm pull-right" type="button"> <span><i class="fa fa-print"></i>&nbsp;Imprimir</span> </button>
 
 
 <script type="text/javascript" src="<?php echo base_url();?>js/html2canvas.min.js"></script>

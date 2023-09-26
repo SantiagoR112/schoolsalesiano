@@ -352,7 +352,7 @@ class Student extends CI_Controller {
 		$page_data['class_id']   =   $class_id;
 		$page_data['exam_id']    =   $exam_id;
 		$page_data['page_name']  = 'printResultSheet';
-		$page_data['page_title'] = get_phrase('print_result_sheet');
+		$page_data['page_title'] = get_phrase('reporte_final');
 		$this->load->view('backend/index', $page_data);
 		}
 		/********************* Print and view tabulation sheet ends here **********************/

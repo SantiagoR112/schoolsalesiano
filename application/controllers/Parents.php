@@ -62,7 +62,7 @@ class Parents extends CI_Controller {
             $this->load->view('backend/index', $page_data);
         }
 
-
+    }
         function subject (){
 
             $parent_profile = $this->db->get_where('student', array('parent_id' => $this->session->userdata('parent_id')))->row();
@@ -246,7 +246,7 @@ class Parents extends CI_Controller {
 	/********** this function load student *******************/
 	
     public function generateStudentReport($student_id, $exam_id) {
-        // Asegúrate de que el maestro esté autenticado y tenga permisos
+        // Asegúrate de que el acudiente esté autenticado y tenga permisos
         if ($this->session->userdata('parent_login') != 1) {
             redirect(base_url(), 'refresh');
         }
@@ -523,7 +523,7 @@ class Parents extends CI_Controller {
 		$page_data['class_id']   =   $class_id;
 		$page_data['exam_id']    =   $exam_id;
 		$page_data['page_name']  = 'printResultSheet';
-		$page_data['page_title'] = get_phrase('print_result_sheet');
+		$page_data['page_title'] = get_phrase('reporte_final');
 		$this->load->view('backend/index', $page_data);
         $subjects = $this->db->get_where('subject', array('class_id' => $class_id))->result_array();
         $total_subjects = count($subjects);

@@ -60,10 +60,15 @@
                                 INFORMACION ESTUDIANTE
                             </div>
                             <div class="card-body">
+                                    <?php
+                                        $class_info = $this->db->get_where('class', array('class_id' => $class_id))->row();
+                                        $teacher_id = $class_info->teacher_id;
+                                        $director_info = $this->db->get_where('teacher', array('teacher_id' => $teacher_id))->row();
+                                    ?>
                                 <p><strong>Nombre:</strong> <?php echo $student_info->name; ?></p>
                                 <p><strong>Numero de adminision:</strong> <?php echo $student_info->roll; ?></p>
-                                <p><strong>Clase:</strong><?php $class_name = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name;echo $class_name;?></p>
-                                <p><strong>Sexo:</strong> <?php echo $student_info->sex; ?></p>
+                                <p><strong>Clase: </strong><?php $class_name = $this->db->get_where('class' , array('class_id' => $class_id))->row()->name; echo $class_name;?></p>
+                                <p><strong>Director de grupo:</strong> <?php echo $director_info->name; ?></p>
 
                                 <table class="table table-bordered">
                                     <thead class="bg-light">
