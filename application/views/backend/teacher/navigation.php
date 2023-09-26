@@ -116,7 +116,7 @@
                     <li class="<?php if ($page_name == 'marks') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>teacher/marks">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                           <span class="hide-menu"><?php echo get_phrase('Generar_Reportes'); ?></span>
+                           <span class="hide-menu"><?php echo get_phrase('Reporte_notas'); ?></span>
                         </a>
                     </li>
         <?php endif;?>
@@ -135,7 +135,7 @@
         <li class=" <?php if($page_name == 'periodtime')echo 'active';?>">
                     <a href="<?php echo base_url();?>teacher/periodtime" >
                     <i class="fa fa-clock-o p-r-10"></i>
-                    <span class="hide-menu"><?php echo get_phrase('Plazos_periodos');?></span>
+                    <span class="hide-menu"><?php echo get_phrase('Fecha_limite_notas');?></span>
                     </a>    
         </li> 
 

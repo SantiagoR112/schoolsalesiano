@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Enter Student Score');?></div>
+            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Reporte nota de estudiantes');?></div>
                 <div class="panel-body table-responsive">
 			
                     <!----CREATION FORM STARTS---->
@@ -9,7 +9,7 @@
                 	<?php echo form_open(base_url() . 'teacher/marks' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
                     
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Exam');?></label>
+                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Examen');?></label>
                                 <div class="col-sm-12">
                                     <select name="exam_id" class="form-control select2">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
@@ -25,7 +25,7 @@
 
 
                             <div class="form-group">
-                                <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('clase');?></label>
                                 <div class="col-sm-12">
                                     <select name="class_id" class="form-control select2" onchange="show_students(this.value)">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
@@ -35,7 +35,7 @@
 
                                         $classes = $this->db->get_where('class', array('teacher_id' => $current_teacher_id))->result_array();
                                         foreach ($classes as $key => $class):?>
-                                            <option value="<?php echo $class['class_id'];?>"<?php if($class_id == $class['class_id']) echo 'selected="selected"' ;?>>Class: <?php echo $class['name'];?></option>
+                                            <option value="<?php echo $class['class_id'];?>"<?php if($class_id == $class['class_id']) echo 'selected="selected"' ;?>>Clase: <?php echo $class['name'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -44,14 +44,14 @@
 
 								
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Student');?></label>
+                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Estudiante');?></label>
                                 <div class="col-sm-12">
 
                                 <?php $classes = $this->crud_model->get_classes();
                                         foreach ($classes as $key => $row): ?>
 
                                     <select name="<?php if($class_id == $row['class_id']) echo 'student_id'; else echo 'temp';?>" id="student_id_<?php echo $row['class_id'];?>" style="display:<?php if($class_id == $row['class_id']) echo 'block'; else echo 'none';?>"  class="form-control">
-                                        <option value="">Student of: <?php echo $row['name'] ;?></option>
+                                        <option value="">Estudiante de: <?php echo $row['name'] ;?></option>
 
                                         <?php $students = $this->crud_model->get_students($row['class_id']);
                                         foreach ($students as $key => $student): ?>
@@ -65,14 +65,14 @@
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <select name="" id="student_id_0" style="display:<?php if(isset($student_id) && $student_id > 0) echo 'none'; else echo 'block';?>"  class="form-control">
-                                        <option value=""><?php echo get_phrase('Select Class First');?></option>
+                                        <option value=""><?php echo get_phrase('Selecciona Clase primero');?></option>
                                     </select>
                                 </div>
                             </div>
                             
                             <input class="" type="hidden" value="selection" name="operation">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('Get Details');?></button>
+                            <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('obtener detalles');?></button>
                         </div>
 		
                     </form>                

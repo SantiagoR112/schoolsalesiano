@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Enter Student Score');?></div>
+            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Registro de notas');?></div>
                 <div class="panel-body table-responsive">
 			
                     <!----CREATION FORM STARTS---->
@@ -77,7 +77,7 @@
                             
                             <input class="" type="hidden" value="selection" name="operation">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('Get Details');?></button>
+                            <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('Obtener detalles');?></button>
                         </div>
 		
                     </form>                
@@ -116,7 +116,7 @@
     <div class="row">
 	<div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('enter_subject_score'); ?></div>
+            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Ingresar_nota_estudiantes'); ?></div>
                 <div class="panel-body table-responsive">
 							   
     					<table cellpadding="0" cellspacing="0" border="0" class="table">
@@ -346,7 +346,7 @@
                     </tbody>
                </table>
               <h5 id="error_message" class="alert alert-warning" style="display:none">La nota no debe ser menor a 1 ni mayor a 5</h5>
-                      <button type="submit" class="btn btn-sm btn-rounded btn-block  btn-info"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('update_marks');?></button>
+                      <button type="submit" class="btn btn-sm btn-rounded btn-block  btn-info"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('guardar_notas');?></button>
                  
                   <?php echo form_close();?>
             
