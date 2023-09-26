@@ -59,7 +59,7 @@
                 <li class="<?php if ($page_name == 'subject') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>parents/subject">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Subject'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Asignaturas'); ?></span>
                     </a>
                 </li>
 
@@ -67,7 +67,7 @@
                 <li class="<?php if ($page_name == 'teacher') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>parents/teacher">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Teacher'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Directores de grupo'); ?></span>
                     </a>
                 </li>
 

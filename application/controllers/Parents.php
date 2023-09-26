@@ -77,21 +77,23 @@ class Parents extends CI_Controller {
             $this->load->view('backend/index', $page_data);
         }
 
-        function teacher (){
-
-
-            $parent_profile = $this->db->get_where('student', array('parent_id' => $this->session->userdata('parent_id')))->row();
-            $select_student_class_id = $parent_profile->class_id;
-
-            $return_teacher_id = $this->db->get_where('subject', array('class_id' => $select_student_class_id))->row()->teacher_id;
-
-
-            $page_data['page_name']     = 'teacher';
-            $page_data['page_title']    = get_phrase('Class Teachers');
-            $page_data['select_teacher']  = $this->db->get_where('teacher', array('teacher_id' => $return_teacher_id))->result_array();
+        function teacher() {
+            // Consulta SQL para seleccionar profesores con rol 1 (directores de grupo) y unir con la tabla class
+            $sql = "SELECT teacher.*, class.name AS class_name FROM teacher
+                    INNER JOIN class ON teacher.teacher_id = class.teacher_id
+                    WHERE teacher.role = 1";
+        
+            $directors = $this->db->query($sql)->result_array();
+        
+            $page_data['page_name'] = 'teacher';
+            $page_data['page_title'] = get_phrase('Directores de grupo');
+            $page_data['select_teacher'] = $directors;
+        
             $this->load->view('backend/index', $page_data);
         }
-
+        
+        
+        
         function class_mate (){
 
             $parent_student_profile = $this->db->get_where('student', array('parent_id' => $this->session->userdata('parent_id')))->row();
