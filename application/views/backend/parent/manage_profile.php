@@ -3,7 +3,7 @@
 	<div class="col-sm-7">
 		<div class="panel panel-info">
 
-			<div class="panel-heading"><i class="fa fa-gear"></i>  <?php echo get_phrase('Editar perfil');?></div>
+			<div class="panel-heading"><i class="fa fa-gear"></i>  <?php echo get_phrase('Editar informacion');?></div>
 			<div class="panel-body table-responsive">
 
 				<?php 

@@ -55,12 +55,15 @@ class Parents extends CI_Controller {
                 // Las nuevas contraseñas no coinciden
                 $this->session->set_flashdata('error_message', get_phrase('nuevas contraseñas no coinciden'));
             }
+
+            redirect(base_url() . 'parents/manage_profile', 'refresh');
     
-            $page_data['page_name']     = 'manage_profile';
-            $page_data['page_title']    = get_phrase('Editar perfil');
-            $page_data['edit_profile']  = $this->db->get_where('parent', array('parent_id' => $this->session->userdata('parent_id')))->result_array();
-            $this->load->view('backend/index', $page_data);
         }
+
+        $page_data['page_name']     = 'manage_profile';
+        $page_data['page_title']    = get_phrase('Editar perfil');
+        $page_data['edit_profile']  = $this->db->get_where('parent', array('parent_id' => $this->session->userdata('parent_id')))->result_array();
+        $this->load->view('backend/index', $page_data);
 
     }
         function subject (){
@@ -69,7 +72,7 @@ class Parents extends CI_Controller {
             $select_student_class_id = $parent_profile->class_id;
 
             $page_data['page_name']     = 'subject';
-            $page_data['page_title']    = get_phrase('Class Subjects');
+            $page_data['page_title']    = get_phrase('Asignaturas');
             $page_data['select_subject']  = $this->db->get_where('subject', array('class_id' => $select_student_class_id))->result_array();
             $this->load->view('backend/index', $page_data);
         }
