@@ -44,7 +44,7 @@
 
     
 
-    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-book p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Academics');?><span class="fa arrow"></span></span></a>
+    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-book p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Academicos');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'subject' ||
@@ -90,7 +90,7 @@
                 <li class="<?php if ($page_name == 'study_material') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>studymaterial/study_material">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('Study Material'); ?></span>
+                            <span class="hide-menu"><?php echo get_phrase('Material de estudio'); ?></span>
                     </a>
                 </li>
 
@@ -104,7 +104,7 @@
 				 <li class="<?php if ($page_name == 'search_student') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>parents/search_student">
                      <i class="fa fa-list p-r-10"></i>
-                    <span class="hide-menu"><?php echo get_phrase('report_card'); ?></span>
+                    <span class="hide-menu"><?php echo get_phrase('Reporte_notas'); ?></span>
                 </a>
             </li>
  

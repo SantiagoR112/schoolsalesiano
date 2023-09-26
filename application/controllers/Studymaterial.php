@@ -35,7 +35,7 @@ class Studymaterial extends CI_Controller {
     }
 
         $page_data['page_name']         = 'study_material';
-        $page_data['page_title']        = get_phrase('Study Material');
+        $page_data['page_title']        = get_phrase('Material de estudio');
         $this->load->view('backend/index', $page_data);
 
 

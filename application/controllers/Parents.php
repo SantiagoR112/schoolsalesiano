@@ -245,7 +245,7 @@ class Parents extends CI_Controller {
 		$page_data['class_id'] = $class_id;					//class ID
 	
 		$page_data['page_name'] = 'search_student';
-		$page_data['page_title'] = get_phrase('search_students');
+		$page_data['page_title'] = get_phrase('Reporte_acudientes');
 		$this->load->view('backend/index', $page_data);
 	}
 	/********** this function load student *******************/

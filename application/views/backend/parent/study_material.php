@@ -2,7 +2,7 @@
   <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('lista material de estudio');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 								
@@ -10,13 +10,13 @@
     <thead>
         <tr>
             <th>#</th>
-            <th><?php echo get_phrase('file_type');?></th>
-            <th><?php echo get_phrase('title');?></th>
-            <th><?php echo get_phrase('class');?></th>
-            <th><?php echo get_phrase('subject');?></th>
-            <th><?php echo get_phrase('teacher');?></th>
-            <th><?php echo get_phrase('description');?></th>
-            <th><?php echo get_phrase('options');?></th>
+            <th><?php echo get_phrase('tipo_archivo');?></th>
+            <th><?php echo get_phrase('titulo');?></th>
+            <th><?php echo get_phrase('clase');?></th>
+            <th><?php echo get_phrase('asignatura');?></th>
+            <th><?php echo get_phrase('docente');?></th>
+            <th><?php echo get_phrase('descripcion');?></th>
+            <th><?php echo get_phrase('opciones');?></th>
         </tr>
     </thead>
 
