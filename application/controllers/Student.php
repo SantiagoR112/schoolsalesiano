@@ -74,25 +74,30 @@ class Student extends CI_Controller {
             $select_student_class_id = $student_profile->class_id;
 
             $page_data['page_name']     = 'subject';
-            $page_data['page_title']    = get_phrase('Class Subjects');
+            $page_data['page_title']    = get_phrase('Asignaturas');
             $page_data['select_subject']  = $this->db->get_where('subject', array('class_id' => $select_student_class_id))->result_array();
             $this->load->view('backend/index', $page_data);
         }
 
-        function teacher (){
-
-
-            $student_profile = $this->db->get_where('student', array('student_id' => $this->session->userdata('student_id')))->row();
-            $select_student_class_id = $student_profile->class_id;
-
-            $return_teacher_id = $this->db->get_where('subject', array('class_id' => $select_student_class_id))->row()->teacher_id;
-
-
-            $page_data['page_name']     = 'teacher';
-            $page_data['page_title']    = get_phrase('Class Teachers');
-            $page_data['select_teacher']  = $this->db->get_where('teacher', array('teacher_id' => $return_teacher_id))->result_array();
+        function teacher() {
+            // Obtén el class_id del estudiante actual (asegúrate de tener acceso a la sesión)
+            $student_id = $this->session->userdata('student_id');
+            $class_id = $this->db->get_where('student', array('student_id' => $student_id))->row('class_id');
+        
+            // Consulta SQL para seleccionar al director de grupo de la clase del estudiante
+            $sql = "SELECT teacher.*, class.name AS class_name FROM teacher
+                    INNER JOIN class ON teacher.teacher_id = class.teacher_id
+                    WHERE teacher.role = 1 AND class.class_id = $class_id";
+        
+            $director = $this->db->query($sql)->row_array();
+        
+            $page_data['page_name'] = 'teacher';
+            $page_data['page_title'] = get_phrase('Director de grupo');
+            $page_data['select_teacher'] = array($director); // Coloca al director en un array para mantener la estructura de la vista
+        
             $this->load->view('backend/index', $page_data);
         }
+        
 
         function class_mate (){
 

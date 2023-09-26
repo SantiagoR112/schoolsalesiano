@@ -1,7 +1,7 @@
 <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Asignaturas de la clase ');?></div>
+                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Asignaturas de la clase');?></div>
                                 <div class="panel-body table-responsive">
 
                                 

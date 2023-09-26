@@ -44,7 +44,7 @@
 
     
 
-    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-book p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Academics');?><span class="fa arrow"></span></span></a>
+    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-book p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Academicos');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'subject' ||
@@ -59,7 +59,7 @@
                 <li class="<?php if ($page_name == 'subject') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>student/subject">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Subject'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Asignaturas'); ?></span>
                     </a>
                 </li>
 
@@ -67,7 +67,7 @@
                 <li class="<?php if ($page_name == 'teacher') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>student/teacher">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Teacher'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Director de grupo'); ?></span>
                     </a>
                 </li>
 
@@ -90,7 +90,7 @@
                 <li class="<?php if ($page_name == 'study_material') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>studymaterial/study_material">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('Study Material'); ?></span>
+                            <span class="hide-menu"><?php echo get_phrase('Material de estudio'); ?></span>
                     </a>
                 </li>
 
@@ -104,7 +104,7 @@
 				 <li class="<?php if ($page_name == 'class_routine') echo 'active'; ?> ">
                    <a href="<?php echo base_url(); ?><?php echo $account_type; ?>/student_marksheet/<?php echo $this->session->userdata('login_user_id'); ?>">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('Report Card'); ?></span>
+                            <span class="hide-menu"><?php echo get_phrase('Reporte Notas'); ?></span>
                     </a>
                 </li>
  
