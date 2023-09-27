@@ -94,7 +94,7 @@
                                         <tr>
                                             <th style="background-color: #17ABCC; color: white;">Asignaturas</th>
                                             <th style="background-color: #17ABCC; color: white;">Calificacion</th>
-                                            <th style="background-color: #17ABCC; color: white;">Escala</th> <!-- Columna para la escala -->
+                                            <th style="background-color: #17ABCC; color: white;">Desempeño</th> <!-- Columna para la escala -->
                                         </tr>
                                     </thead>
                                     <tbody>

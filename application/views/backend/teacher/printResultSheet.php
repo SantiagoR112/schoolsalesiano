@@ -95,7 +95,7 @@
                                     <td><strong>TERCER PERIODO</strong></td>
                                     <td><strong>CUARTO PERIODO</strong></td>
                                     <td><strong>NOTA FINAL</strong></td>
-                                    <td><strong>ESCALA</strong></td>
+                                    <td><strong>DESEMPEÑO</strong></td>
                                     <td><strong>OBSERVACIONES</strong></td>
                                 </tr>
 
@@ -198,13 +198,15 @@
                 <script type="text/javascript" src="<?php echo base_url(); ?>js/jspdf.min.js"></script>
                 <script type="text/javascript">
                     var pages = $('.print');
-                    var doc = new jsPDF();
+                    var doc = new jsPDF('landscape'); // Establecer la orientación a horizontal
                     var j = 0;
+
                     for (var i = 0; i < pages.length; i++) {
                         html2canvas(pages[i]).then(function(canvas) {
                             var img = canvas.toDataURL("image/png");
                             var height = canvas.height / 440 * 80;
-                            doc.addImage(img, 'JPEG', 10, 0, 190, height);
+                            doc.addImage(img, 'JPEG', 10, 0, 280, height); // Ajustar el ancho para paisaje (landscape)
+                            
                             if (j < (pages.length - 1)) doc.addPage();
                             if (j == (pages.length - 1)) {
                                 doc.save('Reporte_final_<?php echo $student_id ?>.pdf');
@@ -213,6 +215,7 @@
                         });
                     }
                 </script>
+
             </div>
         </div>
     </div>

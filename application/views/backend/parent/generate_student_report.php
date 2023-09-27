@@ -75,12 +75,12 @@
                                         <tr>
                                             <th style="background-color: #17ABCC; color: white;">Asignaturas</th>
                                             <th style="background-color: #17ABCC; color: white;">Calificacion</th>
-                                            <th style="background-color: #17ABCC; color: white;">Escala</th> <!-- Columna para la escala -->
+                                            <th style="background-color: #17ABCC; color: white;">Desempeño</th> <!-- Columna para la escala -->
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                        // Función para obtener la escala según la calificación
+                                        // Función para obtener la Desempeño según la calificación
                                         function obtenerEscala($calificacion) {
                                             if ($calificacion >= 1 && $calificacion <= 2.9) {
                                                 return "Bajo";
