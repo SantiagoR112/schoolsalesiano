@@ -199,10 +199,21 @@ class Student_model extends CI_Model {
     }
 
     // the function below deletes from student table
-    function deleteNewStudent($param2){
+    function deleteNewStudent($param2) {
+        // Verifica si el estudiante tiene notas asociadas
+        $marks_exist = $this->db->where('student_id', $param2)->get('mark')->num_rows() > 0;
+    
+        if ($marks_exist) {
+            // Si el estudiante tiene notas asociadas, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar este estudiante debido a que tiene notas asociadas.");</script>';
+            redirect(base_url() . 'admin/student', 'refresh');
+        }
+    
+        // Si no tiene notas asociadas, intenta eliminar el registro del estudiante
         $this->db->where('student_id', $param2);
         $this->db->delete('student');
     }
+    
 
 
     function create_student_request_book(){

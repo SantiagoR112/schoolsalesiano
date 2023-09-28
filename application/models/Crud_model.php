@@ -345,7 +345,7 @@ class Crud_model extends CI_Model {
     
             if ($existing_parent) {
                 // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
-                $this->session->set_flashdata('error_message', 'El correo electrónico ya esta registrado');
+                $this->session->set_flashdata('error_message', 'El email ya esta registrado');
                 redirect(base_url() . 'admin/parent', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
             }
         }
@@ -364,10 +364,25 @@ class Crud_model extends CI_Model {
         $this->db->update('parent', $parent_data);
     }
 
-    function delete_parent($param2){
+    function delete_parent($param2) {
+        // Verifica si el parent_id existe en la tabla student
+        $student_exists = $this->db->where('parent_id', $param2)->get('student')->num_rows() > 0;
+    
+        if ($student_exists) {
+            // Si existen estudiantes asociados, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar este acudiente debido a que existen estudiantes asociados.");</script>';
+            redirect(base_url() . 'admin/parent', 'refresh');
+        }
+        // Si no existen estudiantes asociados, intenta eliminar el registro del acudiente
         $this->db->where('parent_id', $param2);
         $this->db->delete('parent');
     }
+    
+    
+    
+    
+    
+    
 
 
     function insert_periodtime(){

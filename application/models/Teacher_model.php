@@ -117,11 +117,22 @@ class Teacher_model extends CI_Model {
     
 
 
-    function deleteTeacherFunction($param2){
-
+    function deleteTeacherFunction($param2) {
+        // Verifica si el docente está asociado a asignaturas o clases
+        $subject_exists = $this->db->where('teacher_id', $param2)->get('subject')->num_rows() > 0;
+        $class_exists = $this->db->where('teacher_id', $param2)->get('class')->num_rows() > 0;
+    
+        if ($subject_exists || $class_exists) {
+            // Si el docente está asociado a asignaturas o clases, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar este docente debido a que está asociado a asignaturas o clases.");</script>';
+            redirect(base_url() . 'admin/teacher/', 'refresh');
+        }
+    
+        // Si no está asociado a asignaturas o clases, intenta eliminar el registro del docente
         $this->db->where('teacher_id', $param2);
         $this->db->delete('teacher');
     }
+    
 	
 
 

@@ -104,10 +104,24 @@ class   Class_model extends CI_Model {
 
 
     // The function below delete from class table //
-    function deleteClassFunction($param2){
+    function deleteClassFunction($param2) {
+        // Verifica si hay estudiantes asociados a esta clase
+        $students_exist = $this->db->where('class_id', $param2)->get('student')->num_rows() > 0;
+    
+        // Verifica si hay notas asociadas a esta clase
+        $marks_exist = $this->db->where('class_id', $param2)->get('mark')->num_rows() > 0;
+    
+        if ($students_exist || $marks_exist) {
+            // Si hay estudiantes o notas asociadas, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar esta clase debido a que tiene estudiantes o notas asociadas.");</script>';
+            redirect(base_url() . 'admin/classes', 'refresh');
+        }
+    
+        // Si no hay estudiantes ni notas asociadas, intenta eliminar el registro de la clase
         $this->db->where('class_id', $param2);
         $this->db->delete('class');
     }
+    
 	
 
 

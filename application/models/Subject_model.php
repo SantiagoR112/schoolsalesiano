@@ -48,11 +48,19 @@ class Subject_model extends CI_Model {
     }
 
     // The function below delete from subject table //
-    function deleteSubjectFunction($param2){
+    function deleteSubjectFunction($param2) {
+        // Verifica si hay notas asociadas a esta asignatura
+        $marks_exist = $this->db->where('subject_id', $param2)->get('mark')->num_rows() > 0;
+    
+        if ($marks_exist) {
+            // Si hay notas asociadas, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar esta asignatura debido a que tiene notas asociadas.");</script>';
+            redirect(base_url() . 'subject/subject', 'refresh');
+        }
+    
+        // Si no hay notas asociadas, intenta eliminar el registro de la asignatura
         $this->db->where('subject_id', $param2);
         $this->db->delete('subject');
-    }
-	
-	
+    }	
 }
 

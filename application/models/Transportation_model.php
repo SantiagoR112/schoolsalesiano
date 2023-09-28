@@ -36,10 +36,21 @@ class Transportation_model extends CI_Model {
     }
 
     // The function below delete from transport table //
-    function deleteTransportFunction($param2){
+    function deleteTransportFunction($param2) {
+        // Verifica si hay estudiantes asociados a este transporte
+        $students_exist = $this->db->where('transport_id', $param2)->get('student')->num_rows() > 0;
+    
+        if ($students_exist) {
+            // Si hay estudiantes asociados, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar este transporte debido a que tiene estudiantes asociados.");</script>';
+            redirect(base_url() . 'transportation/transport', 'refresh');
+        }
+    
+        // Si no hay estudiantes asociados, intenta eliminar el registro del transporte
         $this->db->where('transport_id', $param2);
         $this->db->delete('transport');
     }
+    
 
 
 // The function below insert into transort_route table //
@@ -63,10 +74,21 @@ class Transportation_model extends CI_Model {
     }
 
     // The function below delete from transort_route table //
-    function deleteTransportRoute($param2){
+    function deleteTransportRoute($param2) {
+        // Verifica si hay transportes asociados a esta ruta
+        $transport_exist = $this->db->where('transport_route_id', $param2)->get('transport')->num_rows() > 0;
+    
+        if ($transport_exist) {
+            // Si hay transportes asociados, muestra un mensaje de error en JavaScript
+            echo '<script>alert("No se puede eliminar esta ruta de transporte debido a que tiene transportes asociados.");</script>';
+            redirect(base_url() . 'transportation/transport_route', 'refresh');
+        }
+    
+        // Si no hay transportes asociados, intenta eliminar el registro de la ruta de transporte
         $this->db->where('transport_route_id', $param2);
         $this->db->delete('transport_route');
     }
+    
 
 
 // The function below insert into vehicle table //
@@ -106,10 +128,21 @@ class Transportation_model extends CI_Model {
         }
     
         // The function below delete from vehicle table //
-        function deleteVehicle($param2){
+        function deleteVehicle($param2) {
+            // Verifica si hay transportes asociados a este vehículo
+            $transport_exist = $this->db->where('vehicle_id', $param2)->get('transport')->num_rows() > 0;
+        
+            if ($transport_exist) {
+                // Si hay transportes asociados, muestra un mensaje de error en JavaScript
+                echo '<script>alert("No se puede eliminar este vehículo debido a que tiene transportes asociados.");</script>';
+                redirect(base_url() . 'transportation/vehicle', 'refresh');
+            }
+        
+            // Si no hay transportes asociados, intenta eliminar el registro del vehículo
             $this->db->where('vehicle_id', $param2);
             $this->db->delete('vehicle');
         }
+        
 	
 
 

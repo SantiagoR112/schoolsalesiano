@@ -232,9 +232,8 @@ class Admin extends CI_Controller {
 
         if($param1 == 'delete'){
             $this->crud_model->delete_parent($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data successfully deleted'));
-            redirect(base_url(). 'admin/parent', 'refresh');
-
+            $this->session->set_flashdata('flash_message', 'El acudiente se eliminó con éxito.');
+            redirect(base_url() . 'admin/parent', 'refresh');
         }
 
         $page_data['page_name']         = 'parent';
