@@ -8,7 +8,7 @@ foreach ( $edit_teacher as $key => $row):
             <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <?php echo get_phrase('edit_teacher');?></div>
+                            <div class="panel-heading"> <?php echo get_phrase('editar_docente');?></div>
 						
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
@@ -16,24 +16,24 @@ foreach ( $edit_teacher as $key => $row):
                         		
                                 
                             <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?></label>
                     <div class="col-sm-12">
                                     <input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>"/>
                                 </div>
                             </div>
 							
 							<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('role');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('rol');?></label>
                     <div class="col-sm-12">
 							<select name="role" class="form-control select2" required>
-                                    	<option value="1" <?php if($row['role'] == '1')echo 'selected';?>><?php echo get_phrase('class_teacher');?></option>
-                                    	<option value="2" <?php if($row['role'] == '2')echo 'selected';?>><?php echo get_phrase('subject_teacher');?></option>
+                                    	<option value="1" <?php if($row['role'] == '1')echo 'selected';?>><?php echo get_phrase('director_de_grupo');?></option>
+                                    	<option value="2" <?php if($row['role'] == '2')echo 'selected';?>><?php echo get_phrase('docente_asignatura');?></option>
                           </select>
 						</div> 
 					</div>
 					
 					    <div class="form-group">
-                            <label class="col-md-12" for="example-text"><?php echo get_phrase('birthday');?></label>
+                            <label class="col-md-12" for="example-text"><?php echo get_phrase('fecha de nacimiento');?></label>
                             <div class="col-sm-12">
                                 <input type="date" class="datepicker form-control" name="birthday" value="<?php echo $row['birthday'];?>" max="<?php echo date('Y-m-d', strtotime('-18 years'));?>" />
                             </div>
@@ -41,11 +41,11 @@ foreach ( $edit_teacher as $key => $row):
 							
 							
                            <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('gender');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('genero');?></label>
                     <div class="col-sm-12">
                                     <select name="sex" class="form-control selectboxit">
-                                    	<option value="male" <?php if($row['sex'] == 'male')echo 'selected';?>><?php echo get_phrase('male');?></option>
-                                    	<option value="female" <?php if($row['sex'] == 'female')echo 'selected';?>><?php echo get_phrase('female');?></option>
+                                    	<option value="masculino" <?php if($row['sex'] == 'masculino')echo 'selected';?>><?php echo get_phrase('masculino');?></option>
+                                    	<option value="femenino" <?php if($row['sex'] == 'femenino')echo 'selected';?>><?php echo get_phrase('femenino');?></option>
                                     </select>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@ foreach ( $edit_teacher as $key => $row):
 						</div> 
 					</div>
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('address');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('direccion');?></label>
                     <div class="col-sm-12">
                                     <input type="text" class="form-control" name="address" value="<?php echo $row['address'];?>"/>
                                 </div>
@@ -66,20 +66,20 @@ foreach ( $edit_teacher as $key => $row):
 							
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('blood_group');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('grupo_sanguineo');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="blood_group" value="<?php echo $row ['blood_group']; ?>" >
 						</div> 
 					</div>
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('qualification');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('titulo');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="qualification" value="<?php echo $row['qualification'];?>">
 						</div>
 					</div>
 					
 					<div class="form-group">
-                                    <label class="col-sm-12"><?php echo get_phrase('marital_status');?>*</label>
+                                    <label class="col-sm-12"><?php echo get_phrase('estado_civil');?>*</label>
                                     <div class="col-sm-12">
 														
                                        <select class=" form-control" name="marital_status" required>
@@ -93,7 +93,7 @@ foreach ( $edit_teacher as $key => $row):
 					
 					
 					<div class="form-group"> 
-					 <label class="col-sm-12"><?php echo get_phrase('browse_image');?>*</label>        
+					 <label class="col-sm-12"><?php echo get_phrase('buscar_imagen');?>*</label>        
 					 <div class="col-sm-12">
   		  			 <input type='file' class="form-control" name="userfile"/>
        				 <img id="blah" src="<?php echo $this->crud_model->get_image_url('teacher',$row['teacher_id']);?>" alt="" height="200" width="200"/>
@@ -137,7 +137,7 @@ foreach ( $edit_teacher as $key => $row):
 						 
 						<div class="col-sm-6">
                         <div class="white-box">
-                            <h3 class="box-title"><?php echo get_phrase('social_information');?></h3>
+                            <h3 class="box-title"><?php echo get_phrase('informacion_social');?></h3>
                           
                                 <div class="form-group">
                                     <label class="col-md-12" for="furl"><?php echo get_phrase('facebook');?>*</span>

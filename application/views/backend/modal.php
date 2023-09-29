@@ -46,18 +46,18 @@
                 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" style="text-align:left;"><strong style="color:#FFFFFF">CONFIRMATION&nbsp;!!!</strong></h4>
+                    <h4 class="modal-title" style="text-align:left;"><strong style="color:#FFFFFF">CONFIRMACION&nbsp;!!!</strong></h4>
                 </div>
                 
 
                 <div class="modal-footer" align="center">
 				<div class="row">
 				 <div class="col-sm-7">	
-				Estas seguro que deseas eliminar esta informacion ?
+				¿Estas seguro que deseas eliminar esta informacion?
 				</div>
 				 <div class="col-sm-5">	
-                    <a href="#" class="btn btn-success btn-rounded btn-sm" id="delete_link"><i class="fa fa-check">&nbsp;</i>Delete</a>
-                    <button type="button" class="btn btn-info btn-rounded btn-sm" data-dismiss="modal"><i class="fa fa-times">&nbsp;</i>Cancel</button>
+                    <a href="#" class="btn btn-success btn-rounded btn-sm" id="delete_link"><i class="fa fa-check">&nbsp;</i>Eliminar</a>
+                    <button type="button" class="btn btn-info btn-rounded btn-sm" data-dismiss="modal"><i class="fa fa-times">&nbsp;</i>Cancelar</button>
 					</div>
 				</div>
 				</div>

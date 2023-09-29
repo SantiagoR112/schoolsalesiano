@@ -2,8 +2,8 @@
   <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
-                            <div class="panel-heading"><?php echo get_phrase('new_teacher');?>
-                                <div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="fa fa-plus"></i>&nbsp;&nbsp;ADD NEW TEACHER HERE<i class="btn btn-info btn-xs"></i></a> <a href="#" data-perform="panel-dismiss"></a> </div>
+                            <div class="panel-heading"><?php echo get_phrase('Nuevo_docente');?>
+                                <div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="fa fa-plus"></i>&nbsp;&nbsp;Agregar Nuevo docente aqui<i class="btn btn-info btn-xs"></i></a> <a href="#" data-perform="panel-dismiss"></a> </div>
                             </div>
                             <div class="panel-wrapper collapse out" aria-expanded="true">
                                 <div class="panel-body">
@@ -21,40 +21,39 @@
 					</div>
 
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="name" required>
 							<input type="text" class="form-control" value="<?php echo substr(md5(uniqid(rand(), true)), 0, 7); ?>" name="teacher_number" readonly="true">
-
 						</div>
 					</div>
 					
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('role');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('rol');?></label>
                     <div class="col-sm-12">
 							<select name="role" class="form-control select2" style="width:100%" required>
-                              <option value=""><?php echo get_phrase('select');?></option>
-                              <option value="1"><?php echo get_phrase('class_teacher');?></option>
-                              <option value="2"><?php echo get_phrase('subject_teacher');?></option>
+                              <option value=""><?php echo get_phrase('seleccionar');?></option>
+                              <option value="1"><?php echo get_phrase('director_de_grupo');?></option>
+                              <option value="2"><?php echo get_phrase('docente_asignatura');?></option>
                           </select>
 						</div> 
 					</div>
 					
 					<div class="form-group">
-                        <label class="col-md-12" for="example-text"><?php echo get_phrase('birthday');?></label>
+                        <label class="col-md-12" for="example-text"><?php echo get_phrase('fecha de nacimiento');?></label>
                         <div class="col-sm-12">
                             <input class="form-control m-r-10" name="birthday" type="date" value="2000-08-19" id="example-date-input" max="<?php echo date('Y-m-d', strtotime('-18 years'));?>" required>
                         </div> 
 					</div>
 					
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('gender');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('genero');?></label>
                     <div class="col-sm-12">
 							<select name="sex" class="form-control select2" style="width:100%" required>
-                              <option value=""><?php echo get_phrase('select');?></option>
-                              <option value="male"><?php echo get_phrase('male');?></option>
-                              <option value="female"><?php echo get_phrase('female');?></option>
+                              <option value=""><?php echo get_phrase('seleccionar');?></option>
+                              <option value="masculino"><?php echo get_phrase('masculino');?></option>
+                              <option value="femenino"><?php echo get_phrase('femenino');?></option>
                           </select>
 						</div> 
 					</div>
@@ -67,20 +66,20 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('blood_group');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('grupo_sanguineo');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="blood_group" value="" >
 						</div> 
 					</div>
 					
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('address');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('direccion');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="address" value="" required>
 						</div> 
 					</div>
 				<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('phone');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('telefono');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="phone" value="" required >
 						</div> 
@@ -95,21 +94,21 @@
 					
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('qualification');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('titulo');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="qualification" value="">
 						</div>
 					</div>
 					
 					<div class="form-group">
-                                    <label class="col-sm-12"><?php echo get_phrase('marital_status');?>*</label>
+                                    <label class="col-sm-12"><?php echo get_phrase('estado_civil');?>*</label>
                                     <div class="col-sm-12">
                                        <select class=" form-control select2" name="marital_status" style="width:100%" required>
-                                         <option data-tokens=""><?php echo get_phrase('select_marital_status');?></option>
-										<option data-tokens="Married"><?php echo get_phrase('married');?></option>
-                                        <option data-tokens="Single"><?php echo get_phrase('single');?></option>
-                                        <option data-tokens="Divorced"><?php echo get_phrase('divorced');?></option>
-                                        <option data-tokens="Engaged"><?php echo get_phrase('engaged');?></option>
+                                         <option data-tokens=""><?php echo get_phrase('seleccionar_estado_civil');?></option>
+										<option data-tokens="casado(a)"><?php echo get_phrase('casado(a)');?></option>
+                                        <option data-tokens="soltero(a)"><?php echo get_phrase('soltero(a)');?></option>
+                                        <option data-tokens="divorciado(a)"><?php echo get_phrase('divorciado(a)');?></option>
+                                        <option data-tokens="comprometido(a)"><?php echo get_phrase('comprometido(a)');?></option>
                                     </select>
                                     </div>
                                 </div>
@@ -143,11 +142,11 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('documents');?>&nbsp;(Teacher CV and others)</label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('documento');?>&nbsp;(Hoja de vida u otro)</label>
                     <div class="col-sm-12">
              	<input type="file" name="file_name" class="dropify" required>
 			 
-			  <p style="color:red">Accept zip, pdf, word, excel, rar and others</p>
+			  <p style="color:red">Se acepta zip, pdf, word, excel, rar y otros</p>
 			  
 					</div>
 					</div>
@@ -160,7 +159,7 @@
 					 
 					
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('password');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Contraseña');?></label>
                     <div class="col-sm-12">
 						<input type="password" class="form-control" name="password" value="" onkeyup="CheckPasswordStrength(this.value)" required>
 					<strong id="password_strength"></strong>
@@ -168,7 +167,7 @@
 						</div>
 
 					<div class="form-group"> 
-					 <label class="col-sm-12"><?php echo get_phrase('browse_image');?>*</label>        
+					 <label class="col-sm-12"><?php echo get_phrase('buscar_imagen');?>*</label>        
 					 <div class="col-sm-12">
   		  			  <input type='file' name="userfile" class="dropify" onChange="readURL(this);" / required>
 					 
@@ -177,100 +176,34 @@
 					 
 					 
 		<hr>
-<div class="alert alert-primary">HUMAN RESOURCES INFORMATION</div>
-<hr>			 
-					
-<div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('department'); ?></label>
-
-    <div class="col-sm-12">
-        <select name="department_id" class="form-control select2" onchange="get_designation_val(this.value)" required>
-            <option value=""><?php echo get_phrase('select_a_department'); ?></option>
-            <?php
-            $department = $this->db->get('department')->result_array();
-            foreach ($department as $row): ?>
-                <option value="<?php echo $row['department_id']; ?>">
-                    <?php echo $row['name']; ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    </div> 
-</div>
 
 <div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('designation'); ?></label>
-
-    <div class="col-sm-12">
-        <select name="designation_id" class="form-control select2" id="designation_holder">
-            <option value=""><?php echo get_phrase('select_a_department_first'); ?></option>
-        </select>
-    </div> 
-</div>
-
-<div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('date_of_joining'); ?></label>
+    <label class="col-sm-12"><?php echo get_phrase('fecha_de_ingreso'); ?></label>
 
     <div class="col-sm-12">
         <input type="date" class="form-control datepicker" name="date_of_joining" value="<?php echo date('Y-d-m');?>" required>
     </div> 
 </div>
-<div class="form-group">
-   <label class="col-sm-12"><?php echo get_phrase('joining_salary'); ?></label>
 
-    <div class="col-sm-12">
-        <input type="number" class="form-control" name="joining_salary" value="" required>
-    </div> 
-</div>
 <div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('status'); ?></label>
+    <label class="col-sm-12"><?php echo get_phrase('estado'); ?></label>
 
     <div class="col-sm-12">
         <select name="status" class="form-control select2">
-            <option value="1"><?php echo get_phrase('active'); ?></option>
-            <option value="2"><?php echo get_phrase('inactive'); ?></option>
+            <option value="1"><?php echo get_phrase('activo'); ?></option>
+            <option value="2"><?php echo get_phrase('inactivo'); ?></option>
         </select>
     </div> 
 </div>
 <div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('date_of_joining'); ?></label>
+    <label class="col-sm-12"><?php echo get_phrase('Fecha_de_salida'); ?></label>
 
     <div class="col-sm-12">
         <input type="date" class="form-control datepicker" name="date_of_leaving" value="" required>
     </div> 
 </div>
 
-<hr>
-<div class="alert alert-primary">BANK ACCOUNT DETAILS</div>
-<hr>
 
-<div class="form-group">
-     <label class="col-sm-12"><?php echo get_phrase('account_holder_name'); ?></label>
-
-    <div class="col-sm-12">
-        <input type="text" class="form-control" name="account_holder_name" value="" required />
-    </div>
-</div>
-<div class="form-group">
-     <label class="col-sm-12"><?php echo get_phrase('account_number'); ?></label>
-
-    <div class="col-sm-12">
-        <input type="text" class="form-control" name="account_number" value="" required />
-    </div>
-</div>
-<div class="form-group">
-     <label class="col-sm-12"><?php echo get_phrase('bank_name'); ?></label>
-
-    <div class="col-sm-12">
-        <input type="text" class="form-control" name="bank_name" value="" required>
-    </div> 
-</div>
-<div class="form-group">
-     <label class="col-sm-12"><?php echo get_phrase('branch'); ?></label>
-
-    <div class="col-sm-12">
-        <input type="text" class="form-control" name="branch" value="" >
-    </div> 
-</div>
 
 </div>
 </div>
@@ -295,21 +228,21 @@
             <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list_teachers');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('listado_docentes');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 			
                                 <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th><div><?php echo get_phrase('N. de identificacion');?></div></th>
-                            <th width="80"><div><?php echo get_phrase('photo');?></div></th>
-                            <th><div><?php echo get_phrase('name');?></div></th>
-                            <th><div><?php echo get_phrase('role');?></div></th>
+                            <th><div><?php echo get_phrase('N. de documento');?></div></th>
+                            <th width="80"><div><?php echo get_phrase('imagen');?></div></th>
+                            <th><div><?php echo get_phrase('nombre');?></div></th>
+                            <th><div><?php echo get_phrase('rol');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
-                            <th><div><?php echo get_phrase('sex');?></div></th>
-                            <th><div><?php echo get_phrase('address');?></div></th>
-                            <th><div><?php echo get_phrase('options');?></div></th>
+                            <th><div><?php echo get_phrase('genero');?></div></th>
+                            <th><div><?php echo get_phrase('direccion');?></div></th>
+                            <th><div><?php echo get_phrase('opciones');?></div></th>
                         </tr>
                     </thead>
                     <tbody>
