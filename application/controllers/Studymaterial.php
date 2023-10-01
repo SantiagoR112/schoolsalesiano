@@ -17,20 +17,20 @@ class Studymaterial extends CI_Controller {
         if ($param1 == 'insert'){
         
         $this->material_model->inserIntoMaterial();
-        $this->session->set_flashdata('flash_message', get_phrase('Data successfully saved'));
+        $this->session->set_flashdata('flash_message', get_phrase('Material de estudio subido exitosamente'));
         redirect(base_url(). 'studymaterial/study_material', 'refresh');
         }
         
     if($param1 == 'update'){
 
         $this->material_model->updateStudyMaterial($param2);
-        $this->session->set_flashdata('flash_message', get_phrase('Data successfully updated'));
+        $this->session->set_flashdata('flash_message', get_phrase('Material de estudio actualizado exitosamente'));
         redirect(base_url(). 'studymaterial/study_material', 'refresh');
     }
 
     if($param1 == 'delete'){
         $this->material_model->deleteFromMaterial($param2);
-        $this->session->set_flashdata('flash_message', get_phrase('Data successfully deleted'));
+        $this->session->set_flashdata('flash_message', get_phrase('Material de estudio eliminado exitosamente'));
         redirect(base_url(). 'studymaterial/study_material', 'refresh');
     }
 

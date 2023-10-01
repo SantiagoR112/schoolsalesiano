@@ -17,21 +17,21 @@ class Studenthouse extends CI_Controller {
     {
         if($param1 == 'create'){
             $this->student_model->createStudentHouse();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'studenthouse/studentHouse', 'refresh');
         }
 
         if($param1 == 'update')
         {
             $this->student_model->updateStudentHouse($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'studenthouse/studentHouse', 'refresh');
         }
 
 
         if($param1 == 'delete'){
             $this->student_model->deleteStudentHouse($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'studenthouse/studentHouse', 'refresh');
 
         }

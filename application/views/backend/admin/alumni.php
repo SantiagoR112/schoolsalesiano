@@ -43,7 +43,7 @@
                 </div>
 
                <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('email');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('correo electronico');?></label>
                     <div class="col-sm-12">
                        
 				<input type="email" class="form-control" name="email"    required>
@@ -150,7 +150,7 @@
                         <tr>
                             <th width="80"><div><?php echo get_phrase('photo');?></div></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                            <th><div><?php echo get_phrase('correo electronico');?></div></th>
                             <th><div><?php echo get_phrase('sex');?></div></th>
                             <th><div><?php echo get_phrase('address');?></div></th>
    							<th><div><?php echo get_phrase('phone');?></div></th>

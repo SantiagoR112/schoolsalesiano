@@ -8,10 +8,10 @@
 	<meta name="description" content="Optimum Admin Panel" />
 	<meta name="author" content="" />
 	
-	<title><?php echo get_phrase('login');?> | <?php echo $system_title;?></title>
+	<title><?php echo get_phrase('Iniciar sesión');?> | <?php echo $system_title;?></title>
 	
 </head>
 <body class="page-body login-page login-form-fall" data-url="http://neon.dev">
-        <h1 align="center">Unauthorized!</h1>
+        <h1 align="center">No autorizado!</h1>
     </body>
 </html>

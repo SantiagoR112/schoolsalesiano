@@ -39,7 +39,7 @@
                 <td><?php echo $select_enquiry ['date'];?></td>
                 <td>
                 
-                <a href="<?php echo base_url();?>admin/list_enquiry/delete/<?php echo $select_enquiry['enquiry_id'];?>" onclick="return confirm('Are you sure want to delete?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
+                <a href="<?php echo base_url();?>admin/list_enquiry/delete/<?php echo $select_enquiry['enquiry_id'];?>" onclick="return confirm('¿Estas seguro que deseas eliminar?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
                 
                 </td>
             </tr>

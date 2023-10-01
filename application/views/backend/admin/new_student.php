@@ -96,7 +96,7 @@
 					</div>
 
 					<div class="form-group">
-                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('calendario');?><span class="required">*</span></label>
+                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('seccion');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 		                        <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder" required>
 		                            <option value=""><?php echo get_phrase('Seleccionar_class_first');?></option>
@@ -138,9 +138,9 @@
                     <div class="col-sm-12">
 							<select name="sex" class="form-control select2" style="width:100%">
                               <option value=""><?php echo get_phrase('Seleccionar');?></option>
-                              <option value="male"><?php echo get_phrase('masculino');?></option>
-                              <option value="female"><?php echo get_phrase('femenino');?></option>
-							  <option value="female"><?php echo get_phrase('otro');?></option>
+                              <option value="masculino"><?php echo get_phrase('masculino');?></option>
+                              <option value="femenino"><?php echo get_phrase('femenino');?></option>
+							  <option value="otro"><?php echo get_phrase('otro');?></option>
                           </select>
 						</div> 
 					</div>
@@ -212,7 +212,7 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('email');?><span class="required">*</span></label>
+                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('correo electronico');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="email" value="" required>
 						</div>

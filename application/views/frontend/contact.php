@@ -15,7 +15,7 @@
         	<div class="row">
             	<div class="col-md-6">
                 	<div class="sub_banner_hdg">
-                    	<h3>Contact Us</h3>
+                    	<h3>Contáctanos</h3>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -41,7 +41,7 @@
         <section>
         	<div class="container">
             	<div class="get_touch_wrap">
-                	<h4><?php echo get_phrase('Get In Touch');?>:</h4>
+                	<h4><?php echo get_phrase('Comunícate con nosotros');?>:</h4>
                     <p><?php echo $this->db->get_where('website_settings', array('type' => 'contact_message'))->row()->description; ?></p>
                 </div>
                 <div class="row">

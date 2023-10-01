@@ -11,12 +11,12 @@
 <?php echo form_open(base_url() . 'admin/class_routine/create' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('clase');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Clase');?></label>
                     <div class="col-sm-12">
 
 				 <select name="class_id" id = "class_id" class="form-control selectboxit"
                         onchange="return get_class_section_subject(this.value)">
-                        <option value=""><?php echo get_phrase('select_class');?></option>
+                        <option value=""><?php echo get_phrase('Seleccionar clase');?></option>
                 <?php $classes = $this->db->get('class')->result_array();
                 foreach($classes as $key => $class):?>
                 <option value="<?php echo $class['class_id'];?>"><?php echo $class['name'];?></option>
@@ -30,7 +30,7 @@
 				 <div id="section_subject_selection_holder"></div>
 
                <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('dia');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Día');?></label>
                     <div class="col-sm-12">
                 <select name="day" class="form-control selectboxit" style="width:100%;">
                         <option value="sunday">Domingo</option>
@@ -116,7 +116,7 @@
 
                     
                     <div class="form-group">
-                  <button type="submit" id= "add_class_routine"  class="btn btn-success btn-block btn-sm btn-rounded"><?php echo get_phrase('agregar');?></button>
+                  <button type="submit" id= "add_class_routine"  class="btn btn-success btn-block btn-sm btn-rounded"><?php echo get_phrase('Agregar');?></button>
 					</div>
 					<br>
                 <?php echo form_close();?>	

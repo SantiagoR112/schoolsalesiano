@@ -217,7 +217,7 @@ class Admin extends CI_Controller {
         if ($param1 == 'insert'){
 
             $this->crud_model->insert_parent();
-            $this->session->set_flashdata('flash_message', get_phrase('Data successfully saved'));
+            $this->session->set_flashdata('flash_message', get_phrase('Acudiente guardado correctamente'));
             redirect(base_url(). 'admin/parent', 'refresh');
         }
 
@@ -225,14 +225,14 @@ class Admin extends CI_Controller {
         if($param1 == 'update'){
 
             $this->crud_model->update_parent($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data successfully updated'));
+            $this->session->set_flashdata('flash_message', get_phrase('Acudiente actualizado correctamente'));
             redirect(base_url(). 'admin/parent', 'refresh');
 
         }
 
         if($param1 == 'delete'){
             $this->crud_model->delete_parent($param2);
-            $this->session->set_flashdata('flash_message', 'El acudiente se eliminó con éxito.');
+            echo '<script>alert("Acudiente eliminado exitosamente.");</script>';
             redirect(base_url() . 'admin/parent', 'refresh');
         }
 
@@ -686,26 +686,26 @@ class Admin extends CI_Controller {
 
         if($param1 == 'create'){
             $this->class_model->createClassFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Clase creada correctamente'));
             redirect(base_url(). 'admin/classes', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->class_model->updateClassFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Clase actualizada correctamente'));
             redirect(base_url(). 'admin/classes', 'refresh');
         }
 
 
         if($param1 == 'delete'){
             $this->class_model->deleteClassFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Clase eliminada correctamente'));
             redirect(base_url(). 'admin/classes', 'refresh');
     
         }
 
         $page_data['page_name']     = 'class';
-        $page_data['page_title']    = get_phrase('Manage Class');
+        $page_data['page_title']    = get_phrase('Gestionar clases');
         $this->load->view('backend/index', $page_data);
 
     }
@@ -733,7 +733,7 @@ class Admin extends CI_Controller {
         }
 
         $page_data['page_name']     = 'section';
-        $page_data['page_title']    = get_phrase('Manage Section');
+        $page_data['page_title']    = get_phrase('Gestion secciones');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -982,19 +982,19 @@ class Admin extends CI_Controller {
 
         if($param1 == 'create'){
             $this->student_model->createNewStudent();
-            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Estudiante registrado correctamente'));
             redirect(base_url(). 'admin/student_information', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->student_model->updateNewStudent($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Estudiante actualizado correctamente'));
             redirect(base_url(). 'admin/student_information', 'refresh');
         }
 
         if($param1 == 'delete'){
             $this->student_model->deleteNewStudent($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Estudiante eliminado correctamente'));
             redirect(base_url(). 'admin/student_information', 'refresh');
 
         }
@@ -1027,7 +1027,7 @@ class Admin extends CI_Controller {
 
         $page_data['student_id']      = $student_id;
         $page_data['page_name']     = 'edit_student';
-        $page_data['page_title']    = get_phrase('Edit Student');
+        $page_data['page_title']    = get_phrase('Editar Estudiante');
         $this->load->view('backend/index', $page_data);
     }
 
@@ -1594,19 +1594,19 @@ class Admin extends CI_Controller {
 
         if($param1 == 'create'){
             $this->admin_model->createNewAdministrator();
-            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Administrador registrado correctamente'));
             redirect(base_url(). 'admin/newAdministrator', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->admin_model->updateAdministrator($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Administrador actualizado correctamente'));
             redirect(base_url(). 'admin/newAdministrator', 'refresh');
         }
 
         if($param1 == 'delete'){
             $this->admin_model->deleteAdministrator($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
+            $this->session->set_flashdata('flash_message', get_phrase('Administrador eliminado correctamente'));
             redirect(base_url(). 'admin/newAdministrator', 'refresh');
         }
 
@@ -1618,7 +1618,7 @@ class Admin extends CI_Controller {
 
     function updateAdminRole($param2){
         $this->admin_model->updateAllDetailsForAdminRole($param2);
-        $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
+        $this->session->set_flashdata('flash_message', get_phrase('funciones asignadas correctamente'));
         redirect(base_url(). 'admin/newAdministrator', 'refresh');
     }
 

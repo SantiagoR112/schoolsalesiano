@@ -106,7 +106,7 @@ class Teacher extends CI_Controller {
                }
             }
         
-                $this->session->set_flashdata('flash_message', get_phrase('Updated Successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Asistencia registrada exitosamente'));
                 redirect(base_url() . 'teacher/manage_attendance/' . $date . '/' . $month . '/' . $year . '/' . $class_id . '/' . $section_id, 'refresh');
             }
     
@@ -534,7 +534,7 @@ class Teacher extends CI_Controller {
             redirect(base_url(). 'teacher/student_marksheet_subject/'. $page_data['exam_id'] .'/' . $page_data['class_id'] . '/' . $page_data['subject_id'], 'refresh');
         }
         else{
-            $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
+            $this->session->set_flashdata('error_message', get_phrase('Por favor selecciona los respectivos campos'));
             redirect(base_url(). 'teacher/student_marksheet_subject', 'refresh');
         }
     }
@@ -554,7 +554,7 @@ class Teacher extends CI_Controller {
                 $this->db->update('mark', $page_data);  
             }
 
-            $this->session->set_flashdata('flash_message', get_phrase('Data Updated Successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Notas registradas exitosamente'));
             redirect(base_url(). 'teacher/student_marksheet_subject/'. $this->input->post('exam_id') .'/' . $this->input->post('class_id') . '/' . $this->input->post('subject_id'), 'refresh');
     }
 
@@ -563,7 +563,7 @@ class Teacher extends CI_Controller {
     $page_data['student_id']    =   $student_id;
     $page_data['subject_id']   =    $subject_id;
     $page_data['page_name']     =   'student_marksheet_subject';
-    $page_data['page_title']    = get_phrase('Student Marks');
+    $page_data['page_title']    = get_phrase('Registro notas');
     $this->load->view('backend/index', $page_data);
     }
     /***********  The function that manages school marks ends here ***********************/    

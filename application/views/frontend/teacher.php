@@ -15,14 +15,14 @@
         	<div class="row">
             	<div class="col-md-6">
                 	<div class="sub_banner_hdg">
-                    	<h3>Our Teachers</h3>
+                    	<h3>Nuestros docentes</h3>
                     </div>
                 </div>
                 <div class="col-md-6">
                 	<div class="ct_breadcrumb">
                     	<ul>
-                        	<li><a href="#">Home</a></li>
-                            <li><a href="#">Our Teachers</a></li>
+                        	<li><a href="#">Inicio</a></li>
+                            <li><a href="#">Nuestros docentes</a></li>
                         </ul>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="row">
 				
 					<div class="ct_heading_1_wrap">
-                	<h3><?php echo get_phrase('Meet Our Teachers');?></h3>
+                	<h3><?php echo get_phrase('Conoce a nuestros docentes');?></h3>
 					<span><img src="<?php echo base_url();?>uploads/hdg-01.png" alt=""></span>
                      </div>
                    
@@ -56,11 +56,11 @@
                                     <h3 class="box-title m-b-0"><?php echo $teachers['name'];?></h3> <small><?php echo $teacher['qualification'];?></small>
                                     <p>
                                         <address>
-                                        <?php if($teacher['role']== 1) echo 'Class Teacher';?>
-                                        <?php if($teacher['role']== 2) echo 'Subject Teacher';?>
+                                        <?php if($teacher['role']== 1) echo 'Director de grupo';?>
+                                        <?php if($teacher['role']== 2) echo 'Docente asignatura';?>
                                             <br/>
                                             <br/>
-                                            <abbr title="Phone">P:</abbr> <a href="tel:<?php echo $this->db->get_where('settings', array('type' => 'phone'))->row()->description;?>">Phone Number</a>
+                                            <abbr title="Phone">P:</abbr> <a href="tel:<?php echo $this->db->get_where('settings', array('type' => 'phone'))->row()->description;?>">Telefono</a>
                                         </address>
                                     </p>
                                 </div>

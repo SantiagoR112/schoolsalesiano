@@ -1,7 +1,7 @@
 <div class="row">
                     <div class="col-sm-5">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('activity');?></div>
+                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Actividad');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 			
@@ -10,7 +10,7 @@
                 	<?php echo form_open(base_url() . 'activity/clubActivity/create' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                 
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Nombre');?></label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" name="name" / required>
                     </div>
@@ -18,16 +18,16 @@
 
 								
 			<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('colour');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Color');?></label>
                     <div class="col-sm-12">
                     <select name="colour" class="form-control select2" required>
                     
-                    <option value=""><?php echo get_phrase('select_colour');?></option>
-                    <option value="success"><?php echo get_phrase('success');?></option>
-                    <option value="info"><?php echo get_phrase('info');?></option>
-                    <option value="primary"><?php echo get_phrase('primary');?></option>
-                    <option value="danger"><?php echo get_phrase('danger');?></option>
-                    <option value="warning"><?php echo get_phrase('warning');?></option>
+                    <option value=""><?php echo get_phrase('Seleccionar color');?></option>
+                    <option value="success"><?php echo get_phrase('Éxito');?></option>
+                    <option value="info"><?php echo get_phrase('Información');?></option>
+                    <option value="primary"><?php echo get_phrase('Primario');?></option>
+                    <option value="danger"><?php echo get_phrase('Peligro');?></option>
+                    <option value="warning"><?php echo get_phrase('Advertencia');?></option>
 
                    
                    </select>
@@ -38,17 +38,17 @@
 
              
             <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('icon_picker');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Selector de íconos');?></label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control icon-picker" name="icon" / required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Club');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Club de estudiantes');?></label>
                     <div class="col-sm-12">
 							<select name="club_id" class="form-control select2" style="width:100%" required>
-                              <option value=""><?php echo get_phrase('select');?></option>
+                              <option value=""><?php echo get_phrase('seleccionar');?></option>
                               <?php 
 								$club = $this->db->get('club')->result_array();
 								foreach($club as $row):
@@ -68,14 +68,14 @@
 				
                  
 								<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('description');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Descripción');?></label>
                     <div class="col-sm-12">
                                     <textarea  class="form-control" name="description"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('date');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Fecha');?></label>
                     <div class="col-sm-12">
                         <input type="date" class="form-control" id="example-date-input" value="<?php echo date('Y-m-d');?>" name="date" / required>
                     </div>
@@ -84,7 +84,7 @@
 
 
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-add"></i>&nbsp;<?php echo get_phrase('add');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-add"></i>&nbsp;<?php echo get_phrase('Agregar');?></button>
 					</div>
 							
                     </form>                
@@ -96,7 +96,7 @@
 
                     <div class="col-sm-7">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Lista');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 				
@@ -104,13 +104,13 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                    		<th><div><?php echo get_phrase('name');?></div></th>
-                    		<th><div><?php echo get_phrase('colour');?></div></th>
-                    		<th><div><?php echo get_phrase('icon');?></div></th>
-                    		<th><div><?php echo get_phrase('club');?></div></th>
-                    		<th><div><?php echo get_phrase('description');?></div></th>
-                            <th><div><?php echo get_phrase('date');?></div></th>
-                    		<th><div><?php echo get_phrase('actions');?></div></th>
+                    		<th><div><?php echo get_phrase('Nombre');?></div></th>
+                    		<th><div><?php echo get_phrase('Color');?></div></th>
+                    		<th><div><?php echo get_phrase('Ícono');?></div></th>
+                    		<th><div><?php echo get_phrase('Club');?></div></th>
+                    		<th><div><?php echo get_phrase('Descripción');?></div></th>
+                            <th><div><?php echo get_phrase('Fecha');?></div></th>
+                    		<th><div><?php echo get_phrase('Acciones');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

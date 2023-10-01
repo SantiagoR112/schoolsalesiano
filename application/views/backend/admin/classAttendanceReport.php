@@ -4,7 +4,7 @@
 <div class="row">
                    <div class="col-sm-12">
                      <div class="panel panel-info">
-                           <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('manage_attendance');?></div>
+                           <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Gestionar asistencia');?></div>
                            <div class="panel-wrapper collapse in" aria-expanded="true">
                               <div class="panel-body table-responsive">
        <div align="center">
@@ -18,11 +18,11 @@
                               
                  
               <div class="form-group">
-                    <label class="col-md-12" for="example-text"><?php echo get_phrase('select_class');?></label>
+                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Seleccionar clase');?></label>
                    <div class="col-sm-12">
                    
                      <select  class="form-control" id="class_id" onchange="return get_class_sections(this.value)" >
-                             <option value=""><?php echo get_phrase('select');?></option>
+                             <option value=""><?php echo get_phrase('seleccionar');?></option>
                              <?php 
                            $classes    =   $this->db->get('class')->result_array();
                            foreach($classes as $key => $class):?>
@@ -38,17 +38,17 @@
                        
                        
 <div class="form-group">
-                    <label class="col-md-12" for="example-text"><?php echo get_phrase('select_section');?></label>
+                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Seleccionar sección');?></label>
                    <div class="col-sm-12">
                     <select  class="form-control" id="section_id" >
-                           <option value=""><?php echo get_phrase('select_class_first');?></option>   
+                           <option value=""><?php echo get_phrase('Seleccionar primera clase');?></option>   
                      </select>
                      
                        </div>
                        </div>
                        
                         <div class="form-group">
-                    <label class="col-md-12" for="example-text"><?php echo get_phrase('month');?></label>
+                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Mes');?></label>
                    <div class="col-sm-12">
 
                        <select  class="form-control" id="month" >
@@ -77,7 +77,7 @@
                        </div>
                        
            <div class="form-group">
-               <label class="col-md-12" for="example-text"><?php echo get_phrase('year');?></label>
+               <label class="col-md-12" for="example-text"><?php echo get_phrase('Año');?></label>
                <div class="col-sm-12">
                    <select id="year" class="form-control">
                    <?php $list_year = array("2019", "2020", "2021","2022", "2023","2024", "2025", "2026");

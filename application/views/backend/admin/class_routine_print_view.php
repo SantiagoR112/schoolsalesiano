@@ -27,7 +27,7 @@
                     <br/>
                     <span style="text-align: center;font-size: 20px;"><?php echo $this->db->get_where('settings' , array('type' =>'address'))->row()->description;?></span>
                     <br/>
-                    <span style="text-align: center;font-size: 20px;">TIME TABLE FOR :&nbsp;<?php echo $class_name;?> - <?php echo get_phrase('section');?> <?php echo $section_name;?></span>
+                    <span style="text-align: center;font-size: 20px;">TIME TABLE FOR :&nbsp;<?php echo $class_name;?> - <?php echo get_phrase('Sección');?> <?php echo $section_name;?></span>
 				<hr>
 
             </div>

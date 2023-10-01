@@ -5,13 +5,13 @@ foreach($invoices as $key => $row):?>
  <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('edit_invoice');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Editar factura');?></div>
                                 <div class="panel-body table-responsive">
        
         <?php echo form_open(base_url() . 'admin/student_payment/update_invoice/'. $row['invoice_id'], array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('student');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Estudiante');?></label>
                     <div class="col-sm-12">
                         <select name="student_id" class="form-control select2" style="width:100%;" >
                             <?php 
@@ -33,43 +33,43 @@ foreach($invoices as $key => $row):?>
                 </div>
                 
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('title');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Título');?></label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" name="title" value="<?php echo $row['title'];?>"/>
                     </div>
                 </div>
                 
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('description');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Descripción');?></label>
                     <div class="col-sm-12">
 					<textarea type="text" rows="5" class="form-control" name="description" ><?php echo $row['description'];?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('total_amount');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Cantidad total');?></label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" name="amount" value="<?php echo $row['amount'];?>"/>
                     </div>
                 </div>
 				
 				<div class="form-group"> 
-					 <label class="col-sm-12"><?php echo get_phrase('amount_you_have_paid');?>*</label>        
+					 <label class="col-sm-12"><?php echo get_phrase('Cantidad a pagar');?>*</label>        
 					 <div class="col-sm-12">
 		                    <input type="text" class="form-control" name="amount_paid" value="<?php echo $row['amount_paid'];?>" readonly/>
 		                </div>
 		            </div>
 					
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('status');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Estado');?></label>
                     <div class="col-sm-12">
                         <select name="status" class="form-control select2" style="width:100%">
-                            <option value="1" <?php if($row['status']== '1')echo 'selected';?>><?php echo get_phrase('paid');?></option>
-                            <option value="2" <?php if($row['status']== '2')echo 'selected';?>><?php echo get_phrase('unpaid');?></option>
+                            <option value="1" <?php if($row['status']== '1')echo 'selected';?>><?php echo get_phrase('Pagado');?></option>
+                            <option value="2" <?php if($row['status']== '2')echo 'selected';?>><?php echo get_phrase('No pagado');?></option>
                         </select>
                     </div>
                 </div>
                <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('date');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Fecha');?></label>
                     <div class="col-sm-12">
 							<input class="form-control m-r-10" name="date" type="date" value="<?php echo $row['creation_timestamp']; ?>" id="example-date-input" required>
                     </div>
@@ -77,7 +77,7 @@ foreach($invoices as $key => $row):?>
                 </div>
                 <div class="form-group">
                  
-                      <button type="submit" class="btn btn-block  btn-info btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('save_now');?></button>
+                      <button type="submit" class="btn btn-block  btn-info btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('Guardar ahora');?></button>
                  
                 </div>
         </form>

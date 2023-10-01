@@ -40,9 +40,9 @@
 
 
 
-    <li> <a href="<?php echo base_url();?>accountant/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Dashboard') ;?></span></a> </li>
+    <li> <a href="<?php echo base_url();?>accountant/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Panel') ;?></span></a> </li>
 
-    <li class="collect_fee"> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-paypal p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('fee_collection');?><span class="fa arrow"></span></span></a>
+    <li class="collect_fee"> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-paypal p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Cobro de tarifas');?><span class="fa arrow"></span></span></a>
                 
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'income' ||
@@ -58,21 +58,21 @@
             <li class="<?php if ($page_name == 'student_payment') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>accountant/student_payment">
                 <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('collect_fees'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Cobrar tarifas'); ?></span>
                     </a>
                 </li>
                 
                 <li class="<?php if ($page_name == 'student_invoice') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>accountant/student_invoice">
                     <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('manage_invoice'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Gestionar factura'); ?></span>
                     </a>
                 </li>
 
         </ul>
     </li>
 
-    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-fax p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('expenses');?><span class="fa arrow"></span></span></a>
+    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-fax p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Gastos');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'expense' ||
@@ -83,7 +83,7 @@
                  <li class="<?php if ($page_name == 'expense') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>expense/expense">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                             <span class="hide-menu"><?php echo get_phrase('expense'); ?></span>
+                             <span class="hide-menu"><?php echo get_phrase('Gasto'); ?></span>
                         </a>
                     </li>
 
@@ -92,7 +92,7 @@
                     <li class="<?php if ($page_name == 'expense_category') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>expense/expense_category">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                             <span class="hide-menu"><?php echo get_phrase('expense_category'); ?></span>
+                             <span class="hide-menu"><?php echo get_phrase('Categoría de gastos'); ?></span>
                         </a>
                     </li>
      
@@ -103,14 +103,14 @@
             <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>accountant/manage_profile">
                     <i class="fa fa-gears p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('manage_profile'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Gestionar perfil'); ?></span>
                     </a>
             </li>
 
             <li class="">
                 <a href="<?php echo base_url(); ?>login/logout">
                     <i class="fa fa-sign-out p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Logout'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Cerrar sesión'); ?></span>
                 </a>
             </li>
                   

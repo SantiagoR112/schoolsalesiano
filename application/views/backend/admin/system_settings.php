@@ -56,14 +56,14 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-12" for="example-text"><?php echo get_phrase('Email');?></label>
+					<label class="col-md-12" for="example-text"><?php echo get_phrase('Correo electronico');?></label>
 					<div class="col-sm-12">
 						<input type="text" class="form-control" name="system_email" value="<?php echo $this->db->get_where('settings', array('type' => 'system_email'))->row()->description;?>">
 					</div>
 				</div>
 
 		
-				<div class="form-group">
+				<div class="form-group" hidden>
 					<label class="col-md-12" for="example-text"><?php echo get_phrase('Text Alignment');?></label>
 					<div class="col-sm-12">
 						

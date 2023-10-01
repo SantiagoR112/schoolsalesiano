@@ -87,7 +87,7 @@ function delete_data(delete_url , post_refresh_url)
 			$('#preloader-delete').html('');
 			
 			// show deletion success msg.
-			$.toast("Data deleted successfully.", "Success");
+			$.toast("Datos eliminados correctamente.", "Success");
 			
 			// hide the delete dialog box
 			$('#modal_delete').modal('hide');

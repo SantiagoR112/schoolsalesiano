@@ -207,7 +207,7 @@ class Parents extends CI_Controller {
                 $page_data['content']   =    html_escape($this->input->post('content'));
                 $page_data['status']   =    'Pending';
                 $this->db->insert('testimony_table', $page_data);
-                $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
                 redirect(base_url() . 'parents/submit_testimony', 'refresh');
             }
 

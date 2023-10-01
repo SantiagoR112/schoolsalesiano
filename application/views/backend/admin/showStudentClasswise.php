@@ -13,8 +13,8 @@
                             <th><div><?php echo get_phrase('Numero de admision');?></div></th>
                             <th><div><?php echo get_phrase('Nombre');?></div></th>
                     		<th><div><?php echo get_phrase('clase');?></div></th>
-                    		<th><div><?php echo get_phrase('sexo');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                    		<th><div><?php echo get_phrase('genero');?></div></th>
+                            <th><div><?php echo get_phrase('correo electronico');?></div></th>
                             <th><div><?php echo get_phrase('telefono');?></div></th>
                             <th><div><?php echo get_phrase('acudiente');?></div></th>
                     		<th><div><?php echo get_phrase('acciones');?></div></th>

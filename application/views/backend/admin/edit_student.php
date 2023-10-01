@@ -122,8 +122,9 @@
                     <div class="col-sm-12">
 							<select name="sex" class="form-control select2" style="width:100%">
                               <option value=""><?php echo get_phrase('select');?></option>
-                              <option value="male"<?php if($student['sex']== 'male') echo 'selected';?>><?php echo get_phrase('male');?></option>
-                              <option value="female" value="male"<?php if($student['sex']== 'female') echo 'selected';?>><?php echo get_phrase('female');?></option>
+                              <option value="masculino"<?php if($student['sex']== 'masculino') echo 'selected';?>><?php echo get_phrase('masculino');?></option>
+                              <option value="femenino" <?php if($student['femenino']== 'female') echo 'selected';?>><?php echo get_phrase('femenino');?></option>
+							  <option value="otro"<?php if($student['otro']== 'otro') echo 'selected';?>><?php echo get_phrase('otro');?></option>
                           </select>
 						</div> 
 					</div>
@@ -195,7 +196,7 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('email');?><span class="required">*</span></label>
+                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('correo electronico');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" value="<?php echo $student['email'];?>" name="email" value="" required>
 						</div>
@@ -315,7 +316,7 @@
 
  <div class="form-group">
 						
-			<button type="submit" class="btn btn-success btn-sm btn-rounded btn-block"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('edit_student');?></button>
+			<button type="submit" class="btn btn-success btn-sm btn-rounded btn-block"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('editar_estudiante');?></button>
 			<img id="install_progress" src="<?php echo base_url() ?>assets/images/loader-2.gif" style="margin-left: 20px; display: none"/>
 						
 					</div>

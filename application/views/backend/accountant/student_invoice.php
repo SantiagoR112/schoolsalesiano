@@ -1,7 +1,7 @@
 <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('unpaid_invoices');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Facturas sin pagar');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 			
@@ -9,14 +9,14 @@
                 	<thead>
                 		<tr>
                 			<th>#</th>
-                    		<th><div><?php echo get_phrase('student');?></div></th>
-                    		<th><div><?php echo get_phrase('title');?></div></th>
-                    		<th><div><?php echo get_phrase('description');?></div></th>
-                            <th><div><?php echo get_phrase('total');?></div></th>
-                            <th><div><?php echo get_phrase('paid');?></div></th>
-                    		<th><div><?php echo get_phrase('date');?></div></th>
-                    		<th><div><?php echo get_phrase('payment_status');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                    		<th><div><?php echo get_phrase('Estudiante');?></div></th>
+                    		<th><div><?php echo get_phrase('Título');?></div></th>
+                    		<th><div><?php echo get_phrase('Descripción');?></div></th>
+                            <th><div><?php echo get_phrase('Total');?></div></th>
+                            <th><div><?php echo get_phrase('Pagado');?></div></th>
+                    		<th><div><?php echo get_phrase('Fecha');?></div></th>
+                    		<th><div><?php echo get_phrase('Estado de pago');?></div></th>
+                    		<th><div><?php echo get_phrase('Opciones');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
@@ -72,7 +72,7 @@
  <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('payment_history');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Historial de pagos');?></div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body table-responsive">
 
@@ -80,12 +80,12 @@
 					    <thead>
 					        <tr>
 					            <th><div>#</div></th>
-					            <th><div><?php echo get_phrase('title');?></div></th>
-					            <th><div><?php echo get_phrase('description');?></div></th>
-					            <th><div><?php echo get_phrase('method');?></div></th>
-					            <th><div><?php echo get_phrase('amount');?></div></th>
-					            <th><div><?php echo get_phrase('date');?></div></th>
-					            <th><div><?php echo get_phrase('actions');?></div></th>
+					            <th><div><?php echo get_phrase('Título');?></div></th>
+					            <th><div><?php echo get_phrase('Descripción');?></div></th>
+					            <th><div><?php echo get_phrase('Método');?></div></th>
+					            <th><div><?php echo get_phrase('Monto');?></div></th>
+					            <th><div><?php echo get_phrase('Fecha');?></div></th>
+					            <th><div><?php echo get_phrase('Acciones');?></div></th>
 					        </tr>
 					    </thead>
 					    <tbody>
@@ -103,12 +103,12 @@
 					            <td>
 					            	<?php 
 					            		if ($row['method'] == 1)
-					            			echo get_phrase('cash');
+					            			echo get_phrase('Efectivo');
 					            		if ($row['method'] == 2)
-					            			echo get_phrase('cheque');
+					            			echo get_phrase('Cheque');
 					            		if ($row['method'] == 3)
-					            			echo get_phrase('card');
-					                    if ($row['method'] == 'paypal')
+					            			echo get_phrase('Tarjeta');
+					                    if ($row['method'] == 'PayPal')
 					                    	echo 'paypal';
 					            	    ?>
 					            </td>

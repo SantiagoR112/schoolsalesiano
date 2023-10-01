@@ -11,7 +11,7 @@
                             <tr>
                                 <th width="80"><div><?php echo get_phrase('foto de perfil');?></div></th>
                                 <th><div><?php echo get_phrase('nombre');?></div></th>
-                                <th><div><?php echo get_phrase('email');?></div></th>
+                                <th><div><?php echo get_phrase('correo electronico');?></div></th>
                                 <th><div><?php echo get_phrase('telefono');?></div></th>
                                 <th><div><?php echo get_phrase('clase');?></div></th> <!-- Agrega una nueva columna para la clase -->
                             </tr>

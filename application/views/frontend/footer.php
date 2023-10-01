@@ -4,11 +4,11 @@
         <div class="ct_newsletter_wrap">
         	<div class="container">
             	<div class="newletter_des">
-                	<h5><?php echo get_phrase('Subscribe Our Weekly Newsletter');?></h5>
+                	<h5><?php echo get_phrase('Suscríbete a nuestro boletín informativo semanal');?></h5>
                     <form action="<?php echo base_url();?>website/subscriber/" method="post">
                     	<label class="fa fa-envelope-o"></label>
-                    	<input type="text" name="email" placeholder="Enter Your Email" required>
-                        <button><?php echo get_phrase('Signup');?></button>
+                    	<input type="text" name="email" placeholder="Ingresa tu correo electrónico" required>
+                        <button><?php echo get_phrase('Inscribirse');?></button>
                     </form>
                 </div>
             </div>
@@ -32,38 +32,38 @@
                             <p><?php echo substr($this->db->get_where('website_settings', array('type' => 'about_us'))->row()->description, 0, 150);?>...</p>
                             <span><?php echo get_phrase('Email');?> : <a href="mailto:<?php echo $this->db->get_where('settings', array('type' => 'system_email'))->row()->description; ?>"><?php echo $this->db->get_where('settings', array('type' => 'system_email'))->row()->description; ?></a></span>
                             <div class="foo_get_qoute">
-                            	<a href="<?php echo base_url();?>website/contact"><?php echo get_phrase('Get In Touch');?></a>
+                            	<a href="<?php echo base_url();?>website/contact"><?php echo get_phrase('Comunícate con nosotros');?></a>
                             </div>
                         </div>
                     </div>
                     
                     <div class="col-md-3 col-sm-6">
                     	<div class="foo_col_2 widget">
-                        	<h5><?php echo get_phrase('More pages');?></h5>
+                        	<h5><?php echo get_phrase('Mas paginas');?></h5>
                             <ul>
-                            	<li><a href="<?php echo base_url();?>website/index"><?php echo get_phrase('Home');?></a></li>
-                                <li><a href="<?php echo base_url();?>website/about"><?php echo get_phrase('About Us');?></a></li>
-                                <li><a href="<?php echo base_url();?>website/contact"><?php echo get_phrase('Contact');?></a></li>
-                                <li><a href="<?php echo base_url();?>login"><?php echo get_phrase('Login');?></a></li>
+                            	<li><a href="<?php echo base_url();?>website/index"><?php echo get_phrase('Inicio');?></a></li>
+                                <li><a href="<?php echo base_url();?>website/about"><?php echo get_phrase('Acerca de');?></a></li>
+                                <li><a href="<?php echo base_url();?>website/contact"><?php echo get_phrase('Contacto');?></a></li>
+                                <li><a href="<?php echo base_url();?>login"><?php echo get_phrase('Iniciar sesión');?></a></li>
                             </ul>
                         </div>
                     </div>
                     
                      <div class="col-md-3 col-sm-6">
                     	<div class="foo_col_2 widget">
-                        	<h5><?php echo get_phrase('Quick Links');?></h5>
+                        	<h5><?php echo get_phrase('Enlaces');?></h5>
                             <ul>
-                                <li><a href="<?php echo base_url();?>website/index"><?php echo get_phrase('Home');?></a></li>
-                                <li><a href="<?php echo base_url();?>login"><?php echo get_phrase('Login');?></a></li>
-                                <li><a href="<?php echo base_url();?>website/about"><?php echo get_phrase('About Us');?></a></li>
-                                <li><a href="<?php echo base_url();?>website/contact"><?php echo get_phrase('Contact');?></a></li>
+                                <li><a href="<?php echo base_url();?>website/index"><?php echo get_phrase('Inicio');?></a></li>
+                                <li><a href="<?php echo base_url();?>login"><?php echo get_phrase('Iniciar sesión');?></a></li>
+                                <li><a href="<?php echo base_url();?>website/about"><?php echo get_phrase('Acerca de');?></a></li>
+                                <li><a href="<?php echo base_url();?>website/contact"><?php echo get_phrase('Contacto');?></a></li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="col-md-3 col-sm-6">
                     	<div class="foo_col_4 widget">
-                        	<h5><?php echo get_phrase('Facebook Page');?></h5>
+                        	<h5><?php echo get_phrase('Página de facebook');?></h5>
                             <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F<?php echo $this->db->get_where('website_settings', array('type' => 'facebook_like_code'))->row()->description;?>&width=260&height=260&colorscheme=light&show_faces=true&header=true&stream=false&show_border=true&appId=194009127410715" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:260px; height:200px;" allowTransparency="true"></iframe>
                         </div>
                     </div>

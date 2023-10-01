@@ -227,7 +227,7 @@
                 <td>
                 <a href="<?php echo base_url().'uploads/exam_question/'. $exam_question['file_name'];?>"><button type="button" class="btn btn-info btn-circle btn-xs" ><i class="fa fa-download"></i></button></a>
                     <a  onclick="showAjaxModal('<?php echo base_url();?>modal/popup/exam_question_edit/<?php echo $exam_question['exam_question_id'];?>');" ><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>
-					 <a href="<?php echo base_url();?>admin/examQuestion/delete/<?php echo $exam_question['exam_question_id'];?>" ><button type="button" class="btn btn-danger btn-circle btn-xs" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-times"></i></button></a>
+					 <a href="<?php echo base_url();?>admin/examQuestion/delete/<?php echo $exam_question['exam_question_id'];?>" ><button type="button" class="btn btn-danger btn-circle btn-xs" onclick="return confirm('¿Estas seguro de eliminar esto?');"><i class="fa fa-times"></i></button></a>
 					
                    
                 </td>

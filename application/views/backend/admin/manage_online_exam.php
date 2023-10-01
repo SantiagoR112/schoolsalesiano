@@ -1,23 +1,23 @@
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('manage_online_exam');?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Gestionar exámen en línea');?></div>
                                 <div class="panel-body table-responsive">
 								 <a href="<?php echo site_url('admin/manage_online_exam');?>" class="btn  btn-sm btn-<?php echo $status == 'active' ? 'primary' : 'white'; ?>" style="color: #000">
-            <?php echo get_phrase('active_exams');?>
+            <?php echo get_phrase('Exámenes activos');?>
         </a>
         <a href="<?php echo site_url('admin/manage_online_exam/expired');?>" class="btn  btn-sm btn-<?php echo $status == 'expired' ? 'primary' : 'white'; ?>" style="color:#000">
-            <?php echo get_phrase('expired_exams');?>
+            <?php echo get_phrase('Exámenes expirados');?>
         </a>
 		<hr>						
        <table id="example23" class="display nowrap" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th><div><?php echo get_phrase('exam_name');?></div></th>
-                    <th><div><?php echo get_phrase('class_and_section');?></div></th>
-                    <th><div><?php echo get_phrase('subject');?></div></th>
-                    <th><div><?php echo get_phrase('exam_date');?></div></th>
-                    <th><div><?php echo get_phrase('status');?></div></th>
-                    <th><div><?php echo get_phrase('options');?></div></th>
+                    <th><div><?php echo get_phrase('Nombre del exámen');?></div></th>
+                    <th><div><?php echo get_phrase('Clase y sección');?></div></th>
+                    <th><div><?php echo get_phrase('Asignatura');?></div></th>
+                    <th><div><?php echo get_phrase('Fecha del exámen');?></div></th>
+                    <th><div><?php echo get_phrase('Estado');?></div></th>
+                    <th><div><?php echo get_phrase('Opciones');?></div></th>
                 </tr>
             </thead>
             <tbody>
@@ -65,14 +65,14 @@
                                 </a>
             
                     <?php if ($row['status'] == 'pending'): ?>
-                        <a href="#" onclick="confirm_modal('<?php echo site_url('admin/manage_online_exam_status/'.$row['online_exam_id'].'/published'); ?>', 'generic_confirmation');" type="button" class = "btn btn-success btn-rounded btn-sm" style="color:white"><i class="fa fa-share-alt" aria-hidden="true"></i> <?php echo get_phrase('publish_now'); ?></a>
+                        <a href="#" onclick="confirm_modal('<?php echo site_url('admin/manage_online_exam_status/'.$row['online_exam_id'].'/published'); ?>', 'generic_confirmation');" type="button" class = "btn btn-success btn-rounded btn-sm" style="color:white"><i class="fa fa-share-alt" aria-hidden="true"></i> <?php echo get_phrase('Publicar ahora'); ?></a>
                     <?php elseif ($row['status'] == 'published'): ?>
-                        <a href="#" onclick="confirm_modal('<?php echo site_url('admin/manage_online_exam_status/'.$row['online_exam_id'].'/expired'); ?>', 'generic_confirmation');" type="button" class = "btn btn-danger btn-rounded btn-sm" style="color:white"><i class="fa fa-times" aria-hidden="true"></i> <?php echo get_phrase('cancel_now'); ?></a>
+                        <a href="#" onclick="confirm_modal('<?php echo site_url('admin/manage_online_exam_status/'.$row['online_exam_id'].'/expired'); ?>', 'generic_confirmation');" type="button" class = "btn btn-danger btn-rounded btn-sm" style="color:white"><i class="fa fa-times" aria-hidden="true"></i> <?php echo get_phrase('Cancelar ahora'); ?></a>
                     <?php elseif($row['status'] == 'expired'): ?>
-                        <a href="#" type="button" class = "btn btn-primary btn-rounded btn-sm" style="color:white"><?php echo get_phrase('expired'); ?></a>
+                        <a href="#" type="button" class = "btn btn-primary btn-rounded btn-sm" style="color:white"><?php echo get_phrase('Expirado'); ?></a>
                     <?php endif; ?>
 
-                    <a href="<?php echo site_url('admin/view_online_exam_result/'.$row['online_exam_id']); ?>" type="button" class = "btn btn-sm btn-primary btn-rounded" style="color:white"><?php echo get_phrase('view_result'); ?></a>
+                    <a href="<?php echo site_url('admin/view_online_exam_result/'.$row['online_exam_id']); ?>" type="button" class = "btn btn-sm btn-primary btn-rounded" style="color:white"><?php echo get_phrase('Ver resultado'); ?></a>
                     </td>
                 </tr>
                 <?php endforeach;?>

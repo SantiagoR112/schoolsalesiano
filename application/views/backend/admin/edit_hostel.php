@@ -58,7 +58,7 @@ foreach($select_hostel as $key => $hostel):  ?>
                     </div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Email');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Correo electronico');?></label>
                     <div class="col-sm-12">
 
                             <input type="email" name="email" value="<?php echo $hostel['email'];?>" class="form-control" >

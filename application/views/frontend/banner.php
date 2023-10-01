@@ -13,7 +13,7 @@
 					<br><br><br><br><br>
 					<?php echo $all_banners_selected_from_table['banner_text'];?>
 					</p>
-                    <a class="fadeInDown" href="<?php echo base_url();?>website/contact/">CONTACT US</a>
+                    <a class="fadeInDown" href="<?php echo base_url();?>website/contact/">CONTÁCTANOS</a>
                 </div>
             </li>
         <?php endforeach;?>

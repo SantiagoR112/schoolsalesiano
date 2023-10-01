@@ -75,20 +75,20 @@ class Hrm extends CI_Controller {
     
             if($param1 == 'insert'){
                 $this->vacancy_model->insetVacancyFunction();
-                $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
                 redirect(base_url(). 'hrm/vacancy', 'refresh');
             }
     
             if($param1 == 'update'){
                 $this->vacancy_model->updateVacancyFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
                 redirect(base_url(). 'hrm/vacancy', 'refresh');
             }
     
     
             if($param1 == 'delete'){
                 $this->vacancy_model->deleteVacancyFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
                 redirect(base_url(). 'hrm/vacancy', 'refresh');
         
             }
@@ -106,20 +106,20 @@ class Hrm extends CI_Controller {
     
             if($param1 == 'insert'){
                 $this->application_model->insertApplicantFunction();
-                $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
                 redirect(base_url(). 'hrm/application', 'refresh');
             }
     
             if($param1 == 'update'){
                 $this->application_model->updateApplicantFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
                 redirect(base_url(). 'hrm/application', 'refresh');
             }
     
     
             if($param1 == 'delete'){
                 $this->application_model->deleteApplicantFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
                 redirect(base_url(). 'hrm/application', 'refresh');
         
             }
@@ -142,14 +142,14 @@ class Hrm extends CI_Controller {
     
             if($param1 == 'update'){
                 $this->leave_model->updateLeaveFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
                 redirect(base_url(). 'hrm/leave', 'refresh');
             }
     
     
             if($param1 == 'delete'){
                 $this->leave_model->deleteLeaveFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
                 redirect(base_url(). 'hrm/leave', 'refresh');
         
             }
@@ -166,20 +166,20 @@ class Hrm extends CI_Controller {
     
             if($param1 == 'create'){
                 $this->award_model->createAwardFunction();
-                $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
                 redirect(base_url(). 'hrm/award', 'refresh');
             }
     
             if($param1 == 'update'){
                 $this->award_model->updateAwardFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
                 redirect(base_url(). 'hrm/award', 'refresh');
             }
     
     
             if($param1 == 'delete'){
                 $this->award_model->deleteAwardFunction($param2);
-                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
                 redirect(base_url(). 'hrm/award', 'refresh');
         
             }
@@ -230,7 +230,7 @@ class Hrm extends CI_Controller {
         function create_payroll(){
     
             $this->payroll_model->insertPayrollFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'hrm/payroll_list/filter2/'. $this->input->post('month').'/'. $this->input->post('year'), 'refresh');
         }
     
@@ -243,7 +243,7 @@ class Hrm extends CI_Controller {
                 $data['status'] =  1;
                 $this->db->update('payroll', $data, array('payroll_id' => $param2));
     
-                $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+                $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
                 redirect(base_url(). 'hrm/payroll_list/filter2/'. $param3.'/'. $param4, 'refresh');
             }
     

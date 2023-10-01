@@ -3,10 +3,10 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                            <th><div><?php echo get_phrase('class_name');?></div></th>
-                    		<th><div><?php echo get_phrase('subject_name');?></div></th>
-                    		<th><div><?php echo get_phrase('teacher');?></div></th>
-                    		<th><div><?php echo get_phrase('options');?></div></th>
+                            <th><div><?php echo get_phrase('clase');?></div></th>
+                    		<th><div><?php echo get_phrase('asignatura');?></div></th>
+                    		<th><div><?php echo get_phrase('docente');?></div></th>
+                    		<th><div><?php echo get_phrase('opciones');?></div></th>
 						</tr>
 					</thead>
                     <tbody>

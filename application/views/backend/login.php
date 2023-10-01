@@ -51,12 +51,12 @@ $system_title = $this->db->get_where('settings', array('type' => 'system_title')
 
        <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="email" name="email" required="" placeholder="<?php echo get_phrase('email');?>" style="width:100%">
+                            <input class="form-control" type="email" name="email" required="" placeholder="<?php echo get_phrase('Correo electrónico');?>" style="width:100%">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12" >
-                            <input class="form-control" type="password" name="password" required="" placeholder="<?php echo get_phrase('passord');?>" style="width:100%">
+                            <input class="form-control" type="password" name="password" required="" placeholder="<?php echo get_phrase('Contraseña');?>" style="width:100%">
                         </div>
                     </div>
 					
@@ -64,17 +64,17 @@ $system_title = $this->db->get_where('settings', array('type' => 'system_title')
           <div class="col-md-12">
             <div class="checkbox checkbox-primary pull-left p-t-0">
               <input id="checkbox-signup" type="checkbox">
-              <label for="checkbox-signup"> <?php echo get_phrase('remember_me');?> </label>
+              <label for="checkbox-signup"> <?php echo get_phrase('Recuérdame');?> </label>
 
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <?php echo get_phrase('forgot_password?');?></a> </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <?php echo get_phrase('¿Olvidaste tu contraseña?');?></a> </div>
         </div>
        <div class="form-group text-center m-t-20">
         <div class="col-xs-12">
 		
 		  
 <button class="btn btn-info btn-rounded btn-sm btn-block text-uppercase waves-effect waves-light" type="submit" style="width:100%; color:white">
-<?php echo get_phrase('log_in');?>
+<?php echo get_phrase('Iniciar sesión');?>
 </button>
                     <div align="center"><img id="install_progress" src="<?php echo base_url() ?>assets/images/preloader.gif" style="margin-left: 20px; display: none"/></div>
 
@@ -84,12 +84,12 @@ $system_title = $this->db->get_where('settings', array('type' => 'system_title')
                  <?php echo form_close();?>
         			
             	<form method="post" role="form" id="recoverform" class="form-horizontal form-material"  action="<?php echo base_url();?>login/reset_password">
-                <input type="email" name="email" class="form-control" placeholder="<?php echo get_phrase('email');?>" style="width:100%" required>
+                <input type="email" name="email" class="form-control" placeholder="<?php echo get_phrase('Correo electrónico');?>" style="width:100%" required>
 
 <div class="form-group text-center m-t-20">
                         <div class="col-xs-6">
-		<a href="<?php echo base_url();?>/login"><button class="btn btn-info btn-rounded btn-sm text-uppercase" type="button" style="color:white"><i class="fa fa-mail-reply-all"></i>&nbsp;<?php echo get_phrase('back_to_login');?></button></a>
-		<button class="btn btn-success btn-rounded btn-sm  text-uppercase" type="submit" style="color:white"><i class="fa fa-key"></i>&nbsp;<?php echo get_phrase('reset_password');?></button>
+		<a href="<?php echo base_url();?>/login"><button class="btn btn-info btn-rounded btn-sm text-uppercase" type="button" style="color:white"><i class="fa fa-mail-reply-all"></i>&nbsp;<?php echo get_phrase('Regresar a iniciar sesión');?></button></a>
+		<button class="btn btn-success btn-rounded btn-sm  text-uppercase" type="submit" style="color:white"><i class="fa fa-key"></i>&nbsp;<?php echo get_phrase('Reestablecer contraseña');?></button>
                         </div>
                     </div>
 					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

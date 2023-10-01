@@ -67,32 +67,32 @@ class Accountant extends CI_Controller {
 
         if($param1 == 'single_invoice'){
             $this->student_payment_model->createStudentSinglePaymentFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'accountant/student_invoice', 'refresh');
         }
 
         if($param1 == 'mass_invoice'){
             $this->student_payment_model->createStudentMassPaymentFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'accountant/student_invoice', 'refresh');
         }
 
         if($param1 == 'update_invoice'){
             $this->student_payment_model->updateStudentPaymentFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'accountant/student_invoice', 'refresh');
         }
 
         if($param1 == 'take_payment'){
             $this->student_payment_model->takeNewPaymentFromStudent($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'accountant/student_invoice', 'refresh');
         }
 
 
         if($param1 == 'delete_invoice'){
             $this->student_payment_model->deleteStudentPaymentFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'accountant/student_invoice', 'refresh');
         }
 

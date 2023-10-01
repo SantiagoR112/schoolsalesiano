@@ -29,7 +29,7 @@
 
 								
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('section');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('seccion');?></label>
                     <div class="col-sm-12">
                     <select name="section_id" class="form-control select2" id="section_selector_holder">
                     <option value=""><?php echo get_phrase('seleccionar_clase_primero');?></option>
@@ -47,7 +47,7 @@
 
 
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('obtener_estudiante');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('obtener_estudiantes');?></button>
 					</div>
 							
                     </form>                

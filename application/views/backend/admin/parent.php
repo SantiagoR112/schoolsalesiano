@@ -25,7 +25,7 @@
                     </div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Email');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase ('Correo electronico');?></label>
                     <div class="col-sm-12">
 
                             <input type="email" name="email" class="form-control" required>
@@ -69,7 +69,7 @@
 		
 
                     <div class="form-group">
-							<button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Save</button>
+							<button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Agregar acudiente</button>
 					</div>
 			<?php echo form_close();?>
                 </div>
@@ -92,7 +92,7 @@
                         <tr>
                             <th><?php echo get_phrase('Numero de documento');?></th>
                             <th><div><?php echo get_phrase('nombre completo');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                            <th><div><?php echo get_phrase('correo electronico');?></div></th>
                             <th><div><?php echo get_phrase('telefono');?></div></th>
                             <th><div><?php echo get_phrase('profesion');?></div></th>
                             <th><div><?php echo get_phrase('opcion');?></div></th>
@@ -114,7 +114,7 @@
                 <td>
                 
                 <a onclick="showAjaxModal('<?php echo base_url();?>modal/popup/edit_parent/<?php echo $parent['parent_id'];?>')" class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit"></i></a>
-                            <a href="<?php echo base_url();?>admin/parent/delete/<?php echo $parent['parent_id'];?>" onclick="return confirm('Are you sure want to delete?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
+                            <a href="<?php echo base_url();?>admin/parent/delete/<?php echo $parent['parent_id'];?>" onclick="return confirm('¿Estas seguro que deseas eliminar?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
                 
                 </td>
             </tr>

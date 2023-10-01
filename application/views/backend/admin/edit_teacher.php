@@ -108,7 +108,7 @@ foreach ( $edit_teacher as $key => $row):
                             <h3 class="box-title"><?php echo get_phrase('account_information');?></h3>
                           
                                 <div class="form-group">
-                                    <label class="col-md-12" for="example-email"><?php echo get_phrase('email');?>*</span>
+                                    <label class="col-md-12" for="example-email"><?php echo get_phrase('correo electronico');?>*</span>
                                     </label>
                                     <div class="col-md-12">
                                         <input type="email" id="example-email" name="email" class="form-control m-r-10" value="<?php echo $row['email']; ?>" required>

@@ -148,7 +148,7 @@
                         class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit" style="color:white"></i></a>
 						
                     <a href="#"  onclick="confirm_modal('<?php echo base_url(); ?>hrm/award/delete/<?php echo $award['award_code'];?>');" 
-                         class="btn btn-danger btn-circle btn-xs" onclick="return confirm('Are you sure to delete?');" style="color:white">
+                         class="btn btn-danger btn-circle btn-xs" onclick="return confirm('¿Estas seguro de eliminar esto?');" style="color:white">
                             <i class="fa fa-times"></i> </a> 
 							
 							

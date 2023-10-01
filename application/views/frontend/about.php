@@ -15,14 +15,14 @@
         	<div class="row">
             	<div class="col-md-6">
                 	<div class="sub_banner_hdg">
-                    	<h3>About US</h3>
+                    	<h3>Acerca de</h3>
                     </div>
                 </div>
                 <div class="col-md-6">
                 	<div class="ct_breadcrumb">
                     	<ul>
-                        	<li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
+                        	<li><a href="#">Inicio</a></li>
+                            <li><a href="#">Acerca de</a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="get_started_content_wrap ct_blog_detail_des_list">
-                            <h3><?php echo get_phrase('About Us');?></h3>
+                            <h3><?php echo get_phrase('Acerca de');?></h3>
                             <p>
                             <?php echo $this->db->get_where('website_settings', array('type' => 'about_us'))->row()->description;?>
                             </p>
@@ -52,7 +52,7 @@
                                 <img src="<?php echo base_url();?>uploads/logo.png" alt="">
                                 <div class="get_video_icon">
                                     <a data-rel="prettyPhoto" href="<?php echo $this->db->get_where('website_settings', array('type' => 'video_link'))->row()->description;?>"><i class="fa fa-play"></i></a>
-                                    <span>Watch The Video</span>
+                                    <span>Mira el video</span>
                                 </div>
                             </div>
                     </div>

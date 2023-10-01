@@ -86,7 +86,7 @@
 					</div>
                     
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('email');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('correo electronico');?></label>
                     <div class="col-sm-12">
 							<input type="email" class="form-control" name="email" value="">
 						</div>
@@ -211,7 +211,7 @@
 					
 
 <div class="form-group">			
-<button type="submit" class="btn btn-primary btn-rounded btn-block btn-sm"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('add_teacher');?></button>
+<button type="submit" class="btn btn-primary btn-rounded btn-block btn-sm"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('agregar_docente');?></button>
 <img id="install_progress" src="<?php echo base_url() ?>assets/images/loader-2.gif" style="margin-left: 20px; display: none"/>					
 </div>			
                     
@@ -239,7 +239,7 @@
                             <th width="80"><div><?php echo get_phrase('imagen');?></div></th>
                             <th><div><?php echo get_phrase('nombre');?></div></th>
                             <th><div><?php echo get_phrase('rol');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                            <th><div><?php echo get_phrase('correo electronico');?></div></th>
                             <th><div><?php echo get_phrase('genero');?></div></th>
                             <th><div><?php echo get_phrase('direccion');?></div></th>
                             <th><div><?php echo get_phrase('opciones');?></div></th>
@@ -253,8 +253,8 @@
                             <td><?php echo $teacher['name'];?></td>
                             <td>
                                 
-                           <?php if($teacher['role']== 1) echo 'Class Teacher';?>
-                           <?php if($teacher['role']== 2) echo 'Subject Teacher';?>
+                           <?php if($teacher['role']== 1) echo 'Director de grupo';?>
+                           <?php if($teacher['role']== 2) echo 'Docente asignatura';?>
                         
                             </td>
                             <td><?php echo $teacher['email'];?></td>

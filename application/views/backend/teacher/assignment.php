@@ -188,7 +188,7 @@
                 <td>
                 <a href="<?php echo base_url().'uploads/assignment/'. $assignment['file_name'];?>"><button type="button" class="btn btn-info btn-circle btn-xs" ><i class="fa fa-download"></i></button></a>
                     <a  onclick="showAjaxModal('<?php echo base_url();?>modal/popup/assignment_edit/<?php echo $assignment['assignment_id'];?>');" ><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>
-					 <a href="<?php echo base_url();?>assignment/assignment/delete/<?php echo $assignment['assignment_id'];?>" ><button type="button" class="btn btn-danger btn-circle btn-xs" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-times"></i></button></a>
+					 <a href="<?php echo base_url();?>assignment/assignment/delete/<?php echo $assignment['assignment_id'];?>" ><button type="button" class="btn btn-danger btn-circle btn-xs" onclick="return confirm('¿Estas seguro de eliminar esto?');"><i class="fa fa-times"></i></button></a>
 					
                    
                 </td>

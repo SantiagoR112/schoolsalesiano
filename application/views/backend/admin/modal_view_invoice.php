@@ -16,10 +16,10 @@ foreach ($invoices as $key => $row):
                 </td>
                 <td align="right">
                     
-					<h5><?php echo get_phrase('creation_date'); ?> : <?php echo date('d M,Y', $row['creation_timestamp']);?></h5>
-                    <h5><?php echo get_phrase('payment_title'); ?> : <?php echo $row['title'];?></h5>
-                    <h5><?php echo get_phrase('descriptions'); ?> : <?php echo $row['description'];?></h5>
-                    <h5><?php echo get_phrase('payment_status'); ?> : <span class="label label-<?php if($row['status']=='1')echo 'success'; elseif ($row['status']=='2') echo 'danger'; else echo 'warning';?>">
+					<h5><?php echo get_phrase('Fecha de creación'); ?> : <?php echo date('d M,Y', $row['creation_timestamp']);?></h5>
+                    <h5><?php echo get_phrase('Título de pago'); ?> : <?php echo $row['title'];?></h5>
+                    <h5><?php echo get_phrase('Descripción'); ?> : <?php echo $row['description'];?></h5>
+                    <h5><?php echo get_phrase('Estado de pago'); ?> : <span class="label label-<?php if($row['status']=='1')echo 'success'; elseif ($row['status']=='2') echo 'danger'; else echo 'warning';?>">
                                                                                                     <?php if($row['status'] == 1): ?>
                                                                                                     <?php echo 'paid';?>
                                                                                                     <?php endif;?>
@@ -36,11 +36,11 @@ foreach ($invoices as $key => $row):
             <tr>
                
                 <td align="right" valign="top">
-                   <?php echo get_phrase("student's_name"); ?> : <?php echo $this->db->get_where('student', array('student_id' => $row['student_id']))->row()->name; ?><br><?php 
+                   <?php echo get_phrase("Nombre del estudiante"); ?> : <?php echo $this->db->get_where('student', array('student_id' => $row['student_id']))->row()->name; ?><br><?php 
                         $class_id = $this->db->get_where('student' , array('student_id' => $row['student_id']))->row()->class_id;
-                        echo get_phrase("student's_class").':' . ' ' . $this->db->get_where('class', array('class_id' => $class_id))->row()->name;
+                        echo get_phrase("Clase del estudiante").':' . ' ' . $this->db->get_where('class', array('class_id' => $class_id))->row()->name;
                     ?><br>
-                     <?php echo get_phrase("roll_number"); ?> :<?php echo $this->db->get_where('student', array('student_id' => $row['student_id']))->row()->roll; ?><br>
+                     <?php echo get_phrase("Número de lista"); ?> :<?php echo $this->db->get_where('student', array('student_id' => $row['student_id']))->row()->roll; ?><br>
                 </td>
             </tr>
         </table>
@@ -48,13 +48,13 @@ foreach ($invoices as $key => $row):
         <br>
 
         <!-- payment history -->
-        <h4><?php echo get_phrase('payment_history'); ?></h4>
+        <h4><?php echo get_phrase('Historial de pagos'); ?></h4>
         <table class="table table-bordered" width="100%" border="1" style="border-collapse:collapse;">
             <thead>
                 <tr>
-                    <th><?php echo get_phrase('date'); ?></th>
-                    <th><?php echo get_phrase('amount'); ?></th>
-                    <th><?php echo get_phrase('method'); ?></th>
+                    <th><?php echo get_phrase('Fecha'); ?></th>
+                    <th><?php echo get_phrase('Monto'); ?></th>
+                    <th><?php echo get_phrase('Método'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -68,12 +68,12 @@ foreach ($invoices as $key => $row):
                         <td>
                         <?php 
 					            		if ($row2['method'] == 1)
-					            			echo get_phrase('cash');
+					            			echo get_phrase('Efectivo');
 					            		if ($row2['method'] == 2)
-					            			echo get_phrase('cheque');
+					            			echo get_phrase('Cheque');
 					            		if ($row2['method'] == 3)
-					            			echo get_phrase('card');
-					                    if ($row2['method'] == 'paypal')
+					            			echo get_phrase('Tarjeta');
+					                    if ($row2['method'] == 'PayPal')
 					                    	echo 'paypal';
 					            	    ?>
                         </td>
@@ -87,16 +87,16 @@ foreach ($invoices as $key => $row):
 
         <table width="100%" border="0">    
             <tr>
-                <td align="right" width="80%"><?php echo get_phrase('total_amount'); ?> :</td>
+                <td align="right" width="80%"><?php echo get_phrase('Monto total'); ?> :</td>
                 <td align="right"><?php echo $this->db->get_where('settings', array('type' => 'currency'))->row()->description; ?><?php echo number_format($row['amount'],2,".",",");?></td>
             </tr>
             <tr>
-                <td align="right" width="80%"><h4><?php echo get_phrase('paid_amount'); ?> :</h4></td>
+                <td align="right" width="80%"><h4><?php echo get_phrase('Cantidad pagada'); ?> :</h4></td>
                 <td align="right"><h4><?php echo $this->db->get_where('settings', array('type' => 'currency'))->row()->description; ?><?php echo number_format($row['amount_paid'],2,".",",");?></h4></td>
             </tr>
             <?php if ($row['due'] != 0):?>
             <tr>
-                <td align="right" width="80%"><h4><?php echo get_phrase('due'); ?> :</h4></td>
+                <td align="right" width="80%"><h4><?php echo get_phrase('Pendiente'); ?> :</h4></td>
                 <td align="right"><h4><?php echo $this->db->get_where('settings', array('type' => 'currency'))->row()->description; ?><?php echo number_format($row['due'],2,".",",");?></h4></td>
             </tr>
             <?php endif;?>

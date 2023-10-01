@@ -7,9 +7,9 @@
             		<div class="row">
                         <div class="col-md-6">
                             <div class="get_started_content_wrap ct_blog_detail_des_list">
-                            <h3><?php echo get_phrase('Brief Information About Us');?></h3>
+                            <h3><?php echo get_phrase('Información sobre nosotros');?></h3>
                                 <p><?php echo substr($this->db->get_where('website_settings', array('type' => 'about_us'))->row()->description, 0, 1000);?></p>
-								<p><a href="<?php echo base_url();?>website/about/" style="color:grey"><?php echo get_phrase('Read More');?>&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+								<p><a href="<?php echo base_url();?>website/about/" style="color:grey"><?php echo get_phrase('Leer más');?>&nbsp;<i class="fa fa-arrow-right"></i></a></p>
                                
                             </div>
                         </div>
@@ -19,7 +19,7 @@
                                 <img src="<?php echo base_url();?>uploads/logo.png" alt="">
                                 <div class="get_video_icon">
                                     <a data-rel="prettyPhoto" href="<?php echo $this->db->get_where('website_settings', array('type' => 'video_link'))->row()->description;?>"><i class="fa fa-play"></i></a>
-                                    <span><?php echo get_phrase('Watch The School Video');?></span>
+                                    <span><?php echo get_phrase('Mirar el Video');?></span>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             	<i class="fa fa-paper-plane-o"></i>
                             </div>
                             <div class="get_icon_des">
-                            	<h5><?php echo get_phrase('Our Mission');?></h5>
+                            	<h5><?php echo get_phrase('Nuestra mision');?></h5>
                                 <p><?php echo $this->db->get_where('website_settings', array('type' => 'mission'))->row()->description;?></p>
                                 <a href="#">View More <i class="fa fa-arrow-right"></i></a>
                             </div>
@@ -45,7 +45,7 @@
                             	<i class="fa fa-bookmark-o"></i>
                             </div>
                             <div class="get_icon_des">
-                            	<h5><?php echo get_phrase('Our Vission');?></h5>
+                            	<h5><?php echo get_phrase('Nuestra vision');?></h5>
                                 <p><?php echo $this->db->get_where('website_settings', array('type' => 'vission'))->row()->description;?></p>
                                 <a href="#">View More <i class="fa fa-arrow-right"></i></a>
                             </div>
@@ -57,9 +57,9 @@
                             	<i class="fa fa-television"></i>
                             </div>
                             <div class="get_icon_des">
-                            	<h5><?php echo get_phrase('Our Goal');?></h5>
+                            	<h5><?php echo get_phrase('Nuestro objetivo');?></h5>
                                 <p><?php echo $this->db->get_where('website_settings', array('type' => 'goal'))->row()->description;?></p>
-                                <a href="#">View More <i class="fa fa-arrow-right"></i></a>
+                                <a href="#">Leer mas <i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
         	<div class="container">
             	<!--Heading Style 1 Wrap Start-->
                 <div class="ct_heading_1_wrap ct_white_hdg">
-                	<h3><?php echo get_phrase('Our School Subjects');?></h3>
+                	<h3><?php echo get_phrase('Nuestras asignaturas');?></h3>
                     <span><img src="<?php echo base_url();?>uploads/hdg-01.png" alt=""></span>
                 </div>
                 <!--Heading Style 1 Wrap End-->
@@ -108,7 +108,7 @@
         	<div class="container">
             	<!--Heading Style 1 Wrap Start-->
                 <div class="ct_heading_1_wrap ct_white_hdg">
-                	<h3><?php echo get_phrase('Testimonials');?></h3>
+                	<h3><?php echo get_phrase('Testimonios');?></h3>
                     <p><?php echo $this->db->get_where('website_settings', array('type' => 'testimony_message'))->row()->description;?></p>
                     <span><img src="<?php echo base_url();?>uploads/hdg-01.png" alt=""></span>
                 </div>

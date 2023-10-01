@@ -19,14 +19,14 @@
                                             <?php echo form_open(base_url() . 'admin/websiteSetting/save_generalSetting/' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                                                 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('About Us');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Acerca de');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea id="mymce" name="about_us"><?php echo $this->db->get_where('website_settings', array('type' => 'about_us'))->row()->description;?></textarea>
                                                         </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('YouTube Video Link');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Enlace de video de YouTube');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="video_link"><?php echo $this->db->get_where('website_settings', array('type' => 'video_link'))->row()->description;?></textarea>
                                                         </div>
@@ -34,7 +34,7 @@
 
                                                 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Mission');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Misión');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="mission"><?php echo $this->db->get_where('website_settings', array('type' => 'mission'))->row()->description;?></textarea>
                                                         </div>
@@ -42,14 +42,14 @@
 
                                                 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Vission');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Visión');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="vission"><?php echo $this->db->get_where('website_settings', array('type' => 'vission'))->row()->description;?></textarea>
                                                         </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Goal');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Meta');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="goal"><?php echo $this->db->get_where('website_settings', array('type' => 'goal'))->row()->description;?></textarea>
                                                         </div>
@@ -57,7 +57,7 @@
 
                                                 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Testimony Message');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Mensajes de testimonios');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="testimony_message"><?php echo $this->db->get_where('website_settings', array('type' => 'testimony_message'))->row()->description;?></textarea>
                                                         </div>
@@ -65,29 +65,29 @@
 
                                                 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Map Code');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Código del mapa de Google Maps');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="map_code"><?php echo $this->db->get_where('website_settings', array('type' => 'map_code'))->row()->description;?></textarea>
                                                         </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Facebook Like Code');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Enlace de la página de Facebook');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="facebook_like_code"><?php echo $this->db->get_where('website_settings', array('type' => 'facebook_like_code'))->row()->description;?></textarea>
-                                                            <p style="color:green"> Please make sure your link looks like this: https://www.facebook.com/optimumlinkup WHERE optimumlinkup is your facebook group name</P>
+                                                            <p style="color:green"> Por favor asegúrese de que su enlace se vea así: "https://www.facebook.com/colegio" DONDE "colegio" es el nombre de su página de Facebook.</P>
                                                         </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Contact Welcome Message');?></label>
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Contacto - Mensaje de bienvenida');?></label>
                                                         <div class="col-sm-12">
                                                             <textarea class="form-control" name="contact_message"><?php echo $this->db->get_where('website_settings', array('type' => 'contact_message'))->row()->description;?></textarea>
                                                         </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('save');?></button>
+                                                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('Guardar');?></button>
                                                 </div>
 
                                             <?php echo form_close();?>
@@ -96,30 +96,30 @@
                                         <?php echo form_open(base_url() . 'admin/websiteSetting/save_banner/' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
 
                                             <div class="form-group">
-                                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Select Banner');?></label>
+                                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Seleccionar banner');?></label>
                                                     <div class="col-sm-12">
                                                         <input type="file" name="banner_image" class="dropify" required>
-                                                    <p style="color:red">Ensure you upload banner image with size 1920 x 623</p>
+                                                    <p style="color:red">Asegúrate de cargar una imagen de banner con un tamaño de 1920 x 623.</p>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Banner Text');?></label>
+                                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Texto del banner');?></label>
                                                     <div class="col-sm-12">
                                                        <input class="form-control" name="banner_text" >
                                                     </div>
                                             </div>
 
                                             <div class="form-group">
-                                                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('save');?></button>
+                                                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('Guardar');?></button>
                                             </div>
                                             <?php echo form_close();?>
                                         <hr>
                                         <table id="example" class="display nowrap" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th><div><?php echo get_phrase('Banner Image');?></div></th>
-                                                <th><div><?php echo get_phrase('Banner Text');?></div></th>
+                                                <th><div><?php echo get_phrase('Imagen del banner');?></div></th>
+                                                <th><div><?php echo get_phrase('Texto del banner');?></div></th>
 
                                             </tr>
                                         </thead>
@@ -140,10 +140,10 @@
                                         <table id="example" class="display nowrap" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th><div><?php echo get_phrase('Parent Name');?></div></th>
-                                                <th><div><?php echo get_phrase('Content');?></div></th>
-                                                <th><div><?php echo get_phrase('Status');?></div></th>
-                                                <th><div><?php echo get_phrase('Actions');?></div></th>
+                                                <th><div><?php echo get_phrase('Nombre del acudiente');?></div></th>
+                                                <th><div><?php echo get_phrase('Contenido');?></div></th>
+                                                <th><div><?php echo get_phrase('Estado');?></div></th>
+                                                <th><div><?php echo get_phrase('Acciones');?></div></th>
 
 
                                             </tr>
@@ -159,7 +159,7 @@
                                                     </td>
                                                     <td>
                                                     <a onclick="showAjaxModal('<?php echo base_url();?>modal/popup/testimony_status/<?php echo $testimony['testimony_id'];?>')" class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit"></i></a>
-                                                    <a href="<?php echo base_url();?>admin/websiteSetting/delete/<?php echo $testimony['testimony_id'];?>" onclick="return confirm('Are you sure want to delete?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
+                                                    <a href="<?php echo base_url();?>admin/websiteSetting/delete/<?php echo $testimony['testimony_id'];?>" onclick="return confirm('¿Estas seguro que deseas eliminar?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
                                                     </td>
                                                     
                                                 </tr>
@@ -196,9 +196,9 @@
                                         <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th><?php echo get_phrase('Visitor Name');?></div></th>
-                                                <th><div><?php echo get_phrase('Visitor Email');?></div></th>
-                                                <th><div><?php echo get_phrase('Content');?></div></th>
+                                                <th><?php echo get_phrase('Nombre del isitante');?></div></th>
+                                                <th><div><?php echo get_phrase('Correo electrónico del visitante');?></div></th>
+                                                <th><div><?php echo get_phrase('Contenido');?></div></th>
                                                
 
 

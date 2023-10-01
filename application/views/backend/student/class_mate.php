@@ -11,7 +11,7 @@
                         <tr>
                             <th width="80"><div><?php echo get_phrase('photo');?></div></th>
                             <th><div><?php echo get_phrase('name');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                            <th><div><?php echo get_phrase('correo electronico');?></div></th>
                             <th><div><?php echo get_phrase('sex');?></div></th>
                         </tr>
                     </thead>

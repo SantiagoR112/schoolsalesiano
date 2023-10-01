@@ -17,21 +17,21 @@ class Socialcategory extends CI_Controller {
     {
         if($param1 == 'create'){
             $this->social_model->createSocialCategory();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'socialcategory/socialCategory', 'refresh');
         }
 
         if($param1 == 'update')
         {
             $this->social_model->updateSocialCategory($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'socialcategory/socialCategory', 'refresh');
         }
 
 
         if($param1 == 'delete'){
             $this->social_model->deleteSocialCategory($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'socialcategory/socialCategory', 'refresh');
 
         }

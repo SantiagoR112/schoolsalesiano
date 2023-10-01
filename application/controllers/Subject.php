@@ -17,24 +17,24 @@ class Subject extends CI_Controller {
 
         if($param1 == 'create'){
         $this->subject_model->createSubjectFunction();
-        $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+        $this->session->set_flashdata('flash_message', get_phrase('asignatura creada correctamente'));
         redirect(base_url(). 'subject/subject', 'refresh');
         }
 
         if($param1 == 'update'){
         $this->subject_model->updateSubjectFunction($param2);
-        $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+        $this->session->set_flashdata('flash_message', get_phrase('asignatura actualizada correctamente'));
         redirect(base_url(). 'subject/subject', 'refresh');
         }
 
         if($param1 == 'delete'){
         $this->subject_model->deleteSubjectFunction($param2);
-        $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+        $this->session->set_flashdata('flash_message', get_phrase('asignatura eliminada correctamente'));
         redirect(base_url(). 'subject/subject', 'refresh');
         }
 
         $page_data['page_name']     = 'subject';
-        $page_data['page_title']    = get_phrase('Manage Subject');
+        $page_data['page_title']    = get_phrase('Gestion asignaturas');
         $this->load->view('backend/index', $page_data);
     }
 

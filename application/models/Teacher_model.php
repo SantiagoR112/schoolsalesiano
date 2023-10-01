@@ -54,7 +54,7 @@ class Teacher_model extends CI_Model {
             $check_email = $this->db->get_where('teacher', array('email' => $teacher_array['email']))->row()->email;	// checking if email exists in database
             if($check_email != null) 
             {
-            $this->session->set_flashdata('error_message', get_phrase('el email ya esta registrado'));
+            $this->session->set_flashdata('error_message', get_phrase('el correo electronico ya esta registrado'));
             redirect(base_url() . 'admin/teacher/', 'refresh');
             }
             elseif ($existing_teacher) {

@@ -10,14 +10,14 @@
 
                
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('position_name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Nombre de la posición');?></label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" name="name" required value="" autofocus />
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="col-md-12" for="example-text"><?php echo get_phrase('number_of_vacancies'); ?></label>
+                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Número de vacantes'); ?></label>
 
                     <div class="col-sm-12">
                         <input type="number" class="form-control" name="number_of_vacancies" min="0" required value="" />
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="form-group">
-                   <label class="col-md-12" for="example-text"><?php echo get_phrase('last_date_of_application'); ?></label>
+                   <label class="col-md-12" for="example-text"><?php echo get_phrase('Última fecha de solicitud'); ?></label>
                     
                     <div class="col-sm-12">
                         <input type="date" class="form-control" value="<?php echo date('Y-m-d');?>" name="last_date" />
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="form-group">
-                        <button type="submit" class="btn btn-block btn-info btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp; <?php echo get_phrase('add_vacancy'); ?></button>
+                        <button type="submit" class="btn btn-block btn-info btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp; <?php echo get_phrase('Agregar vacante'); ?></button>
                 </div>
                 <?php echo form_close(); ?>
 		 		</div>                
@@ -45,7 +45,7 @@
 			<!----CREATION FORM ENDS-->
 			<div class="col-sm-7">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list_vacancies'); ?></div>
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('Lista de vacantes'); ?></div>
 							
 
 
@@ -55,10 +55,10 @@
     <thead>
         <tr>
             <th><div>#</div></th>
-            <th><div><?php echo get_phrase('position_name'); ?></div></th>
-            <th><div><?php echo get_phrase('number_of_vacancies'); ?></div></th>
-            <th><div><?php echo get_phrase('last_date_of_application'); ?></div></th>
-            <th><div><?php echo get_phrase('options'); ?></div></th>
+            <th><div><?php echo get_phrase('Nombre de la posición'); ?></div></th>
+            <th><div><?php echo get_phrase('Número de vacantes'); ?></div></th>
+            <th><div><?php echo get_phrase('Última fecha de solicitud'); ?></div></th>
+            <th><div><?php echo get_phrase('Opciones'); ?></div></th>
         </tr>
     </thead>
     <tbody>

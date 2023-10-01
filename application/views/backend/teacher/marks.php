@@ -9,10 +9,10 @@
                 	<?php echo form_open(base_url() . 'teacher/marks' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
                     
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Examen');?></label>
+                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Revision');?></label>
                                 <div class="col-sm-12">
                                     <select name="exam_id" class="form-control select2">
-                                        <option value=""><?php echo get_phrase('select_class');?></option>
+                                        <option value=""><?php echo get_phrase('seleccionar');?></option>
 
                                         <?php $exams =  $this->db->get('exam')->result_array();
                                         foreach($exams as $key => $exam):?>

@@ -26,7 +26,7 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('clase');?></label>
                     <div class="col-sm-12">
                     <select name="class_id" id="class_id" class="form-control select2" onchange="return get_class_subject(this.value)">
-                    <option value=""><?php echo get_phrase('select_class');?></option>
+                    <option value=""><?php echo get_phrase('seleccionar_clase');?></option>
 
                     <?php $class =  $this->db->get('class')->result_array();
                     foreach($class as $key => $class):?>
@@ -42,7 +42,7 @@
                             <label class="col-md-12" for="example-text"><?php echo get_phrase('asignatura');?></label>
                             <div class="col-sm-12">
                                 <select name="subject_id" class="form-control" id="subject_selector_holder">
-                                <option value=""><?php echo get_phrase('select_subject');?></option>
+                                <option value=""><?php echo get_phrase('seleccionar_asignatura');?></option>
                                 </select>
                             </div>
                     </div>
@@ -186,7 +186,7 @@
                         type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>
                 <a href="<?php echo base_url(); ?>studymaterial/study_material/delete/<?php echo $material['material_id']; ?>"><button
                         type="button" class="btn btn-danger btn-circle btn-xs"
-                        onclick="return confirm('Are you sure to delete?');"><i class="fa fa-times"></i></button></a>
+                        onclick="return confirm('¿Estas seguro de eliminar esto?');"><i class="fa fa-times"></i></button></a>
 
 
             </td>

@@ -43,7 +43,7 @@
 			var class_id = $('#class_id').val();
 			 if (class_id == "") {
            $.toast({
-            text: 'Please select class before clicking get student button',
+            text: 'Por favor seleecciona una clase antes de dar al clic al boton de obtener estudiantes',
             position: 'top-right',
             loaderBg: '#f56954',
             icon: 'warning',

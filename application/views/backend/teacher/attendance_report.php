@@ -38,7 +38,7 @@
 						
 						
  <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_section');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('seleccionar_seccion');?></label>
                     <div class="col-sm-12">
 					 <select  class="form-control" id="section_id" >
 		                    <option value=""><?php echo get_phrase('seleccionar_clase_primero');?></option>   

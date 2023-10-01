@@ -66,19 +66,19 @@ class Librarian extends CI_Controller {
 
         if($param1 == 'create'){
             $this->library_model->createPublisherFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'librarian/publisher', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->library_model->updatePublisherFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'librarian/publisher', 'refresh');
         }
 
         if($param1 == 'delete'){
             $this->library_model->deletePublisherFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'librarian/publisher', 'refresh');
         }
 
@@ -94,19 +94,19 @@ class Librarian extends CI_Controller {
 
         if($param1 == 'create'){
             $this->library_model->createAuthorFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'librarian/author', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->library_model->updateAuthorFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'librarian/author', 'refresh');
         }
 
         if($param1 == 'delete'){
             $this->library_model->deleteAuthorFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'librarian/author', 'refresh');
         }
 
@@ -122,19 +122,19 @@ class Librarian extends CI_Controller {
 
         if($param1 == 'create'){
             $this->library_model->createBookCategoryFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'librarian/book_category', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->library_model->updateBookCategoryFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'librarian/book_category', 'refresh');
         }
 
         if($param1 == 'delete'){
             $this->library_model->deleteBookCategoryFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'librarian/book_category', 'refresh');
         }
 
@@ -151,19 +151,19 @@ class Librarian extends CI_Controller {
 
         if($param1 == 'create'){
             $this->library_model->createBookFunction();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos guardados correctamente'));
             redirect(base_url(). 'librarian/book', 'refresh');
         }
 
         if($param1 == 'update'){
             $this->library_model->updateBookFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos actualizados correctamente'));
             redirect(base_url(). 'librarian/book', 'refresh');
         }
 
         if($param1 == 'delete'){
             $this->library_model->deleteBookFunction($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+            $this->session->set_flashdata('flash_message', get_phrase('Datos eliminados correctamente'));
             redirect(base_url(). 'librarian/book', 'refresh');
         }
 

@@ -3,7 +3,7 @@ if($query->num_rows() > 0):
     $sections = $query->result_array();?>
 
     <div class="form-group">
-        <label class="col-md-12" for="example-text"><?php echo get_phrase('secion');?></label>
+        <label class="col-md-12" for="example-text"><?php echo get_phrase('Sección');?></label>
         <div class="col-sm-12">
 
             <select name="section_id" class="form-control select2" required>
@@ -18,7 +18,7 @@ if($query->num_rows() > 0):
 
 
 <div class="form-group">
-        <label class="col-md-12" for="example-text"><?php echo get_phrase('subject');?></label>
+        <label class="col-md-12" for="example-text"><?php echo get_phrase('Asignatura');?></label>
         <div class="col-sm-12">
 
             <select name="subject_id" class="form-control select2" required>

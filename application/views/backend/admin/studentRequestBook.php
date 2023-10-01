@@ -35,7 +35,7 @@
 
                             <td>
                             <a onclick="showAjaxModal('<?php echo base_url();?>modal/popup/book_approval_status/<?php echo $all_request_books_selected['book_request_id'];?>')" class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit"></i></a>
-                            <a href="<?php echo base_url();?>admin/studentRequestBook/delete/<?php echo $all_request_books_selected['book_request_id'];?>" onclick="return confirm('Are you sure want to delete?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
+                            <a href="<?php echo base_url();?>admin/studentRequestBook/delete/<?php echo $all_request_books_selected['book_request_id'];?>" onclick="return confirm('¿Estas seguro que deseas eliminar?');" class="btn btn-danger btn-circle btn-xs" style="color:white"><i class="fa fa-times"></i></a>
                             </td>
 							
                         </tr>

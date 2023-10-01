@@ -12,7 +12,7 @@
                             <th><div><?php echo get_phrase('clase');?></div></th>
                     		<th><div><?php echo get_phrase('asignatura');?></div></th>
                     		<th><div><?php echo get_phrase('docente');?></div></th>
-                            <th><div><?php echo get_phrase('email');?></div></th>
+                            <th><div><?php echo get_phrase('correo electronico');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
