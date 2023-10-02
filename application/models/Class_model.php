@@ -113,7 +113,7 @@ class   Class_model extends CI_Model {
     
         if ($students_exist || $marks_exist) {
             // Si hay estudiantes o notas asociadas, muestra un mensaje de error en JavaScript
-            echo '<script>alert("No se puede eliminar esta clase debido a que tiene estudiantes o notas asociadas.");</script>';
+            $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar esta clase debido a que existen estudiantes o notas asociadas'));
             redirect(base_url() . 'admin/classes', 'refresh');
         }
     

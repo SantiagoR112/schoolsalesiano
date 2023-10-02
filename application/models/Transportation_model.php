@@ -42,7 +42,7 @@ class Transportation_model extends CI_Model {
     
         if ($students_exist) {
             // Si hay estudiantes asociados, muestra un mensaje de error en JavaScript
-            echo '<script>alert("No se puede eliminar este transporte debido a que tiene estudiantes asociados.");</script>';
+            $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar este transporte debido a que tiene estudiantes asociados'));
             redirect(base_url() . 'transportation/transport', 'refresh');
         }
     
@@ -80,7 +80,7 @@ class Transportation_model extends CI_Model {
     
         if ($transport_exist) {
             // Si hay transportes asociados, muestra un mensaje de error en JavaScript
-            echo '<script>alert("No se puede eliminar esta ruta de transporte debido a que tiene transportes asociados.");</script>';
+            $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar esta ruta de transporte debido a que tiene transportes asociados'));
             redirect(base_url() . 'transportation/transport_route', 'refresh');
         }
     
@@ -134,7 +134,7 @@ class Transportation_model extends CI_Model {
         
             if ($transport_exist) {
                 // Si hay transportes asociados, muestra un mensaje de error en JavaScript
-                echo '<script>alert("No se puede eliminar este vehículo debido a que tiene transportes asociados.");</script>';
+                $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar este vehículo debido a que tiene transportes asociados'));
                 redirect(base_url() . 'transportation/vehicle', 'refresh');
             }
         
