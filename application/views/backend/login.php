@@ -96,6 +96,10 @@ $system_title = $this->db->get_where('settings', array('type' => 'system_title')
             <?php echo form_close();?>
             </div>
         </div>
+
+        <div class="text-center m-t-20">
+          <a href="<?php echo base_url();?>website/index/"><button class="btn btn-info btn-rounded btn-sm text-uppercase" type="button" style="color:white"><i class="fa fa-mail-reply-all"></i>&nbsp;<?php echo get_phrase('Ir al sitio web');?></button></a>
+        </div>
 	
     </section>
 <script src="js/index.js"></script>	
@@ -139,7 +143,7 @@ s0.parentNode.insertBefore(s1,s0);
 <script type="text/javascript">
 $(document).ready(function(){
   $.toast({
-    heading: 'Error Message',
+    heading: 'Mensaje de error',
     text: '<?php echo $this->session->flashdata('error_message');?>',
     position: 'top-right',
     loaderBg: '#ff6849',
