@@ -302,33 +302,67 @@ class Crud_model extends CI_Model {
 
 
     function insert_parent(){
-
         $parent_array = array(
-
             'name' => $this->input->post('name'),
-			'password' => sha1($this->input->post('password')),
-			'phone' => $this->input->post('phone'),
-        	'address' => $this->input->post('address'),
-        	'profession' => $this->input->post('profession')
-			);
+            'password' => sha1($this->input->post('password')),
+            'phone' => $this->input->post('phone'),
+            'address' => $this->input->post('address'),
+            'profession' => $this->input->post('profession')
+        );
 
         $parent_array['email'] = $this->input->post('email');
         $parent_array['parent_id'] = $this->input->post('parent_id');
-        $existing_parent = $this->db->get_where('parent', array('parent_id' => $parent_array['parent_id']))->row()->parent_id;
-        $check_email = $this->db->get_where('parent', array('email' => $parent_array['email']))->row()->email;	// checking if email exists in database
-        if($check_email != null) 
-        {
-            $this->session->set_flashdata('error_message', get_phrase('el correo electronico ya esta registrado'));
-            redirect(base_url(). 'admin/parent', 'refresh');
-        }
-        elseif ($existing_parent) {
-            $this->session->set_flashdata('error_message', 'El numero de documento ya esta registrado');
-            redirect(base_url(). 'admin/parent', 'refresh');
-        }
-        else {
+
+        // Verificar si el correo electrónico ya existe en cualquiera de las tablas
+        $email_exists = $this->check_email_exists($parent_array['email']);
+
+        // Verificar si el número de documento ya existe en cualquiera de las tablas
+        $document_exists = $this->check_document_exists($parent_array['parent_id']);
+
+        if ($email_exists) {
+            $this->session->set_flashdata('error_message', 'El correo electrónico ya está registrado en otra cuenta.');
+            redirect(base_url() . 'admin/parent', 'refresh');
+        } elseif ($document_exists) {
+            $this->session->set_flashdata('error_message', get_phrase('el numero de documento ya esta registrado'));
+            redirect(base_url() . 'admin/parent', 'refresh');
+        } else {
             $this->db->insert('parent', $parent_array);
-        }    
+        }
     }
+
+    // Función para verificar si el correo electrónico existe en las tablas
+    function check_email_exists($email) {
+        $tables = array('admin', 'teacher', 'student', 'parent');
+
+        foreach ($tables as $table) {
+            $email_exists = $this->db->get_where($table, array('email' => $email))->row();
+            if ($email_exists) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // Función para verificar si el número de documento existe en las tablas
+    function check_document_exists($document_id) {
+        $tables = array(
+            'teacher' => 'teacher_id',
+            'student' => 'student_id',
+            'parent' => 'parent_id'
+        );
+
+        foreach ($tables as $table => $document_field) {
+            $document_exists = $this->db->get_where($table, array($document_field => $document_id))->row();
+            if ($document_exists) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 
 
     function update_parent($param2){
@@ -341,11 +375,11 @@ class Crud_model extends CI_Model {
         // Verificar si el nuevo correo electrónico es diferente al actual
         if ($new_email !== $current_email) {
             // Verificar si el nuevo correo electrónico ya existe en la tabla
-            $existing_parent = $this->db->get_where('parent', array('email' => $new_email))->row();
+            $email_exists = $this->check_email_exists($new_email);
     
-            if ($existing_parent) {
+            if ($email_exists) {
                 // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
-                $this->session->set_flashdata('error_message', 'El correo electronico ya esta registrado');
+                $this->session->set_flashdata('error_message', get_phrase('el correo electronico ya esta registrado'));
                 redirect(base_url() . 'admin/parent', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
             }
         }
@@ -370,7 +404,7 @@ class Crud_model extends CI_Model {
     
         if ($student_exists) {
             // Si existen estudiantes asociados, muestra un mensaje de error en JavaScript
-            echo '<script>alert("No se puede eliminar este acudiente debido a que existen estudiantes asociados.");</script>';
+            $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar el acudiente porque existen estudiantes asociados'));
             redirect(base_url() . 'admin/parent', 'refresh');
         }
         // Si no existen estudiantes asociados, intenta eliminar el registro del acudiente

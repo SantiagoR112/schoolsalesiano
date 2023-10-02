@@ -112,14 +112,14 @@ class Student_model extends CI_Model {
 
         $student_array['email'] = $this->input->post('email');
         $student_array['student_id'] = $this->input->post('student_id');
-        $existing_student = $this->db->get_where('student', array('student_id' => $student_array['student_id']))->row()->student_id;
-        $check_email = $this->db->get_where('student', array('email' => $student_array['email']))->row()->email;	// checking if email exists in database
-        if($check_email != null) 
+        $document_exists = $this->check_document_exists($student_array['parent_id']);
+        $email_exists = $this->check_email_exists($student_array['email']);
+        if($email_exists) 
         {
             $this->session->set_flashdata('error_message', get_phrase('el correo electronico ya esta registrado'));
             redirect(base_url(). 'admin/student_information', 'refresh');
         }
-        elseif ($existing_student) {
+        elseif ($document_exists) {
             $this->session->set_flashdata('error_message', 'El numero de documento ya esta registrado');
             redirect(base_url(). 'admin/student_information', 'refresh');
         }
@@ -135,6 +135,36 @@ class Student_model extends CI_Model {
 
     }
 
+    function check_email_exists($email) {
+        $tables = array('admin', 'teacher', 'student', 'parent');
+
+        foreach ($tables as $table) {
+            $email_exists = $this->db->get_where($table, array('email' => $email))->row();
+            if ($email_exists) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function check_document_exists($document_id) {
+        $tables = array(
+            'teacher' => 'teacher_id',
+            'student' => 'student_id',
+            'parent' => 'parent_id'
+        );
+
+        foreach ($tables as $table => $document_field) {
+            $document_exists = $this->db->get_where($table, array($document_field => $document_id))->row();
+            if ($document_exists) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     //the function below update student
     function updateNewStudent($param2){
@@ -147,9 +177,9 @@ class Student_model extends CI_Model {
         // Verificar si el nuevo correo electrónico es diferente al actual
         if ($new_email !== $current_email) {
             // Verificar si el nuevo correo electrónico ya existe en la tabla
-            $existing_student = $this->db->get_where('student', array('email' => $new_email))->row();
+            $email_exists = $this->check_email_exists($new_email);
     
-            if ($existing_student) {
+            if ($email_exists) {
                 // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
                 $this->session->set_flashdata('error_message', 'El correo electrónico ya esta registrado');
                 redirect(base_url() . 'admin/student_information', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
@@ -205,8 +235,8 @@ class Student_model extends CI_Model {
     
         if ($marks_exist) {
             // Si el estudiante tiene notas asociadas, muestra un mensaje de error en JavaScript
-            echo '<script>alert("No se puede eliminar este estudiante debido a que tiene notas asociadas.");</script>';
-            redirect(base_url() . 'admin/student', 'refresh');
+            $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar al estudiante debido a que tiene notas asociadas'));
+            redirect(base_url() . 'admin/student_information', 'refresh');
         }
     
         // Si no tiene notas asociadas, intenta eliminar el registro del estudiante

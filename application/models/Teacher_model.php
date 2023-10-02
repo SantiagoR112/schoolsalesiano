@@ -50,15 +50,15 @@ class Teacher_model extends CI_Model {
             $teacher_array['email'] = $this->input->post('email');
             $teacher_array['teacher_id'] = $this->input->post('teacher_id');
             $teacher_array['bank_id'] = $bank_id;
-            $existing_teacher = $this->db->get_where('teacher', array('teacher_id' => $teacher_array['teacher_id']))->row()->teacher_id;
-            $check_email = $this->db->get_where('teacher', array('email' => $teacher_array['email']))->row()->email;	// checking if email exists in database
-            if($check_email != null) 
+            $email_exists = $this->check_email_exists($teacher_array['email']);
+            $document_exists = $this->check_document_exists($teacher_array['teacher_id']);
+            if($email_exists) 
             {
-            $this->session->set_flashdata('error_message', get_phrase('el correo electronico ya esta registrado'));
-            redirect(base_url() . 'admin/teacher/', 'refresh');
+                $this->session->set_flashdata('error_message', get_phrase('el correo electronico ya esta registrado'));
+                redirect(base_url() . 'admin/teacher/', 'refresh');
             }
-            elseif ($existing_teacher) {
-                $this->session->set_flashdata('error_message', 'El numero de documento ya esta registrado');
+            elseif ($document_exists) {
+                $this->session->set_flashdata('error_message', get_phrase('el numero de documento ya esta registrado'));
                 redirect(base_url() . 'admin/teacher/', 'refresh');
             }
             else
@@ -72,6 +72,37 @@ class Teacher_model extends CI_Model {
 
     }
 
+    function check_email_exists($email) {
+        $tables = array('admin', 'teacher', 'student', 'parent');
+
+        foreach ($tables as $table) {
+            $email_exists = $this->db->get_where($table, array('email' => $email))->row();
+            if ($email_exists) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function check_document_exists($document_id) {
+        $tables = array(
+            'teacher' => 'teacher_id',
+            'student' => 'student_id',
+            'parent' => 'parent_id'
+        );
+
+        foreach ($tables as $table => $document_field) {
+            $document_exists = $this->db->get_where($table, array($document_field => $document_id))->row();
+            if ($document_exists) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 
     function updateTeacherFunction($param2) {
         $new_email = $this->input->post('email');
@@ -82,9 +113,9 @@ class Teacher_model extends CI_Model {
         // Verificar si el nuevo correo electrónico es diferente al actual
         if ($new_email !== $current_email) {
             // Verificar si el nuevo correo electrónico ya existe en la tabla
-            $existing_teacher = $this->db->get_where('teacher', array('email' => $new_email))->row();
+            $email_exists = $this->check_email_exists($new_email);
     
-            if ($existing_teacher) {
+            if ($email_exists) {
                 // Si el nuevo correo electrónico ya existe en la tabla, mostrar un mensaje de error
                 $this->session->set_flashdata('error_message', 'El correo electrónico ya esta registrado');
                 redirect(base_url() . 'admin/teacher/', 'refresh'); // Cambia 'admin/teacher/' a la URL deseada
@@ -124,7 +155,7 @@ class Teacher_model extends CI_Model {
     
         if ($subject_exists || $class_exists) {
             // Si el docente está asociado a asignaturas o clases, muestra un mensaje de error en JavaScript
-            echo '<script>alert("No se puede eliminar este docente debido a que está asociado a asignaturas o clases.");</script>';
+            $this->session->set_flashdata('error_message', get_phrase('No se puede eliminar al docente debido a que tiene clases o asignaturas asociadas'));
             redirect(base_url() . 'admin/teacher/', 'refresh');
         }
     
