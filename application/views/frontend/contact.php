@@ -21,8 +21,8 @@
                 <div class="col-md-6">
                 	<div class="ct_breadcrumb">
                     	<ul>
-                        	<li><a href="#">Home</a></li>
-                            <li><a href="#">Contact us</a></li>
+                        	<li><a href="#">Inicio</a></li>
+                            <li><a href="#">Contactenos</a></li>
                         </ul>
                     </div>
                 </div>

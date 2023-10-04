@@ -109,15 +109,13 @@
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                             <?php if($account_type == 'parent'):?>
-                            <a href="<?php echo base_url();?>parents/manage_profile"><i class="ti-user"></i> Edit Profile</a>
+                            <a href="<?php echo base_url();?>parents/manage_profile"><i class="ti-user"></i> Editar Perfil</a>
                             <?php endif;?>
                             <?php if($account_type != 'parent'):?>
-                            <a href="<?php echo base_url();?><?php echo $this->session->userdata('login_type'); ?>/manage_profile"><i class="ti-user"></i> Edit Profile</a>
+                            <a href="<?php echo base_url();?><?php echo $this->session->userdata('login_type'); ?>/manage_profile"><i class="ti-user"></i> Editar Perfil</a>
                             <?php endif;?>
                             </li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i>  Inbox</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i>  Account Setting</a></li>
-                            <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-power-off"></i>  Logout</a></li>
+                            <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-power-off"></i>  Cerrar sesion</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>

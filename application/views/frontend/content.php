@@ -35,7 +35,7 @@
                             <div class="get_icon_des">
                             	<h5><?php echo get_phrase('Nuestra mision');?></h5>
                                 <p><?php echo $this->db->get_where('website_settings', array('type' => 'mission'))->row()->description;?></p>
-                                <a href="#">View More <i class="fa fa-arrow-right"></i></a>
+                                <a href="#">Leer mas <i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <div class="get_icon_des">
                             	<h5><?php echo get_phrase('Nuestra vision');?></h5>
                                 <p><?php echo $this->db->get_where('website_settings', array('type' => 'vission'))->row()->description;?></p>
-                                <a href="#">View More <i class="fa fa-arrow-right"></i></a>
+                                <a href="#">Leer mas <i class="fa fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -151,22 +151,17 @@
 				
                     <i class="icon-avatar" style="color:#e625ea"></i>
                     <h2 class="counter" style="color:#e625ea"><?php echo $this->db->get('teacher')->num_rows();?></h2>
-                    <span style="color:#e625ea"><?php echo get_phrase('Our Teachers');?></span>
+                    <span style="color:#e625ea"><?php echo get_phrase('Nuestros docentes');?></span>
                 </li>
                 <li>
                     <i class="icon-command" style="color:#8226f5"></i>
                     <h2 class="counter" style="color:#8226f5"><?php echo $this->db->get('student')->num_rows();?></h2>
-                    <span style="color:#8226f5"><?php echo get_phrase('Student Enrolled');?></span>
-                </li>
-                <li>
-                    <i class="icon-open-book"  style="color:#e625ea"></i>
-                    <h2 class="counter"  style="color:#e625ea"><?php echo $this->db->get('alumni')->num_rows();?></h2>
-                    <span style="color:#e625ea"><?php echo get_phrase('Passing to Universities');?></span>
+                    <span style="color:#8226f5"><?php echo get_phrase('Estudiantes admitidos');?></span>
                 </li>
                 <li>
                     <i class="icon-pulse" style="color:#8226f5"></i>
                     <h2 class="counter" style="color:#8226f5"><?php echo $this->db->get('parent')->num_rows();?></h2>
-                    <span style="color:#8226f5"><?php echo get_phrase('Satisfied Parents');?></span>
+                    <span style="color:#8226f5"><?php echo get_phrase('Acudientes satisfechos');?></span>
                 </li>
             </ul>
         </section>

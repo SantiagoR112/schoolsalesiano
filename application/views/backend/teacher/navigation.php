@@ -28,19 +28,12 @@
                                 $name           =   $this->crud_model->get_type_name_by_id($account_type , $this->session->userdata($account_id), 'name');
                                 echo $name;
                         ?>
-                        <span class="fa arrow"></span></span>
                     </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
-                            <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-power-off"></i> Logout</a></li>
-                        </ul>
                 </li>
 
 
 
-    <li> <a href="<?php echo base_url();?>teacher/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Dashboard') ;?></span></a> </li>
+    <li> <a href="<?php echo base_url();?>teacher/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Panel') ;?></span></a> </li>
 
 
     <li class="<?php if ($page_name == 'circular') echo 'active'; ?> ">
@@ -51,7 +44,7 @@
     </li>
 
     
-    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('download_page');?><span class="fa arrow"></span></span></a>
+    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Pagina_de_descarga');?><span class="fa arrow"></span></span></a>
         
                         <ul class=" nav nav-second-level<?php
             if ($page_name == 'assignment' ||
@@ -60,19 +53,12 @@
             ?> ">
                                      
 
-            <li class="<?php if ($page_name == 'assignment') echo 'active'; ?>">
-                <a href="<?php echo base_url(); ?>assignment/assignment">
-                <i class="fa fa-angle-double-right p-r-10"></i>
-                    <span class="hide-menu"><?php echo get_phrase('assignments'); ?></span>
-                </a>
-            </li>
-
    
 
                 <li class="<?php if ($page_name == 'study_material') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>studymaterial/study_material">
                 <i class="fa fa-angle-double-right p-r-10"></i>
-                      <span class="hide-menu"><?php echo get_phrase('study_materials'); ?></span>
+                      <span class="hide-menu"><?php echo get_phrase('Material_de_estudio'); ?></span>
                 </a>
             </li>
 
@@ -80,7 +66,7 @@
                  </ul>
         </li>
 
-    <li class="attendance"> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('manage_attendance');?><span class="fa arrow"></span></span></a>
+    <li class="attendance"> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('gestionar_asistencia');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'manage_attendance' || $page_name == 'staff_attendance' ||
@@ -109,7 +95,7 @@
         </ul>
     </li>
 
-    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-bar-chart-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('report_cards');?><span class="fa arrow"></span></span></a>
+    <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-bar-chart-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('gestionar_notas');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'marks' ||
@@ -149,14 +135,14 @@
             <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>teacher/manage_profile">
                     <i class="fa fa-gears p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('manage_profile'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Editar_perfil'); ?></span>
                 </a>
             </li>
 
             <li class="">
                 <a href="<?php echo base_url(); ?>login/logout">
                     <i class="fa fa-sign-out p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Logout'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Cerrar sesion'); ?></span>
                 </a>
             </li>
                   
