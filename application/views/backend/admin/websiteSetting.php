@@ -6,11 +6,11 @@
                                 <div class="sttabs tabs-style-linetriangle">
                                     <nav>
                                         <ul>
-                                            <li><a href="#section-linetriangle-1"><span><?php echo get_phrase('General Settings');?></span></a></li>
-                                            <li><a href="#section-linetriangle-2"><span><?php echo get_phrase('Upload Banner');?></span></a></li>
-                                            <li><a href="#section-linetriangle-3"><span><?php echo get_phrase('Testimonies');?></span></a></li>
-                                            <li><a href="#section-linetriangle-4"><span><?php echo get_phrase('Subscriber');?></span></a></li>
-                                            <li><a href="#section-linetriangle-5"><span><?php echo get_phrase('Contact Us');?></span></a></li>
+                                            <li><a href="#section-linetriangle-1"><span><?php echo get_phrase('Ajustes generales');?></span></a></li>
+                                            <li><a href="#section-linetriangle-2"><span><?php echo get_phrase('Imagenes banner');?></span></a></li>
+                                            <li><a href="#section-linetriangle-3"><span><?php echo get_phrase('Testimonios');?></span></a></li>
+                                            <li><a href="#section-linetriangle-4"><span><?php echo get_phrase('Suscriptores');?></span></a></li>
+                                            <li><a href="#section-linetriangle-5"><span><?php echo get_phrase('Contactenos');?></span></a></li>
                                         </ul>
                                     </nav>
                                     <div class="content-wrap">
