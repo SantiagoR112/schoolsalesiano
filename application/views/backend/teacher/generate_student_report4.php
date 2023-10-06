@@ -110,10 +110,6 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <td style="background-color: #17ABCC; color: white;">Numero de Asignaturas:</td>
-                                            <td><?php echo $total_subjects; ?></td>
-                                        </tr>
-                                        <tr>
                                             <td style="background-color: #17ABCC; color: white;">Asignaturas aprobadas:</td>
                                             <td><?php echo $passed_subjects; ?></td>
                                         </tr>

@@ -54,11 +54,11 @@
  <table width="1000" border="1">
 
   <tr>
-    <td>CALENDARIO:</td>
+    <td>SECCION:</td>
     <td><?php $section_name = $this->db->get_where('section' , array('class_id' => $class_id))->row()->name; echo $section_name;?></td>
     <td>AÑO ACADEMICO:</td>
     <td><?php echo $this->db->get_where('settings' , array('type' =>'session'))->row()->description;?></td>
-    <td>SEXO:</td>
+    <td>GENERO:</td>
     <td><?php echo $sex;?></td>
     <td>INASISTENCIAS:</td>
     <td><?php echo $this->db->get_where('attendance', array('session' => $running_year, 'student_id' => $student_id))->num_rows(); ?></td>
