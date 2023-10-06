@@ -1,4 +1,10 @@
-				
+<style>
+	.required {
+    color: red; /* Cambia el color del asterisco según tus preferencias */
+    margin-left: 5px; /* Agrega espacio entre el texto y el asterisco */
+}
+</style>
+
   <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
@@ -14,14 +20,14 @@
                     <div class="col-sm-6">
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text">Numero de documento</label>
+                 	<label class="col-md-12" for="example-text">Numero de documento<span class="required">*</span></label>
                     <div class="col-sm-12">
-							<input type="text" class="form-control" name="teacher_id" value="" required autofocus>
+							<input type="number" class="form-control" name="teacher_id" value="" required autofocus>
 						</div> 
 					</div>
 
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="name" required>
 							<input type="text" class="form-control" value="<?php echo substr(md5(uniqid(rand(), true)), 0, 7); ?>" name="teacher_number" readonly="true">
@@ -30,7 +36,7 @@
 					
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('rol');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('rol');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<select name="role" class="form-control select2" style="width:100%" required>
                               <option value=""><?php echo get_phrase('seleccionar');?></option>
@@ -41,14 +47,14 @@
 					</div>
 					
 					<div class="form-group">
-                        <label class="col-md-12" for="example-text"><?php echo get_phrase('fecha de nacimiento');?></label>
+                        <label class="col-md-12" for="example-text"><?php echo get_phrase('fecha de nacimiento');?><span class="required">*</span></label>
                         <div class="col-sm-12">
                             <input class="form-control m-r-10" name="birthday" type="date" value="2000-08-19" id="example-date-input" max="<?php echo date('Y-m-d', strtotime('-18 years'));?>" required>
                         </div> 
 					</div>
 					
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('genero');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('genero');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<select name="sex" class="form-control select2" style="width:100%" required>
                               <option value=""><?php echo get_phrase('seleccionar');?></option>
@@ -66,29 +72,29 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('grupo_sanguineo');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('grupo_sanguineo');?><span class="required">*</span></label>
                     <div class="col-sm-12">
-							<input type="text" class="form-control" name="blood_group" value="" >
+							<input type="text" class="form-control" name="blood_group" value="" required>
 						</div> 
 					</div>
 					
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('direccion');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('direccion');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="address" value="" required>
 						</div> 
 					</div>
 				<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('telefono');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('telefono');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="phone" value="" required >
 						</div> 
 					</div>
                     
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('correo electronico');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('correo electronico');?><span class="required">*</span></label>
                     <div class="col-sm-12">
-							<input type="email" class="form-control" name="email" value="">
+							<input type="email" class="form-control" name="email" value="" required>
 						</div>
 					</div>
 					
@@ -142,7 +148,7 @@
 					</div>
 					
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('documento');?>&nbsp;(Hoja de vida u otro)</label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('documento');?>&nbsp;(Hoja de vida u otro)<span class="required">*</span></label>
                     <div class="col-sm-12">
              	<input type="file" name="file_name" class="dropify" required>
 			 
@@ -159,7 +165,7 @@
 					 
 					
 						<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Contraseña');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Contraseña');?><span class="required">*</span></label>
                     <div class="col-sm-12">
 						<input type="password" class="form-control" name="password" value="" onkeyup="CheckPasswordStrength(this.value)" required>
 					<strong id="password_strength"></strong>
@@ -167,7 +173,7 @@
 						</div>
 
 					<div class="form-group"> 
-					 <label class="col-sm-12"><?php echo get_phrase('buscar_imagen');?>*</label>        
+					 <label class="col-sm-12"><?php echo get_phrase('buscar_imagen');?><span class="required">*</span></label>        
 					 <div class="col-sm-12">
   		  			  <input type='file' name="userfile" class="dropify" onChange="readURL(this);" / required>
 					 
@@ -178,7 +184,7 @@
 		<hr>
 
 <div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('fecha_de_ingreso'); ?></label>
+    <label class="col-sm-12"><?php echo get_phrase('fecha_de_ingreso'); ?><span class="required">*</span></label>
 
     <div class="col-sm-12">
         <input type="date" class="form-control datepicker" name="date_of_joining" value="<?php echo date('Y-d-m');?>" required>
@@ -186,17 +192,17 @@
 </div>
 
 <div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('estado'); ?></label>
+    <label class="col-sm-12"><?php echo get_phrase('estado'); ?><span class="required">*</span></label>
 
     <div class="col-sm-12">
-        <select name="status" class="form-control select2">
+        <select name="status" class="form-control select2" required>
             <option value="1"><?php echo get_phrase('activo'); ?></option>
             <option value="2"><?php echo get_phrase('inactivo'); ?></option>
         </select>
     </div> 
 </div>
 <div class="form-group">
-    <label class="col-sm-12"><?php echo get_phrase('Fecha_de_salida'); ?></label>
+    <label class="col-sm-12"><?php echo get_phrase('Fecha_de_salida'); ?><span class="required">*</span></label>
 
     <div class="col-sm-12">
         <input type="date" class="form-control datepicker" name="date_of_leaving" value="" required>

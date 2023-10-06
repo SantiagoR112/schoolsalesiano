@@ -50,18 +50,18 @@
                         	<form action="<?php echo base_url();?>website/send_message/" method="post">
                             	<div class="form_field">
                                 	<label class="fa fa-user"></label>
-                                	<input name="visitor_name" class="conatct_plchldr" type="text" placeholder="Your Name">
+                                	<input name="visitor_name" class="conatct_plchldr" type="text" placeholder="Nombre">
                                 </div>
                                 <div class="form_field">
                                 	<label class="fa fa-envelope-o"></label>
-                                	<input name="visitor_email" class="conatct_plchldr" type="text" placeholder="Email Address">
+                                	<input name="visitor_email" class="conatct_plchldr" type="text" placeholder="Correo electronico">
                                 </div>
                                 <div class="form_field">
                                 	<label class="fa fa-edit"></label>
-                                	<textarea name="visitor_content" class="conatct_plchldr" placeholder="Write Detail"></textarea>
+                                	<textarea name="visitor_content" class="conatct_plchldr" placeholder="Contenido"></textarea>
                                 </div>
                                 <div class="form_field">
-                                	<button><?php echo get_phrase('Send Message');?> <i class="fa fa-arrow-right"></i> </button>
+                                	<button><?php echo get_phrase('Enviar mensaje');?> <i class="fa fa-arrow-right"></i> </button>
                                 </div>
                             </form>
                         </div>
@@ -72,13 +72,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="ct_contact_address">
-										<h5><i class="fa fa-map-o"></i><?php echo get_phrase('Address');?></h5>
+										<h5><i class="fa fa-map-o"></i><?php echo get_phrase('Direccion');?></h5>
 										<p><?php echo $this->db->get_where('settings', array('type' => 'address'))->row()->description; ?></p>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="ct_contact_address">
-										<h5><i class="fa fa-envelope-o"></i><?php echo get_phrase('Fax & Email');?></h5>
+										<h5><i class="fa fa-envelope-o"></i><?php echo get_phrase('Telefono y correo electronico');?></h5>
 										<ul class="fax_info">
 											<li><a href="tel:<?php echo $this->db->get_where('settings', array('type' => 'phone'))->row()->description; ?>"><?php echo $this->db->get_where('settings', array('type' => 'phone'))->row()->description; ?></a></li>
 										</ul>

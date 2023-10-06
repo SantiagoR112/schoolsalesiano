@@ -12,7 +12,7 @@
                     <div class="form-group">
                  	    <label class="col-md-12" for="example-text">Numero de documento</label>
                         <div class="col-sm-12">
-                            <input type="text" name="parent_id" class="form-control" required autofocus>
+                            <input type="number" name="parent_id" class="form-control" required autofocus>
                         </div>
                     </div>
 
@@ -36,7 +36,7 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase ('telefono');?></label>
                     <div class="col-sm-12">
 
-                            <input type="text" name="phone" class="form-control" required>
+                            <input type="number" name="phone" class="form-control" required>
                         </div>
                     </div>
 
