@@ -51,7 +51,7 @@
                                     foreach ($classes as $key => $row): ?>
 
                                         <select name="<?php if($class_id == $row['class_id']) echo 'subject_id'; else echo 'temp';?>" id="subject_id_<?php echo $row['class_id'];?>" style="display:<?php if($class_id == $row['class_id']) echo 'block'; else echo 'none';?>" class="form-control">
-                                            <option value="">Subject of: <?php echo $row['name'] ;?></option>
+                                            <option value="">Asignatura de: <?php echo $row['name'] ;?></option>
 
                                             <?php
                                             $select_subject_from_model = $this->crud_model->get_subjects_by_class_and_teacher($row['class_id'], $current_teacher_id);
@@ -384,7 +384,7 @@ function class_score_change() {
     for (var i = class_scores.length - 1; i >= 0; i--) {
       var value = class_scores[i].value;
         if (value < 1 || value > 5) {
-            class_scores[i].value = 0;
+            class_scores[i].value = 1;
                 $('#error_message').show();
         }
     }
@@ -396,7 +396,7 @@ function exam_score_change() {
     for (var i = exam_scores.length - 1; i >= 0; i--) {
       var value = exam_scores[i].value;
         if (value < 1 || value > 5) {
-            exam_scores[i].value = 0;
+            exam_scores[i].value = 1;
                 $('#error_message').show();
         }
     }
