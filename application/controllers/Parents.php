@@ -213,7 +213,7 @@ class Parents extends CI_Controller {
 
 
             $page_data['page_name']     = 'submit_testimony';
-            $page_data['page_title']    = get_phrase('Submit Testimony');
+            $page_data['page_title']    = get_phrase('Testimonios');
             $this->load->view('backend/index', $page_data);
 
         }

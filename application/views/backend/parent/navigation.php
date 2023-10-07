@@ -31,16 +31,13 @@
                         <span class="fa arrow"></span></span>
                     </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
-                            <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a href="<?php echo base_url();?>login/logout"><i class="fa fa-power-off"></i> Cerrar sesion</a></li>
                         </ul>
                 </li>
 
 
 
-    <li> <a href="<?php echo base_url();?>parents/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Dashboard') ;?></span></a> </li>
+    <li> <a href="<?php echo base_url();?>parents/dashboard" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Panel') ;?></span></a> </li>
 
     <li class="<?php if ($page_name == 'circular') echo 'active'; ?> ">
         <a href="<?php echo base_url(); ?>parents/circular">
@@ -76,21 +73,6 @@
                     </a>
                 </li>
 
-                    
-                <li class="<?php if ($page_name == 'class_mate') echo 'active'; ?> ">
-                    <a href="<?php echo base_url(); ?>parents/class_mate">
-                        <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('Class Mate'); ?></span>
-                    </a>
-                </li>
-
-                    
-                <li class="<?php if ($page_name == 'assignment') echo 'active'; ?> ">
-                    <a href="<?php echo base_url(); ?>assignment/assignment">
-                        <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('Assignment'); ?></span>
-                    </a>
-                </li>
 
                 <li class="<?php if ($page_name == 'study_material') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>studymaterial/study_material">
@@ -99,12 +81,6 @@
                     </a>
                 </li>
 
-                <li class="<?php if ($page_name == 'class_routine') echo 'active'; ?> ">
-                    <a href="<?php echo base_url(); ?>parents/class_routine">
-                        <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('Class Timetable'); ?></span>
-                    </a>
-                </li>
 				
 				 <li class="<?php if ($page_name == 'search_student') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>parents/search_student">
@@ -117,38 +93,25 @@
          </ul>
     </li>
 
-            <li class="<?php if ($page_name == 'invoice') echo 'active'; ?> ">
-                <a href="<?php echo base_url(); ?>parents/invoice">
-                    <i class="fa fa-paypal p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Invoice'); ?></span>
-                </a>
-            </li> 
-
-        <li class="<?php if ($page_name == 'payment_history') echo 'active'; ?> ">
-                <a href="<?php echo base_url(); ?>parents/payment_history">
-                    <i class="fa fa-credit-card p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Payment History'); ?></span>
-                </a>
-        </li>      
 
            <li class="<?php if ($page_name == 'submit_testimony') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>parents/submit_testimony">
                     <i class="fa fa-book p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Submit Testimony'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Testimonio'); ?></span>
                 </a>
             </li>         
                                 
             <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>parents/manage_profile">
                     <i class="fa fa-gears p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('manage_profile'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Editar perfil'); ?></span>
                 </a>
             </li>
 
             <li class="">
                 <a href="<?php echo base_url(); ?>login/logout">
                     <i class="fa fa-sign-out p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Logout'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('Cerrar sesion'); ?></span>
                 </a>
             </li>
                   

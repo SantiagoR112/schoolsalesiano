@@ -1,57 +1,25 @@
  <!--row -->
  <div class="row">
+
+                    <?php
+                        $parent_id = $this->session->userdata('parent_id'); // Obtén el parent_id de la sesión actual (asegúrate de que tengas el parent_id en tu sesión)
+
+                        // Cuenta el número de estudiantes que tienen el mismo parent_id que el de la sesión
+                        $number_of_students = $this->db->where('parent_id', $parent_id)->count_all_results('student');
+                    ?>
+
                     <div class="col-md-3 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-user bg-megna"></i>
                                 <div class="bodystate">
-                                    <h4><?php echo $this->db->count_all_results('student');?></h4>
-                                    <span class="text-muted"><?php echo get_phrase('Students');?></span>
+                                    <h4><?php echo $number_of_students; ?></h4>
+                                    <span class="text-muted"><?php echo get_phrase('Estudiantes');?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="white-box">
-                            <div class="r-icon-stats">
-                                <i class="ti-user bg-info"></i>
-                                <div class="bodystate">
-                                    <h4><?php echo $this->db->count_all_results('teacher');?></h4>
-                                    <span class="text-muted"><?php echo get_phrase('Teachers');?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="white-box">
-                            <div class="r-icon-stats">
-                                <i class="ti-user bg-success"></i>
-                                <div class="bodystate">
-                                    <h4><?php echo $this->db->count_all_results('parent');?></h4>
-                                    <span class="text-muted"><?php echo get_phrase('parents');?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="white-box">
-                            <div class="r-icon-stats">
-                                <i class="ti-wallet bg-inverse"></i>
-                                <div class="bodystate">
-                                    <h4>
-                                    <?php 
-                                    $parent_student_logic = $this->db->get_where('student', array('parent_id'=> $this->session->userdata('parent_id')))->row()->student_id;
-                                    $check_daily_attendance = array('date' => date('Y-m-d'), 'status' => '1');
-                                    $get_attendance_information = $this->db->get_where('attendance', $check_daily_attendance, 'student_id', $parent_student_logic);
-                                    $display_attendance_here = $get_attendance_information->num_rows();
-                                    echo $display_attendance_here;
-                                    ?>
-                                    </h4>
-                                    <span class="text-muted"><?php echo get_phrase('Attendance');?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                
           
