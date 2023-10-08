@@ -3,7 +3,7 @@ foreach($vehicles as $key => $vehicle):?>
 <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('edit');?></div>
+                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('editar');?></div>
                                 <div class="panel-body table-responsive">
 			
 <!----CREATION FORM STARTS---->
@@ -97,7 +97,7 @@ foreach($vehicles as $key => $vehicle):?>
 								
 							
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('edit');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('editar');?></button>
 					</div>
 							
                     </form>                

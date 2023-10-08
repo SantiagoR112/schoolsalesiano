@@ -46,6 +46,7 @@ foreach ( $edit_teacher as $key => $row):
                                     <select name="sex" class="form-control selectboxit">
                                     	<option value="masculino" <?php if($row['sex'] == 'masculino')echo 'selected';?>><?php echo get_phrase('masculino');?></option>
                                     	<option value="femenino" <?php if($row['sex'] == 'femenino')echo 'selected';?>><?php echo get_phrase('femenino');?></option>
+                                        <option value="otro" <?php if($row['sex'] == 'otro')echo 'selected';?>><?php echo get_phrase('otro');?></option>
                                     </select>
                                 </div>
                             </div>
@@ -83,10 +84,10 @@ foreach ( $edit_teacher as $key => $row):
                                     <div class="col-sm-12">
 														
                                        <select class=" form-control" name="marital_status" required>
-									   	<option value="Married" <?php if($row['marital_status'] == 'Married')echo 'selected';?>><?php echo get_phrase('Married');?></option>
-                                    	<option value="Single" <?php if($row['marital_status'] == 'Single')echo 'selected';?>><?php echo get_phrase('Single');?></option>
-										<option value="Divorced" <?php if($row['marital_status'] == 'Divorced')echo 'selected';?>><?php echo get_phrase('Divorced');?></option>
-                                    	<option value="Engaged" <?php if($row['marital_status'] == 'Engaged')echo 'selected';?>><?php echo get_phrase('Engaged');?></option>
+									   	<option value="Casado(a)" <?php if($row['marital_status'] == 'casado(a)')echo 'selected';?>><?php echo get_phrase('casado(a)');?></option>
+                                    	<option value="soltero(a)" <?php if($row['marital_status'] == 'soltero(a)')echo 'selected';?>><?php echo get_phrase('soltero(a)');?></option>
+										<option value="divorciado(a)" <?php if($row['marital_status'] == 'divorciado(a)')echo 'selected';?>><?php echo get_phrase('divorciado(a)');?></option>
+                                    	<option value="comprometido(a)" <?php if($row['marital_status'] == 'comprometido(a)')echo 'selected';?>><?php echo get_phrase('comprometido(a)');?></option>
                                     </select>
                                     </div>
                                 </div>
@@ -105,7 +106,7 @@ foreach ( $edit_teacher as $key => $row):
 					<div class="row">
                     <div class="col-sm-6">
                         <div class="white-box">
-                            <h3 class="box-title"><?php echo get_phrase('account_information');?></h3>
+                            <h3 class="box-title"><?php echo get_phrase('Informacion de cuenta');?></h3>
                           
                                 <div class="form-group">
                                     <label class="col-md-12" for="example-email"><?php echo get_phrase('correo electronico');?>*</span>
@@ -163,7 +164,7 @@ foreach ( $edit_teacher as $key => $row):
 					
   
 <div class="form-group">
-<button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-edit"></i>&nbsp;&nbsp;<?php echo get_phrase('update_teacher');?></button>
+<button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-edit"></i>&nbsp;&nbsp;<?php echo get_phrase('Editar docente');?></button>
 </div>
                 <?php echo form_close();?>
 </div>

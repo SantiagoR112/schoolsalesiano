@@ -60,6 +60,7 @@
                               <option value=""><?php echo get_phrase('seleccionar');?></option>
                               <option value="masculino"><?php echo get_phrase('masculino');?></option>
                               <option value="femenino"><?php echo get_phrase('femenino');?></option>
+                              <option value="otro"><?php echo get_phrase('otro');?></option>
                           </select>
 						</div> 
 					</div>

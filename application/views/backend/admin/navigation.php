@@ -191,6 +191,34 @@
         </li>
 
 
+        <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-university p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Información de la clase');?><span class="fa arrow"></span></span></a>
+
+        <ul class=" nav nav-second-level<?php
+        if ($page_name == 'class' ||
+                $page_name == 'section' ||
+                $page_name == 'class_routine')
+            echo 'opened active';
+        ?>">
+
+
+
+                    <li class="<?php if ($page_name == 'class') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>admin/classes">
+                    <i class="fa fa-angle-double-right p-r-10"></i>
+                    <span class="hide-menu"><?php echo get_phrase('Gestionar clases'); ?></span>
+                    </a>
+                </li>
+
+
+                <li class="<?php if ($page_name == 'section') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>admin/section">
+                    <i class="fa fa-angle-double-right p-r-10"></i>
+                        <span class="hide-menu"><?php echo get_phrase('Gestionar secciones'); ?></span>
+                    </a>
+                </li> 
+        </ul>  
+
+
 
     
                 

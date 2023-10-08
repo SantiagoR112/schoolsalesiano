@@ -130,7 +130,7 @@
                             	<img src="<?php echo $this->crud_model->get_image_url('parent', $all_testimonies_selected_from_table['parent_id']);?>" alt="Parent Image" class="resize">
                             </figure>
                             <p><?php echo $all_testimonies_selected_from_table['content'];?></p>
-						<span><b>Name</b>, <?php echo $this->db->get_where('parent', array('parent_id' => $all_testimonies_selected_from_table['parent_id']))->row()->name;?></span>
+						<span><b>Nombre</b>, <?php echo $this->db->get_where('parent', array('parent_id' => $all_testimonies_selected_from_table['parent_id']))->row()->name;?></span>
                         </div>
                     </div>
                 <?php endforeach;?>

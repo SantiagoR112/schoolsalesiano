@@ -3,7 +3,7 @@ foreach($transports as $key => $transport):?>
 <div class="row">
                     <div class="col-sm-12">
 				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('edit');?></div>
+                            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Editar');?></div>
                                 <div class="panel-body table-responsive">
 			
 <!----CREATION FORM STARTS---->
@@ -12,14 +12,14 @@ foreach($transports as $key => $transport):?>
                             
                             
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nombre');?></label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" value="<?php echo $transport['name'];?>" name="name" / required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('transport_route');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Ruta de transporte');?></label>
                     <div class="col-sm-12">
                      
                     <select name="transport_route_id" class="form-control">
@@ -34,7 +34,7 @@ foreach($transports as $key => $transport):?>
 
 
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('vehicle');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('vehiculo');?></label>
                     <div class="col-sm-12">
                      
                     <select name="vehicle_id" class="form-control">
@@ -51,7 +51,7 @@ foreach($transports as $key => $transport):?>
 
 
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('route_fare');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('tarifa ruta');?></label>
                     <div class="col-sm-12">
                         <input type="number" class="form-control" value="<?php echo $transport['route_fare'];?>" name="route_fare" / required>
                     </div>
@@ -59,7 +59,7 @@ foreach($transports as $key => $transport):?>
 
 
                 <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('description');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('descripcion');?></label>
                     <div class="col-sm-12">
                         <textarea class="form-control" name="description"><?php echo $transport['description'];?></textarea>
                     </div>
@@ -67,7 +67,7 @@ foreach($transports as $key => $transport):?>
 		
 							
                     <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-edit"></i>&nbsp;<?php echo get_phrase('edit');?></button>
+                    <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-edit"></i>&nbsp;<?php echo get_phrase('editar');?></button>
 					</div>
 							
                     </form>                
