@@ -27,13 +27,17 @@
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Director de grupo');?></label>
                     <div class="col-sm-12">
                     <select name="teacher_id" class="form-control select2" required>
-                    <option value=""><?php echo get_phrase('Seleccionar docente');?></option>
+                        <option value=""><?php echo get_phrase('Seleccionar docente');?></option>
 
-                    <?php $teacher =  $this->db->get('teacher')->result_array();
-                    foreach($teacher as $key => $teacher):?>
-                    <option value="<?php echo $teacher['teacher_id'];?>"><?php echo $teacher['name'];?></option>
-                    <?php endforeach;?>
-                   </select>
+                        <?php
+                        $teachers = $this->db->where('role', 1)->get('teacher')->result_array();
+
+                        foreach ($teachers as $teacher):
+                        ?>
+                        <option value="<?php echo $teacher['teacher_id'];?>"><?php echo $teacher['name'];?></option>
+                        <?php endforeach;?>
+                    </select>
+
 
                   </div>
                  </div>

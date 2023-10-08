@@ -27,19 +27,21 @@ foreach ($class as $key => $class):?>
 				<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('docente');?></label>
                     <div class="col-sm-12">
-                                    <select name="teacher_id" class="form-control select2" required>
-                                     <option value=""><?php echo get_phrase('seleccionar_docente');?></option>
+                    <select name="teacher_id" class="form-control select2" required>
+                        <option value=""><?php echo get_phrase('Seleccionar docente');?></option>
 
-                    <?php $teacher =  $this->db->get('teacher')->result_array();
-                    foreach($teacher as $key => $teacher):?>
+                        <?php
+                        $teachers = $this->db->where('role', 1)->get('teacher')->result_array();
 
-                    <option value="<?php echo $teacher['teacher_id'];?>"
-                    <?php if($class['teacher_id'] == $teacher['teacher_id']) echo 'selected';?>>
-                    <?php echo $teacher['name'];?>
-                    </option>
-
-                    <?php endforeach;?>
+                        foreach ($teachers as $teacher):
+                            $selected = ($class['teacher_id'] == $teacher['teacher_id']) ? 'selected' : '';
+                        ?>
+                        <option value="<?php echo $teacher['teacher_id'];?>" <?php echo $selected; ?>>
+                            <?php echo $teacher['name'];?>
+                        </option>
+                        <?php endforeach;?>
                     </select>
+
                             </div>
                         </div>
                         <div class="form-group">
